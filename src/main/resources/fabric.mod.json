@@ -9,9 +9,9 @@
     "Brandcraft06"
   ],
   "contact": {
-    "homepage": "",
-    "sources": "",
-	"issues": ""
+    "homepage": "https://minecraft.curseforge.com/projects/nether-things",
+    "sources": "https://github.com/Brandcraf06/NetherThings",
+	"issues": "https://github.com/Brandcraf06/NetherThings/issues"
   },
 
   "license": "CC0-1.0",

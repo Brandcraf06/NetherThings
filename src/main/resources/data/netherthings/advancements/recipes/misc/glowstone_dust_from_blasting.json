@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "netherthings:glowstone_from_blasting"
+      "netherthings:glowstone_dust_from_blasting"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "netherthings:glowstone_from_blasting"
+        "recipe": "netherthings:glowstone_dust_from_blasting"
       }
     }
   },

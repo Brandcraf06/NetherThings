@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "netherthings:glowstone_ore"
   },
-  "result": "minecraft:glowstone",
+  "result": "minecraft:glowstone_dust",
   "experience": 0.7,
   "cookingtime": 100
 }
