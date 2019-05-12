@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "netherthings:coal_from_smelting"
+    ]
+  },
+  "criteria": {
+    "has_nether_coal_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "netherthings:nether_coal_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "netherthings:coal_from_smelting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_nether_coal_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

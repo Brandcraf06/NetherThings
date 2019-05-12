@@ -1,0 +1,25 @@
+{   
+    "itemGroup.netherthings.nether_things": "Nether Things",
+    "block.netherthings.nether_coal_ore": "Nether Coal Ore",
+    "block.netherthings.nether_iron_ore": "Nether Iron Ore",
+	"block.netherthings.nether_gold_ore": "Nether Gold Ore",
+	"block.netherthings.nether_redstone_ore": "Nether Redstone Ore",
+	"block.netherthings.nether_lapis_ore": "Nether Lapis Lazuli Ore",
+	"block.netherthings.nether_diamond_ore": "Nether Diamond Ore",
+	"block.netherthings.nether_emerald_ore": "Nether Emerald Ore",
+    "block.netherthings.glowstone_ore": "Glowstone Ore",
+	"block.netherthings.nether_cactus": "Nether Cactus",
+	"block.netherthings.green_glowing_mushroom": "Green Glowing Mushroom",
+	"block.netherthings.green_glowing_mushroom_block": "Green Glowing Mushroom Block",
+	"block.netherthings.blue_glowing_mushroom": "Blue Glowing Mushroom",
+	"block.netherthings.blue_glowing_mushroom_block": "Blue Glowing Mushroom Block",
+	"block.netherthings.purple_glowing_mushroom": "Purple Glowing Mushroom",
+	"block.netherthings.purple_glowing_mushroom_block": "Purple Glowing Mushroom Block",
+	"block.netherthings.basalt": "Basalt",
+	"block.netherthings.basalt_bricks": "Basalt Bricks",
+	"block.netherthings.basalt_bricks_slab": "Basalt Bricks Slab",
+	"block.netherthings.basalt_bricks_stairs": "Basalt Bricks Stairs",
+	"block.netherthings.smooth_basalt": "Smooth Basalt",
+	"item.netherthings.glowing_stew": "Glowing Stew"
+
+}

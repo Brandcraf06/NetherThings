@@ -1,0 +1,25 @@
+{
+    "itemGroup.netherthings.nether_things": "Nether Things",
+    "block.netherthings.nether_coal_ore": "Minerai de charbon du Nether",
+    "block.netherthings.nether_iron_ore": "Minerai de fer du Nether",
+	"block.netherthings.nether_gold_ore": "Minerai d'or du Nether",
+	"block.netherthings.nether_redstone_ore": "Minerai de redstone du Nether",
+	"block.netherthings.nether_lapis_ore": "Minerai de lapis-lazuli Nether",
+	"block.netherthings.nether_diamond_ore": "Minerai de diamant du Nether",
+	"block.netherthings.nether_emerald_ore": "Minerai d'emeraude du Nether",
+    "block.netherthings.glowstone_ore": "Minerai de pierre lumineuse",
+	"block.netherthings.nether_cactus": "Cactus du Nether",
+	"block.netherthings.green_glowing_mushroom": "Champignon lumineux vert",
+	"block.netherthings.green_glowing_mushroom_block": "Bloc de champignon lumineux vert",
+	"block.netherthings.blue_glowing_mushroom": "Champignon lumineux bleu",
+	"block.netherthings.blue_glowing_mushroom_block": "Bloc de champignon lumineux bleu",
+	"block.netherthings.purple_glowing_mushroom": "Champignon lumineux violet",
+	"block.netherthings.purple_glowing_mushroom_block": "Bloc de champignon lumineux violet",
+	"block.netherthings.basalt": "Basalte",
+	"block.netherthings.basalt_bricks": "Briques de basalte",
+	"block.netherthings.basalt_bricks_slab": "Dalle de briques de basalte",
+	"block.netherthings.basalt_bricks_stairs": "Escalier de briques de basalte",
+	"block.netherthings.smooth_basalt": "Basalte lisse",
+	"item.netherthings.glowing_stew": "Soupe lumineuse"
+
+}

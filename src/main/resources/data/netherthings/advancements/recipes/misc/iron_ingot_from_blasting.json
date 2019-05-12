@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "netherthings:iron_ingot_from_blasting"
+    ]
+  },
+  "criteria": {
+    "has_nether_iron_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "netherthings:nether_iron_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "netherthings:iron_ingot_from_blasting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_nether_iron_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "netherthings:block/basalt_bricks_slab" },
+        "type=top": { "model": "netherthings:block/basalt_bricks_slab_top" },
+        "type=double": { "model": "netherthings:block/basalt_bricks" }
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "netherthings:glowstone_ore"
+  },
+  "result": "minecraft:glowstone",
+  "experience": 0.7,
+  "cookingtime": 100
+}
