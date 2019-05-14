@@ -17,14 +17,14 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.HugeRedMushroomFeature;
+import net.minecraft.world.gen.feature.PlantedFeatureConfig;
 public class HugeGreenGlowingMushroomFeature extends HugeRedMushroomFeature {
-	   public HugeGreenGlowingMushroomFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> function_1) {
+	   public HugeGreenGlowingMushroomFeature(Function<Dynamic<?>, ? extends PlantedFeatureConfig> function_1) {
 		      super(function_1);
 		   }
 	  @Override
-		   public boolean method_13398(IWorld iWorld_1, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator_1, Random random_1, BlockPos blockPos_1, DefaultFeatureConfig defaultFeatureConfig_1) {
+		   public boolean method_13398(IWorld iWorld_1, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator_1, Random random_1, BlockPos blockPos_1, PlantedFeatureConfig defaultFeatureConfig_1) {
 		      int int_1 = random_1.nextInt(3) + 4;
 		      if (random_1.nextInt(12) == 0) {
 		         int_1 *= 2;

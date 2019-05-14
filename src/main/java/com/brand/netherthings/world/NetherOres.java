@@ -2,10 +2,7 @@ package com.brand.netherthings.world;
 
 import com.brand.netherthings.content.Ores;
 import com.brand.netherthings.content.OtherBlocks;
-import com.google.common.collect.Lists;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;

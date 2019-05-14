@@ -20,9 +20,9 @@ import net.minecraft.world.gen.feature.*;
 public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 	
 	   public static final Feature<DefaultFeatureConfig> NETHER_CACTUS;
-	   public static final Feature<DefaultFeatureConfig> HUGE_GREEN_GLOWING_MUSHROOM;
-	   public static final Feature<DefaultFeatureConfig> HUGE_BLUE_GLOWING_MUSHROOM;
-	   public static final Feature<DefaultFeatureConfig> HUGE_PURPLE_GLOWING_MUSHROOM;
+	   public static final Feature<PlantedFeatureConfig> HUGE_GREEN_GLOWING_MUSHROOM;
+	   public static final Feature<PlantedFeatureConfig> HUGE_BLUE_GLOWING_MUSHROOM;
+	   public static final Feature<PlantedFeatureConfig> HUGE_PURPLE_GLOWING_MUSHROOM;
 	   private final Function<Dynamic<?>, ? extends FC> configDeserializer;
 	   protected final boolean emitNeighborBlockUpdates;
 
@@ -65,8 +65,8 @@ public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 
 	   static {
 		  NETHER_CACTUS = register("nether_cactus", new NetherCactusFeature(DefaultFeatureConfig::deserialize));
-		  HUGE_GREEN_GLOWING_MUSHROOM = register("huge_green_glowing_mushroom", new HugeGreenGlowingMushroomFeature(DefaultFeatureConfig::deserialize));
-		  HUGE_BLUE_GLOWING_MUSHROOM = register("huge_blue_glowing_mushroom", new HugeBlueGlowingMushroomFeature(DefaultFeatureConfig::deserialize));
-		  HUGE_PURPLE_GLOWING_MUSHROOM = register("huge_purple_glowing_mushroom", new HugePurpleGlowingMushroomFeature(DefaultFeatureConfig::deserialize));
+		  HUGE_GREEN_GLOWING_MUSHROOM = register("huge_green_glowing_mushroom", new HugeGreenGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
+		  HUGE_BLUE_GLOWING_MUSHROOM = register("huge_blue_glowing_mushroom", new HugeBlueGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
+		  HUGE_PURPLE_GLOWING_MUSHROOM = register("huge_purple_glowing_mushroom", new HugePurpleGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
 		  }
 	   }

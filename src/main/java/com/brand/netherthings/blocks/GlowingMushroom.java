@@ -21,9 +21,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.ViewableWorld;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.PlantedFeatureConfig;
 
 public class GlowingMushroom extends MushroomPlantBlock { 
 	
@@ -47,7 +46,7 @@ public class GlowingMushroom extends MushroomPlantBlock {
 	@Override
 	   public boolean trySpawningBigMushroom(IWorld iWorld_1, BlockPos blockPos_1, BlockState blockState_1, Random random_1) {
 	      iWorld_1.clearBlockState(blockPos_1, false);
-	      Feature<DefaultFeatureConfig> feature_1 = null;
+	      Feature<PlantedFeatureConfig> feature_1 = null;
 	      if (this == OtherBlocks.GREEN_GLOWING_MUSHROOM) {
 	         feature_1 = NetherThingsFeatures.HUGE_GREEN_GLOWING_MUSHROOM;
 	      } else if (this == OtherBlocks.BLUE_GLOWING_MUSHROOM) {
@@ -56,11 +55,11 @@ public class GlowingMushroom extends MushroomPlantBlock {
 	          feature_1 = NetherThingsFeatures.HUGE_PURPLE_GLOWING_MUSHROOM;
 	      }
 
-	      if (feature_1 != null && feature_1.generate(iWorld_1, iWorld_1.getChunkManager().getChunkGenerator(), random_1, blockPos_1, FeatureConfig.DEFAULT)) {
-	         return true;
-	      } else {
-	         iWorld_1.setBlockState(blockPos_1, blockState_1, 3);
-	         return false;
+	      if (feature_1 != null && feature_1.generate(iWorld_1, iWorld_1.getChunkManager().getChunkGenerator(), random_1, blockPos_1, new PlantedFeatureConfig(true))) {
+	          return true;
+	       } else {
+	          iWorld_1.setBlockState(blockPos_1, blockState_1, 3);
+	          return false;
 	      }
 	   }
      }

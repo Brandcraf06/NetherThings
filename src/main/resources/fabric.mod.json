@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "netherthings",
-  "version": "1.0.0",
+  "version": "1.0.1",
    
   "name": "Nether Things",
   "description": "A mod that adds stuff to the Nether generation",

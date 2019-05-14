@@ -13,7 +13,7 @@ import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 public class NetherThings implements ModInitializer {
 	
 	public static final String MOD_ID = "netherthings";
-	public static final String VERSION = "1.0.0";
+	public static final String VERSION = "1.0.1";
 	public static final String NAME = "NetherThings";
 	
 	@Override
@@ -28,7 +28,7 @@ public class NetherThings implements ModInitializer {
 		
 		new GlowingStew();
 
-		
+		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.NETHER_CACTUS, 0.50f);
 		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.BLUE_GLOWING_MUSHROOM, 0.65f);
 		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.GREEN_GLOWING_MUSHROOM, 0.65f);
 		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.PURPLE_GLOWING_MUSHROOM, 0.65f);
