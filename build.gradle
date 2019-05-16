@@ -6,14 +6,14 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 archivesBaseName = "netherthings"
-version = "1.0.1"
+version = "1.0.2"
 
 minecraft {
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:1.14.1"
-    mappings "net.fabricmc:yarn:1.14.1+build.5"
+    mappings "net.fabricmc:yarn:1.14.1+build.10"
     modCompile "net.fabricmc:fabric-loader:0.4.7+build.147"
             
     //Fabric api
