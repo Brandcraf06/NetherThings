@@ -1,0 +1,25 @@
+{   
+        "itemGroup.netherthings.nether_things": "下届事物",
+        "block.netherthings.nether_coal_ore": "下届煤矿石",
+        "block.netherthings.nether_iron_ore": "下届铁矿石",
+	"block.netherthings.nether_gold_ore": "下届金矿石",
+	"block.netherthings.nether_redstone_ore": "下届红石矿石",
+	"block.netherthings.nether_lapis_ore": "下届青金石矿石",
+	"block.netherthings.nether_diamond_ore": "下届钻石矿石",
+	"block.netherthings.nether_emerald_ore": "下届绿宝石矿石",
+        "block.netherthings.glowstone_ore": "荧石矿石",
+	"block.netherthings.nether_cactus": "下届仙人掌",
+	"block.netherthings.green_glowing_mushroom": "绿色发光蘑菇",
+	"block.netherthings.green_glowing_mushroom_block": "绿色发光蘑菇块",
+	"block.netherthings.blue_glowing_mushroom": "蓝色发光蘑菇",
+	"block.netherthings.blue_glowing_mushroom_block": "蓝色发光蘑菇块",
+	"block.netherthings.purple_glowing_mushroom": "紫色发光蘑菇",
+	"block.netherthings.purple_glowing_mushroom_block": "紫色发光蘑菇块",
+	"block.netherthings.basalt": "玄武岩",
+	"block.netherthings.basalt_bricks": "玄武岩砖",
+	"block.netherthings.basalt_bricks_slab": "玄武岩砖台阶",
+	"block.netherthings.basalt_bricks_stairs": "玄武岩砖楼梯",
+	"block.netherthings.smooth_basalt": "平滑玄武岩",
+	"item.netherthings.glowing_stew": "发光的炖菜"
+
+}
