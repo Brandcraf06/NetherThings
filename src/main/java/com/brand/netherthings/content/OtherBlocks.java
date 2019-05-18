@@ -1,5 +1,7 @@
 package com.brand.netherthings.content;
 
+import com.brand.netherthings.blocks.BaseSpongeBlock;
+import com.brand.netherthings.blocks.BaseWetSpongeBlock;
 import com.brand.netherthings.blocks.BlockBase;
 import com.brand.netherthings.blocks.GlowingMushroom;
 import com.brand.netherthings.blocks.GlowingMushroomBlock;
@@ -23,6 +25,8 @@ public class OtherBlocks {
 	  public static BlockBase SMOOTH_BASALT;
 	  public static StairsBlockBase BASALT_BRICKS_STAIRS;
 	  public static SlabBlockBase BASALT_BRICKS_SLAB;
+	  public static BaseSpongeBlock LAVA_SPONGE;
+	  public static BaseWetSpongeBlock WET_LAVA_SPONGE;
 
 	public static void init() {
 		  
@@ -38,5 +42,7 @@ public class OtherBlocks {
     BASALT_BRICKS_STAIRS = new StairsBlockBase(BASALT_BRICKS.getDefaultState(), "basalt_bricks_stairs", 1.5f, 30.0f);
     BASALT_BRICKS_SLAB = new SlabBlockBase("basalt_bricks_slab", 1.5f, 30.0f);
     SMOOTH_BASALT = new BlockBase("smooth_basalt", 1.5f, 30.0f);
+    LAVA_SPONGE = new BaseSpongeBlock("lava_sponge", 0.6f, 3.0f);
+    WET_LAVA_SPONGE = new BaseWetSpongeBlock("wet_lava_sponge", 0.6f, 3.0f);
 	}
 }

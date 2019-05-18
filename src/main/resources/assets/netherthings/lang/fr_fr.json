@@ -19,6 +19,9 @@
 	"block.netherthings.basalt_bricks_slab": "Dalle de briques de basalte",
 	"block.netherthings.basalt_bricks_stairs": "Escalier de briques de basalte",
 	"block.netherthings.smooth_basalt": "Basalte lisse",
+	"block.netherthings.lava_sponge": "Eponge à lave",
+	"block.netherthings.wet_lava_sponge": "Eponge à lave mouillée",
+	
 	"item.netherthings.glowing_stew": "Soupe lumineuse"
 
 }

@@ -19,6 +19,9 @@
 	"block.netherthings.basalt_bricks_slab": "Basalt Bricks Slab",
 	"block.netherthings.basalt_bricks_stairs": "Basalt Bricks Stairs",
 	"block.netherthings.smooth_basalt": "Smooth Basalt",
+	"block.netherthings.lava_sponge": "Lava Sponge",
+	"block.netherthings.wet_lava_sponge": "Wet Lava Sponge",
+	
 	"item.netherthings.glowing_stew": "Glowing Stew"
 
 }

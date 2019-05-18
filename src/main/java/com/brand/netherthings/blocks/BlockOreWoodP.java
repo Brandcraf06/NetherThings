@@ -1,5 +1,6 @@
 package com.brand.netherthings.blocks;
 
+
 import java.util.Random;
 
 import com.brand.netherthings.NetherThings;
@@ -22,23 +23,24 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-public class BlockGlowOre extends Block {
-
+public class BlockOreWoodP extends Block {
 	
-public BlockGlowOre(String name, float hardness, float resistance) {
-	super(FabricBlockSettings.of(Material.STONE).lightLevel(7).breakByTool(FabricToolTags.PICKAXES, 1).strength(hardness, resistance).build());
+	
+public BlockOreWoodP(String name, float hardness, float resistance) {
+	super(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 0).strength(hardness, resistance).build());
 	Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
 	Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().stackSize(64).itemGroup(ItemGroup.BUILDING_BLOCKS)));
 
     }
 
-public BlockGlowOre(Block.Settings block$Settings_1) {
+public BlockOreWoodP(Block.Settings block$Settings_1) {
     super(block$Settings_1);
  }
 
  protected int getExperienceWhenMined(Random random_1) {
-	 return this == Ores.GLOWSTONE_ORE ? MathHelper.nextInt(random_1, 2, 5) : 0;
-   }
+	return this == Ores.NETHER_COAL_ORE ? MathHelper.nextInt(random_1, 2, 5) : 0;
+    }
+ 
  
  public void onStacksDropped(BlockState blockState_1, World world_1, BlockPos blockPos_1, ItemStack itemStack_1) {
     super.onStacksDropped(blockState_1, world_1, blockPos_1, itemStack_1);
@@ -50,4 +52,3 @@ public BlockGlowOre(Block.Settings block$Settings_1) {
     }
   }
 }
-

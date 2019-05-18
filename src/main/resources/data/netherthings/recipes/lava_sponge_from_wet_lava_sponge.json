@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "lava_sponge",
+  "ingredients": [
+    {
+      "item": "netherthings:wet_lava_sponge"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+	{
+	
+      "item": "minecraft:lava_bucket"
+    }
+  ],
+  "result": {
+    "item": "netherthings:lava_sponge"
+  }
+}
