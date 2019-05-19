@@ -19,6 +19,9 @@
 	"block.netherthings.basalt_bricks_slab": "玄武岩砖台阶",
 	"block.netherthings.basalt_bricks_stairs": "玄武岩砖楼梯",
 	"block.netherthings.smooth_basalt": "平滑玄武岩",
+	"block.netherthings.lava_sponge": "熔岩海绵",
+	"block.netherthings.wet_lava_sponge": "湿熔岩海绵",
+	
 	"item.netherthings.glowing_stew": "发光的炖菜"
 
 }
