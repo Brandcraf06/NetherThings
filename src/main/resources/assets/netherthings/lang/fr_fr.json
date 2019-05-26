@@ -21,7 +21,42 @@
 	"block.netherthings.smooth_basalt": "Basalte lisse",
 	"block.netherthings.lava_sponge": "Eponge à lave",
 	"block.netherthings.wet_lava_sponge": "Eponge à lave mouillée",
+	"block.netherthings.nether_vibranium_ore": "Minerai de Vibranium du Nether",
+	"block.netherthings.vibranium_block": "Bloc de Vibranium",
 	
-	"item.netherthings.glowing_stew": "Soupe lumineuse"
+	"item.netherthings.glowing_stew": "Soupe lumineuse",
+	"item.netherthings.glowstone_ingot": "Lingot de pierre lumineuse",
+	"item.netherthings.obsidian_rod": "Bâton d'obsidienne",
+	"item.netherthings.vibranium": "Vibranium",
+	
+	"item.netherthings.nether_helmet": "Casque du Nether",
+	"item.netherthings.nether_chestplate": "Plastron du Nether",
+	"item.netherthings.nether_leggings": "Pantalon du Nether",
+	"item.netherthings.nether_boots": "Bottes du Nether",
+	"item.netherthings.nether_pickaxe": "Pioche du Nether",
+	"item.netherthings.nether_axe": "Hache du Nether",
+	"item.netherthings.nether_shovel": "Pelle du Nether",
+	"item.netherthings.nether_hoe": "Houe du Nether",
+	"item.netherthings.nether_sword": "Epee du Nether",
+	
+	"item.netherthings.glowstone_helmet": "Casque en pierre lumineuse",
+	"item.netherthings.glowstone_chestplate": "Plastron en pierre lumineuse",
+	"item.netherthings.glowstone_leggings": "Pantalon en pierre lumineuse",
+	"item.netherthings.glowstone_boots": "Bottes en pierre lumineuse",
+	"item.netherthings.glowstone_pickaxe": "Pioche en pierre lumineuse",
+	"item.netherthings.glowstone_axe": "Hache en pierre lumineuse",
+	"item.netherthings.glowstone_shovel": "Pelle en pierre lumineuse",
+	"item.netherthings.glowstone_hoe": "Houe en pierre lumineuse",
+	"item.netherthings.glowstone_sword": "Epee en pierre lumineuse",
+	
+	"item.netherthings.vibranium_helmet": "Casque en Vibranium",
+	"item.netherthings.vibranium_chestplate": "Plastron en Vibranium",
+	"item.netherthings.vibranium_leggings": "Jambières en Vibranium",
+	"item.netherthings.vibranium_boots": "Bottes en Vibranium",
+	"item.netherthings.vibranium_pickaxe": "Pioche en Vibranium",
+	"item.netherthings.vibranium_axe": "Hache en Vibranium",
+	"item.netherthings.vibranium_shovel": "Pelle en Vibranium",
+	"item.netherthings.vibranium_hoe": "Houe en Vibranium",
+	"item.netherthings.vibranium_sword": "Epee en Vibranium"
 
 }

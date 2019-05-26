@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "netherthings:glowstone_ingot"
+    }
+  },
+  "result": {
+    "item": "netherthings:glowstone_helmet"
+  }
+}

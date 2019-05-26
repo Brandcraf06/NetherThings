@@ -15,7 +15,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 public class NetherOres {
     public static void addNetherOres() {
     	for (Biome biome : Registry.BIOME) {
-    		if  (biome.getCategory() == Biome.Category.NETHER) {
+    		if  (biome.getCategory() == Biome.Category.NETHER) { 
     	    biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Ores.NETHER_COAL_ORE.getDefaultState(), 9), Decorator.COUNT_RANGE, new RangeDecoratorConfig(20, 0, 0, 110)));
     	    biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Ores.NETHER_IRON_ORE.getDefaultState(), 9), Decorator.COUNT_RANGE, new RangeDecoratorConfig(20, 0, 0, 110)));
     	    biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Ores.NETHER_GOLD_ORE.getDefaultState(), 10), Decorator.COUNT_RANGE, new RangeDecoratorConfig(7, 0, 0, 85)));
@@ -23,6 +23,7 @@ public class NetherOres {
     	    biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Ores.NETHER_LAPIS_ORE.getDefaultState(), 6), Decorator.COUNT_RANGE, new RangeDecoratorConfig(6, 0, 0, 110)));
     	    biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Ores.NETHER_DIAMOND_ORE.getDefaultState(), 8), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 40)));
     	    biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Ores.NETHER_EMERALD_ORE.getDefaultState(), 4), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 40)));
+    	    biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Ores.NETHER_VIBRANIUM_ORE.getDefaultState(), 4), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 60)));
         } 
       } 
 	}

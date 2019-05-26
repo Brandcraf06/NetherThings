@@ -1,6 +1,7 @@
 package com.brand.netherthings.content;
 
 import com.brand.netherthings.blocks.BlockGlowOre;
+import com.brand.netherthings.blocks.BlockOreDiamondP;
 import com.brand.netherthings.blocks.BlockOreIronP;
 import com.brand.netherthings.blocks.BlockOreStoneP;
 import com.brand.netherthings.blocks.BlockOreWoodP;
@@ -8,6 +9,7 @@ import com.brand.netherthings.blocks.BlockRedstoneOre;
 
 public class Ores {
 
+	public static BlockOreDiamondP NETHER_VIBRANIUM_ORE;
 	public static BlockOreWoodP NETHER_COAL_ORE;
 	public static BlockOreStoneP NETHER_IRON_ORE;
 	public static BlockOreIronP NETHER_GOLD_ORE;
@@ -27,6 +29,7 @@ public class Ores {
     NETHER_DIAMOND_ORE = new BlockOreIronP("nether_diamond_ore", 3.0f, 15.0f);
     NETHER_EMERALD_ORE = new BlockOreIronP("nether_emerald_ore", 3.0f, 15.0f);
     GLOWSTONE_ORE = new BlockGlowOre("glowstone_ore", 3.0f, 15.0f);
+    NETHER_VIBRANIUM_ORE = new BlockOreDiamondP("nether_vibranium_ore", 6.0f, 30.0f);	
     
    } 
 }

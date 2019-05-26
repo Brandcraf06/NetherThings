@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "netherthings:vibranium"
+    },
+    "X": {
+      "item": "netherthings:obsidian_rod"
+    }
+  },
+  "result": {
+    "item": "netherthings:vibranium_pickaxe"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "netherthings:vibranium"
+    }
+  },
+  "result": {
+    "item": "netherthings:vibranium_leggings"
+  }
+}

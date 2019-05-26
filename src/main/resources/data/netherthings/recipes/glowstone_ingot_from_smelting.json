@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:glowstone_dust"
+  },
+  "result": "netherthings:glowstone_ingot",
+  "experience": 0.2,
+  "cookingtime": 200
+}

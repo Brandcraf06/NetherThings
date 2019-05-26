@@ -1,6 +1,5 @@
 package com.brand.netherthings.blocks;
 
-import java.util.Queue;
 import java.util.Random;
 
 import com.brand.netherthings.NetherThings;
@@ -23,6 +22,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class BaseWetSpongeBlock extends Block {
 
 	public BaseWetSpongeBlock(String name, float hardness, float resistance) {

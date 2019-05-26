@@ -8,6 +8,7 @@ import com.brand.netherthings.blocks.GlowingMushroomBlock;
 import com.brand.netherthings.blocks.NetherCactusBlock;
 import com.brand.netherthings.blocks.SlabBlockBase;
 import com.brand.netherthings.blocks.StairsBlockBase;
+import com.brand.netherthings.blocks.VibraniumBlock;
 
 import net.minecraft.util.DyeColor;
 
@@ -27,6 +28,7 @@ public class OtherBlocks {
 	  public static SlabBlockBase BASALT_BRICKS_SLAB;
 	  public static BaseSpongeBlock LAVA_SPONGE;
 	  public static BaseWetSpongeBlock WET_LAVA_SPONGE;
+	  public static VibraniumBlock VIBRANIUM_BLOCK;
 
 	public static void init() {
 		  
@@ -44,5 +46,6 @@ public class OtherBlocks {
     SMOOTH_BASALT = new BlockBase("smooth_basalt", 1.5f, 30.0f);
     LAVA_SPONGE = new BaseSpongeBlock("lava_sponge", 0.6f, 3.0f);
     WET_LAVA_SPONGE = new BaseWetSpongeBlock("wet_lava_sponge", 0.6f, 3.0f);
+    VIBRANIUM_BLOCK = new VibraniumBlock("vibranium_block", 4.0f, 60.0f);
 	}
 }

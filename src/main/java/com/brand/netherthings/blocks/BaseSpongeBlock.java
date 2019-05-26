@@ -14,8 +14,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.block.FluidDrainable;
 import net.minecraft.block.Material;
-import net.minecraft.block.SpongeBlock;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
@@ -30,6 +28,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class BaseSpongeBlock extends Block {
 
 	public BaseSpongeBlock(String name, float hardness, float resistance) {
@@ -57,7 +56,7 @@ public class BaseSpongeBlock extends Block {
 
 	   }
 
-	   private boolean absorbWater(World world_1, BlockPos blockPos_1) {
+	private boolean absorbWater(World world_1, BlockPos blockPos_1) {
 	      Queue<Pair<BlockPos, Integer>> queue_1 = Lists.newLinkedList();
 	      queue_1.add(new Pair(blockPos_1, 0));
 	      int int_1 = 0;

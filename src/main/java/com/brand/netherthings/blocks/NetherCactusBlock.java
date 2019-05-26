@@ -98,7 +98,7 @@ public NetherCactusBlock(String name, float hardness, float resistance) {
 	   }
 
 	   public boolean canPlaceAt(BlockState blockState_1, ViewableWorld viewableWorld_1, BlockPos blockPos_1) {
-	      Iterator var4 = Direction.Type.HORIZONTAL.iterator();
+		Iterator var4 = Direction.Type.HORIZONTAL.iterator();
 
 	      Direction direction_1;
 	      Material material_1;

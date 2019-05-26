@@ -22,6 +22,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class BlockGlowOre extends Block {
 
 	

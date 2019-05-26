@@ -21,7 +21,42 @@
 	"block.netherthings.smooth_basalt": "Smooth Basalt",
 	"block.netherthings.lava_sponge": "Lava Sponge",
 	"block.netherthings.wet_lava_sponge": "Wet Lava Sponge",
+	"block.netherthings.nether_vibranium_ore": "Nether Vibranium Ore",
+	"block.netherthings.vibranium_block": "Vibranium Block",
 	
-	"item.netherthings.glowing_stew": "Glowing Stew"
+	"item.netherthings.glowing_stew": "Glowing Stew",
+	"item.netherthings.glowstone_ingot": "Glowstone Ingot",
+	"item.netherthings.obsidian_rod": "Obsidian Rod",
+	"item.netherthings.vibranium": "Vibranium",
+	
+	"item.netherthings.nether_helmet": "Nether Helmet",
+	"item.netherthings.nether_chestplate": "Nether Chestplate",
+	"item.netherthings.nether_leggings": "Nether Leggings",
+	"item.netherthings.nether_boots": "Nether Boots",
+	"item.netherthings.nether_pickaxe": "Nether Pickaxe",
+	"item.netherthings.nether_axe": "Nether Axe",
+	"item.netherthings.nether_shovel": "Nether Shovel",
+	"item.netherthings.nether_hoe": "Nether Hoe",
+	"item.netherthings.nether_sword": "Nether Sword",
+	
+	"item.netherthings.glowstone_helmet": "Glowstone Helmet",
+	"item.netherthings.glowstone_chestplate": "Glowstone Chestplate",
+	"item.netherthings.glowstone_leggings": "Glowstone Leggings",
+	"item.netherthings.glowstone_boots": "Glowstone Boots",
+	"item.netherthings.glowstone_pickaxe": "Glowstone Pickaxe",
+	"item.netherthings.glowstone_axe": "Glowstone Axe",
+	"item.netherthings.glowstone_shovel": "Glowstone Shovel",
+	"item.netherthings.glowstone_hoe": "Glowstone Hoe",
+	"item.netherthings.glowstone_sword": "Glowstone Sword",
+	
+	"item.netherthings.vibranium_helmet": "Vibranium Helmet",
+	"item.netherthings.vibranium_chestplate": "Vibranium Chestplate",
+	"item.netherthings.vibranium_leggings": "Vibranium Leggings",
+	"item.netherthings.vibranium_boots": "Vibranium Boots",
+	"item.netherthings.vibranium_pickaxe": "Vibranium Pickaxe",
+	"item.netherthings.vibranium_axe": "Vibranium Axe",
+	"item.netherthings.vibranium_shovel": "Vibranium Shovel",
+	"item.netherthings.vibranium_hoe": "Vibranium Hoe",
+	"item.netherthings.vibranium_sword": "Vibranium Sword"
 
 }

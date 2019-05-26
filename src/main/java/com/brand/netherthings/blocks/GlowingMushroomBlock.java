@@ -14,6 +14,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+@SuppressWarnings("deprecation")
 public class GlowingMushroomBlock extends StainedGlassBlock {
 	
   
