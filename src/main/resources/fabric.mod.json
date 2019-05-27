@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
   "id": "netherthings",
-  "version": "1.1.0",
+  "version": "1.1.1",
    
   "name": "Nether Things",
-  "description": "A mod that adds stuff to the Nether generation",
+  "description": "A mod that adds stuff related to the Nether
+",
   "authors": [
     "Brandcraft06"
   ],
