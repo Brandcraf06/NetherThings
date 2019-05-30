@@ -1,6 +1,6 @@
 package com.brand.netherthings.stuff.glowstone;
 
-import com.brand.netherthings.items.GlowstoneIngot;
+import com.brand.netherthings.items.NetherItems;
 
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -40,6 +40,6 @@ public class MaterialGlowstoneTool implements ToolMaterial
     @Override
     public Ingredient getRepairIngredient()
     {
-        return Ingredient.ofItems(GlowstoneIngot.GLOWSTONE_INGOT);
+        return Ingredient.ofItems(NetherItems.GLOWSTONE_INGOT);
     }
 }

@@ -12,6 +12,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+@SuppressWarnings("deprecation")
 public class VibraniumBlock extends Block {
 	
 public VibraniumBlock(String name, float hardness, float resistance) {

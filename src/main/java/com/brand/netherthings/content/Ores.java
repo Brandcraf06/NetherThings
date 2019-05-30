@@ -18,6 +18,7 @@ public class Ores {
 	public static BlockOreIronP NETHER_DIAMOND_ORE;
 	public static BlockOreIronP NETHER_EMERALD_ORE;
 	public static BlockGlowOre GLOWSTONE_ORE;
+	public static BlockOreWoodP QUARTZ_ORE;
 	
 	public static void init() {
 		
@@ -29,6 +30,7 @@ public class Ores {
     NETHER_DIAMOND_ORE = new BlockOreIronP("nether_diamond_ore", 3.0f, 15.0f);
     NETHER_EMERALD_ORE = new BlockOreIronP("nether_emerald_ore", 3.0f, 15.0f);
     GLOWSTONE_ORE = new BlockGlowOre("glowstone_ore", 3.0f, 15.0f);
+    QUARTZ_ORE = new BlockOreWoodP("quartz_ore", 3.0f, 15.0f);
     NETHER_VIBRANIUM_ORE = new BlockOreDiamondP("nether_vibranium_ore", 6.0f, 30.0f);	
     
    } 

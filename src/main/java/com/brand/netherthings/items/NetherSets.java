@@ -22,7 +22,7 @@ import com.brand.netherthings.stuff.vibranium.VibraniumSword;
 
 import net.minecraft.util.registry.Registry;
 
-public class FullSets
+public class NetherSets
 {
 	 public static void registerItems()
 	    {

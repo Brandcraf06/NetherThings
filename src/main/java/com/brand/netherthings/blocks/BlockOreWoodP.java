@@ -39,7 +39,10 @@ public BlockOreWoodP(Block.Settings block$Settings_1) {
  }
 
  protected int getExperienceWhenMined(Random random_1) {
-	return this == Ores.NETHER_COAL_ORE ? MathHelper.nextInt(random_1, 2, 5) : 0;
+	 if (this == Ores.QUARTZ_ORE) {
+         return MathHelper.nextInt(random_1, 2, 5);
+    } else {
+	return this == Ores.NETHER_COAL_ORE ? MathHelper.nextInt(random_1, 0, 2) : 0;}
     }
  
  

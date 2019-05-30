@@ -1,6 +1,6 @@
 package com.brand.netherthings.stuff.vibranium;
 
-import com.brand.netherthings.items.Vibranium;
+import com.brand.netherthings.items.NetherItems;
 
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -40,6 +40,6 @@ public class MaterialVibraniumTool implements ToolMaterial
     @Override
     public Ingredient getRepairIngredient()
     {
-        return Ingredient.ofItems(Vibranium.VIBRANIUM);
+        return Ingredient.ofItems(NetherItems.VIBRANIUM);
     }
 }

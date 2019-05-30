@@ -97,7 +97,8 @@ public NetherCactusBlock(String name, float hardness, float resistance) {
 	      return super.getStateForNeighborUpdate(blockState_1, direction_1, blockState_2, iWorld_1, blockPos_1, blockPos_2);
 	   }
 
-	   public boolean canPlaceAt(BlockState blockState_1, ViewableWorld viewableWorld_1, BlockPos blockPos_1) {
+	   @SuppressWarnings("rawtypes")
+	public boolean canPlaceAt(BlockState blockState_1, ViewableWorld viewableWorld_1, BlockPos blockPos_1) {
 		Iterator var4 = Direction.Type.HORIZONTAL.iterator();
 
 	      Direction direction_1;

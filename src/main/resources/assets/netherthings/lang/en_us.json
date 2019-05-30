@@ -7,6 +7,7 @@
 	"block.netherthings.nether_diamond_ore": "Nether Diamond Ore",
 	"block.netherthings.nether_emerald_ore": "Nether Emerald Ore",
     "block.netherthings.glowstone_ore": "Glowstone Ore",
+    "block.netherthings.quartz_ore": "Quartz Ore",
 	"block.netherthings.nether_cactus": "Nether Cactus",
 	"block.netherthings.green_glowing_mushroom": "Green Glowing Mushroom",
 	"block.netherthings.green_glowing_mushroom_block": "Green Glowing Mushroom Block",
@@ -28,6 +29,7 @@
 	"item.netherthings.glowstone_ingot": "Glowstone Ingot",
 	"item.netherthings.obsidian_rod": "Obsidian Rod",
 	"item.netherthings.vibranium": "Vibranium",
+	"item.minecraft.quartz": "Quartz",
 	"item.netherthings.wither_pigman_spawn_egg": "Wither Pigman Spawn Egg WIP",
 	
 	"item.netherthings.nether_helmet": "Nether Helmet",

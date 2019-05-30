@@ -1,6 +1,6 @@
 package com.brand.netherthings.stuff.vibranium;
 
-import com.brand.netherthings.items.Vibranium;
+import com.brand.netherthings.items.NetherItems;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
@@ -40,7 +40,7 @@ public class MaterialVibraniumArmor implements ArmorMaterial
     @Override
     public Ingredient getRepairIngredient()
     {
-        return Ingredient.ofItems(Vibranium.VIBRANIUM);
+        return Ingredient.ofItems(NetherItems.VIBRANIUM);
     }
 
     @Override

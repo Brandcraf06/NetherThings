@@ -56,6 +56,7 @@ public class BaseSpongeBlock extends Block {
 
 	   }
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private boolean absorbWater(World world_1, BlockPos blockPos_1) {
 	      Queue<Pair<BlockPos, Integer>> queue_1 = Lists.newLinkedList();
 	      queue_1.add(new Pair(blockPos_1, 0));

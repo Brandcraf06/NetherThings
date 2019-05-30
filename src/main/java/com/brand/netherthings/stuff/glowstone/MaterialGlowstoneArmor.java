@@ -1,6 +1,6 @@
 package com.brand.netherthings.stuff.glowstone;
 
-import com.brand.netherthings.items.GlowstoneIngot;
+import com.brand.netherthings.items.NetherItems;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
@@ -40,7 +40,7 @@ public class MaterialGlowstoneArmor implements ArmorMaterial
     @Override
     public Ingredient getRepairIngredient()
     {
-        return Ingredient.ofItems(GlowstoneIngot.GLOWSTONE_INGOT);
+        return Ingredient.ofItems(NetherItems.GLOWSTONE_INGOT);
     }
 
     @Override

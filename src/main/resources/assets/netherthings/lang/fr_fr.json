@@ -7,6 +7,7 @@
 	"block.netherthings.nether_diamond_ore": "Minerai de diamant du Nether",
 	"block.netherthings.nether_emerald_ore": "Minerai d'emeraude du Nether",
     "block.netherthings.glowstone_ore": "Minerai de pierre lumineuse",
+    "block.netherthings.quartz_ore": "Minerai de quartz",
 	"block.netherthings.nether_cactus": "Cactus du Nether",
 	"block.netherthings.green_glowing_mushroom": "Champignon lumineux vert",
 	"block.netherthings.green_glowing_mushroom_block": "Bloc de champignon lumineux vert",
@@ -28,6 +29,7 @@
 	"item.netherthings.glowstone_ingot": "Lingot de pierre lumineuse",
 	"item.netherthings.obsidian_rod": "Bâton d'obsidienne",
 	"item.netherthings.vibranium": "Vibranium",
+	"item.minecraft.quartz": "Quartz",
 	"item.netherthings.wither_pigman_spawn_egg": "Oeuf d'apparition de Cochon-Wither WIP",
 	
 	"item.netherthings.nether_helmet": "Casque du Nether",
