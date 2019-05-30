@@ -1,0 +1,11 @@
+{
+    "required": true,
+    "package": "com.brand.netherthings.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "NetherBiomeMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

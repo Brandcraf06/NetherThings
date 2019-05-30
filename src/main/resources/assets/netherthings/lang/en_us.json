@@ -28,6 +28,7 @@
 	"item.netherthings.glowstone_ingot": "Glowstone Ingot",
 	"item.netherthings.obsidian_rod": "Obsidian Rod",
 	"item.netherthings.vibranium": "Vibranium",
+	"item.netherthings.wither_pigman_spawn_egg": "Wither Pigman Spawn Egg WIP",
 	
 	"item.netherthings.nether_helmet": "Nether Helmet",
 	"item.netherthings.nether_chestplate": "Nether Chestplate",
@@ -57,6 +58,8 @@
 	"item.netherthings.vibranium_axe": "Vibranium Axe",
 	"item.netherthings.vibranium_shovel": "Vibranium Shovel",
 	"item.netherthings.vibranium_hoe": "Vibranium Hoe",
-	"item.netherthings.vibranium_sword": "Vibranium Sword"
+	"item.netherthings.vibranium_sword": "Vibranium Sword",
+	
+	"entity.netherthings.wither_pigman": "Wither Pigman WIP"
 
 }

@@ -28,6 +28,7 @@
 	"item.netherthings.glowstone_ingot": "Lingot de pierre lumineuse",
 	"item.netherthings.obsidian_rod": "Bâton d'obsidienne",
 	"item.netherthings.vibranium": "Vibranium",
+	"item.netherthings.wither_pigman_spawn_egg": "Oeuf d'apparition de Cochon-Wither WIP",
 	
 	"item.netherthings.nether_helmet": "Casque du Nether",
 	"item.netherthings.nether_chestplate": "Plastron du Nether",
@@ -57,6 +58,8 @@
 	"item.netherthings.vibranium_axe": "Hache en Vibranium",
 	"item.netherthings.vibranium_shovel": "Pelle en Vibranium",
 	"item.netherthings.vibranium_hoe": "Houe en Vibranium",
-	"item.netherthings.vibranium_sword": "Epee en Vibranium"
+	"item.netherthings.vibranium_sword": "Epee en Vibranium",
+	
+	"entity.netherthings.wither_pigman": "Cochon-Wither WIP"
 
 }
