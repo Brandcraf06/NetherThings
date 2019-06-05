@@ -21,6 +21,6 @@ public class GlowingMushroomBlock extends StainedGlassBlock {
 	public GlowingMushroomBlock(String name, float hardness, float resistance, DyeColor color) {
 		super(color,FabricBlockSettings.of(Material.ORGANIC).sounds(BlockSoundGroup.SLIME).lightLevel(15).breakByTool(FabricToolTags.AXES, 0).strength(hardness, resistance).build());
 		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().stackSize(64).itemGroup(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.DECORATIONS)));
 	}
   }

@@ -17,7 +17,7 @@ public class StairsBlockBase extends StairsBlock {
 public StairsBlockBase(BlockState state, String name, float hardness, float resistance) {
 	super(state,FabricBlockSettings.of(Material.STONE).strength(hardness, resistance).build());
 	Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-	Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().stackSize(64).itemGroup(ItemGroup.BUILDING_BLOCKS)));
+	Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
 
     }
 }

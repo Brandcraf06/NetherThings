@@ -32,20 +32,20 @@ public class OtherBlocks {
 
 	public static void init() {
 		  
-	NETHER_CACTUS = new NetherCactusBlock("nether_cactus", 0.4f, 2.0f);
-	GREEN_GLOWING_MUSHROOM_BLOCK = new GlowingMushroomBlock("green_glowing_mushroom_block", 0.2f, 1.0f, DyeColor.LIME);
-	BLUE_GLOWING_MUSHROOM_BLOCK = new GlowingMushroomBlock("blue_glowing_mushroom_block", 0.2f, 1.0f, DyeColor.BLUE);
-	PURPLE_GLOWING_MUSHROOM_BLOCK = new GlowingMushroomBlock("purple_glowing_mushroom_block", 0.2f, 1.0f, DyeColor.PURPLE);
+	NETHER_CACTUS = new NetherCactusBlock("nether_cactus", 0.4f, 0.4f);
+	GREEN_GLOWING_MUSHROOM_BLOCK = new GlowingMushroomBlock("green_glowing_mushroom_block", 0.2f, 0.2f, DyeColor.LIME);
+	BLUE_GLOWING_MUSHROOM_BLOCK = new GlowingMushroomBlock("blue_glowing_mushroom_block", 0.2f, 0.2f, DyeColor.BLUE);
+	PURPLE_GLOWING_MUSHROOM_BLOCK = new GlowingMushroomBlock("purple_glowing_mushroom_block", 0.2f, 0.2f, DyeColor.PURPLE);
     GREEN_GLOWING_MUSHROOM = new GlowingMushroom("green_glowing_mushroom", 0.0f, 0.0f);
     BLUE_GLOWING_MUSHROOM = new GlowingMushroom("blue_glowing_mushroom", 0.0f, 0.0f);
     PURPLE_GLOWING_MUSHROOM = new GlowingMushroom("purple_glowing_mushroom", 0.0f, 0.0f);
-    BASALT = new BlockBase("basalt", 1.5f, 30.0f);
-    BASALT_BRICKS = new BlockBase("basalt_bricks", 1.5f, 30.0f);
-    BASALT_BRICKS_STAIRS = new StairsBlockBase(BASALT_BRICKS.getDefaultState(), "basalt_bricks_stairs", 1.5f, 30.0f);
-    BASALT_BRICKS_SLAB = new SlabBlockBase("basalt_bricks_slab", 1.5f, 30.0f);
-    SMOOTH_BASALT = new BlockBase("smooth_basalt", 1.5f, 30.0f);
-    LAVA_SPONGE = new BaseSpongeBlock("lava_sponge", 0.6f, 3.0f);
-    WET_LAVA_SPONGE = new BaseWetSpongeBlock("wet_lava_sponge", 0.6f, 3.0f);
-    VIBRANIUM_BLOCK = new VibraniumBlock("vibranium_block", 4.0f, 60.0f);
+    BASALT = new BlockBase("basalt", 1.5f, 6.0f);
+    BASALT_BRICKS = new BlockBase("basalt_bricks", 1.5f, 6.0f);
+    BASALT_BRICKS_STAIRS = new StairsBlockBase(BASALT_BRICKS.getDefaultState(), "basalt_bricks_stairs", 1.5f, 6.0f);
+    BASALT_BRICKS_SLAB = new SlabBlockBase("basalt_bricks_slab", 1.5f, 6.0f);
+    SMOOTH_BASALT = new BlockBase("smooth_basalt", 1.5f, 6.0f);
+    LAVA_SPONGE = new BaseSpongeBlock("lava_sponge", 0.6f, 0.6f);
+    WET_LAVA_SPONGE = new BaseWetSpongeBlock("wet_lava_sponge", 0.6f, 0.6f);
+    VIBRANIUM_BLOCK = new VibraniumBlock("vibranium_block", 4.0f, 12.0f);
 	}
 }

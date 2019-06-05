@@ -10,6 +10,6 @@ public class BaseArmor extends ArmorItem
 {
     public BaseArmor(ArmorMaterial armorMaterial_1, EquipmentSlot equipmentSlot_1)
     {
-        super(armorMaterial_1, equipmentSlot_1, new Item.Settings().itemGroup(ItemGroup.COMBAT));
+        super(armorMaterial_1, equipmentSlot_1, new Item.Settings().group(ItemGroup.COMBAT));
     }
 }

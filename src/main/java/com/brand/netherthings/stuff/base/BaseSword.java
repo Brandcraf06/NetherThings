@@ -9,6 +9,6 @@ public class BaseSword extends SwordItem
 {
     protected BaseSword(ToolMaterial toolMaterial_1)
     {
-        super(toolMaterial_1, 1, -2.4f, new Item.Settings().itemGroup(ItemGroup.COMBAT));
+        super(toolMaterial_1, 1, -2.4f, new Item.Settings().group(ItemGroup.COMBAT));
     }
 }

@@ -13,7 +13,7 @@ public class MaterialNetherTool implements ToolMaterial
     }
 
     @Override
-    public float getBlockBreakingSpeed()
+    public float getMiningSpeed()
     {
         return 5;
     }
@@ -27,7 +27,7 @@ public class MaterialNetherTool implements ToolMaterial
     @Override
     public int getMiningLevel()
     {
-        return 3;
+        return 2;
     }
 
     @Override

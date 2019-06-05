@@ -9,6 +9,6 @@ public class BaseShovel extends ShovelItem
 {
     public BaseShovel(ToolMaterial toolMaterial_1)
     {
-        super(toolMaterial_1, -0.5f, -3.0F, new Item.Settings().itemGroup(ItemGroup.TOOLS));
+        super(toolMaterial_1, -0.5f, -3.0F, new Item.Settings().group(ItemGroup.TOOLS));
     }
 }

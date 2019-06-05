@@ -21,10 +21,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateFactory;
-import net.minecraft.state.property.IntegerProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
@@ -34,15 +35,15 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-public class NetherCactusBlock extends Block {
-	   public static final IntegerProperty AGE;
+public class NetherCactusBlock extends Block implements Tickable {
+	   public static final IntProperty AGE;
 	   protected static final VoxelShape COLLISION_SHAPE;
 	   protected static final VoxelShape OUTLINE_SHAPE;
             
 public NetherCactusBlock(String name, float hardness, float resistance) {
 		super(FabricBlockSettings.of(Material.CACTUS).sounds(BlockSoundGroup.WOOL).strength(hardness, resistance).ticksRandomly().build());
 		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().stackSize(64).itemGroup(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.DECORATIONS)));
 
 		    }
 
@@ -138,5 +139,10 @@ public NetherCactusBlock(String name, float hardness, float resistance) {
 	      COLLISION_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
 	      OUTLINE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 	   }
+
+	@Override
+	public void tick() {
+		
+	     }
 	}
 

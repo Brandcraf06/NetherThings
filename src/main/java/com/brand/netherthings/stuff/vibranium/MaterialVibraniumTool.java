@@ -14,7 +14,7 @@ public class MaterialVibraniumTool implements ToolMaterial
     }
 
     @Override
-    public float getBlockBreakingSpeed()
+    public float getMiningSpeed()
     {
         return 22;
     }

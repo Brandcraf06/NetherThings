@@ -52,6 +52,6 @@ public class MaterialGlowstoneArmor implements ArmorMaterial
     @Override
     public float getToughness()
     {
-        return 1;
+        return 0;
     }
 }
