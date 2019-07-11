@@ -1,6 +1,7 @@
 package com.brand.netherthings;
 
 
+import com.brand.netherthings.config.NetherThingsConfig;
 import com.brand.netherthings.content.Ores;
 import com.brand.netherthings.content.OtherBlocks;
 import com.brand.netherthings.entities.NetherMobs;
@@ -9,7 +10,8 @@ import com.brand.netherthings.items.NetherSets;
 import com.brand.netherthings.stuff.NetherStuff;
 import com.brand.netherthings.world.NetherOres;
 import com.brand.netherthings.world.NetherVegetation;
-
+import me.sargunvohra.mcmods.autoconfig1.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 
@@ -18,6 +20,7 @@ public class NetherThings implements ModInitializer {
 	public static final String MOD_ID = "netherthings";
 	public static final String VERSION = "1.1.2.1";
 	public static final String NAME = "NetherThings";
+	public static final NetherThingsConfig CONFIG = AutoConfig.register(NetherThingsConfig.class, GsonConfigSerializer::new).getConfig();
 	
 	@Override
 	public void onInitialize() {
