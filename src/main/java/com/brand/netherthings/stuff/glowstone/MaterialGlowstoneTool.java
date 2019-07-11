@@ -1,5 +1,6 @@
 package com.brand.netherthings.stuff.glowstone;
 
+import com.brand.netherthings.NetherThings;
 import com.brand.netherthings.items.NetherItems;
 
 import net.minecraft.item.ToolMaterial;
@@ -10,19 +11,19 @@ public class MaterialGlowstoneTool implements ToolMaterial
     @Override
     public int getDurability()
     {
-        return 442;
+        return NetherThings.CONFIG.glowstoneToolDurability;
     }
 
     @Override
     public float getMiningSpeed()
     {
-        return 5;
+        return NetherThings.CONFIG.glowstoneToolSpeed;
     }
 
     @Override
     public float getAttackDamage()
     {
-        return 4.7f;
+        return NetherThings.CONFIG.glowstoneToolDamage;
     }
 
     @Override
@@ -34,7 +35,7 @@ public class MaterialGlowstoneTool implements ToolMaterial
     @Override
     public int getEnchantability()
     {
-        return 15;
+        return NetherThings.CONFIG.glowstoneToolEnchantability;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.brand.netherthings.stuff.nether;
 
+import com.brand.netherthings.NetherThings;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -9,19 +10,19 @@ public class MaterialNetherTool implements ToolMaterial
     @Override
     public int getDurability()
     {
-        return 280;
+        return NetherThings.CONFIG.netherToolDurability;
     }
 
     @Override
     public float getMiningSpeed()
     {
-        return 5;
+        return NetherThings.CONFIG.netherToolSpeed;
     }
 
     @Override
     public float getAttackDamage()
     {
-        return 3.5f;
+        return NetherThings.CONFIG.netherToolDamage;
     }
 
     @Override
@@ -33,7 +34,7 @@ public class MaterialNetherTool implements ToolMaterial
     @Override
     public int getEnchantability()
     {
-        return 77;
+        return NetherThings.CONFIG.netherToolEnchantability;
     }
 
     @Override
