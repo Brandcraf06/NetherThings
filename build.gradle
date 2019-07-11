@@ -24,12 +24,6 @@ dependencies {
 
     //Fabric api
     modCompile "net.fabricmc.fabric-api:fabric-api:0.3.0+build.176"
-
-    // cloth config / auto config
-    modCompile "cloth-config:ClothConfig2:0.3.1"
-    modCompile "me.sargunvohra.mcmods:auto-config:1.1.2+mc1.14.1"
-    include "cloth-config:ClothConfig2:0.3.1"
-    include "me.sargunvohra.mcmods:auto-config:1.1.2+mc1.14.1"
 }
 
 // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
