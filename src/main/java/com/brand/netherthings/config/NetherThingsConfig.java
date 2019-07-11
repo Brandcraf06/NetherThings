@@ -17,6 +17,7 @@ public class NetherThingsConfig implements ConfigData {
     public float vibraniumToolDamage = 10f;
     public int vibraniumToolEnchantability = 7;
     public int vibraniumArmorDurabilityModifier = 1050;
+    public int vibraniumArmorEnchantability = 10;
     public int[] vibraniumArmorProtectionAmounts = {
             5,
             9,
@@ -30,6 +31,7 @@ public class NetherThingsConfig implements ConfigData {
     public float glowstoneToolDamage = 4.7f;
     public int glowstoneToolEnchantability = 15;
     public int glowstoneArmorDurabilityModifier = 27;
+    public int glowstoneArmorEnchantability = 10;
     public int[] glowstoneArmorProtectionAmounts = {
             2,
             5,
@@ -43,6 +45,7 @@ public class NetherThingsConfig implements ConfigData {
     public float netherToolDamage = 3.5f;
     public int netherToolEnchantability;
     public int netherArmorDurabilityModifier = 16;
+    public int netherArmorEnchantability = 80;
     public int[] netherArmorProtectionAmounts = {
             2,
             5,
