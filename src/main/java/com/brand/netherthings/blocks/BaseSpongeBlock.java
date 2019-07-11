@@ -34,7 +34,7 @@ public class BaseSpongeBlock extends Block {
 	public BaseSpongeBlock(String name, float hardness, float resistance) {
 		super(FabricBlockSettings.of(Material.LEAVES).sounds(BlockSoundGroup.GRASS).breakByTool(FabricToolTags.PICKAXES, 0).strength(hardness, resistance).build());
 		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.GROUP)));
 	}
 
 	   public void onBlockAdded(BlockState blockState_1, World world_1, BlockPos blockPos_1, BlockState blockState_2, boolean boolean_1) {

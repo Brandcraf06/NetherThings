@@ -43,7 +43,7 @@ public class NetherCactusBlock extends Block implements Tickable {
 public NetherCactusBlock(String name, float hardness, float resistance) {
 		super(FabricBlockSettings.of(Material.CACTUS).sounds(BlockSoundGroup.WOOL).strength(hardness, resistance).ticksRandomly().build());
 		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.GROUP)));
 
 		    }
 

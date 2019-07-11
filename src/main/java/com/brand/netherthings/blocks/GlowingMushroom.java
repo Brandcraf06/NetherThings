@@ -29,7 +29,7 @@ public class GlowingMushroom extends MushroomPlantBlock {
 	public GlowingMushroom(String name, float hardness, float resistance) {
 		super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).lightLevel(7).strength(hardness, resistance).build());
 		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.GROUP)));
 	}
 	@Override
 	public boolean canPlaceAt(BlockState blockState_1, ViewableWorld viewableWorld_1, BlockPos blockPos_1) {

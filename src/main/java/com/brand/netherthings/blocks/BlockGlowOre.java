@@ -29,7 +29,7 @@ public class BlockGlowOre extends Block {
 public BlockGlowOre(String name, float hardness, float resistance) {
 	super(FabricBlockSettings.of(Material.STONE).lightLevel(7).breakByTool(FabricToolTags.PICKAXES, 1).strength(hardness, resistance).build());
 	Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-	Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
+	Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.GROUP)));
 
     }
 
