@@ -1,5 +1,6 @@
 package com.brand.netherthings.stuff.vibranium;
 
+import com.brand.netherthings.NetherThings;
 import com.brand.netherthings.items.NetherItems;
 
 import net.minecraft.item.ToolMaterial;
@@ -10,19 +11,19 @@ public class MaterialVibraniumTool implements ToolMaterial
     @Override
     public int getDurability()
     {
-        return 21850;
+        return NetherThings.CONFIG.vibraniumToolDurability;
     }
 
     @Override
     public float getMiningSpeed()
     {
-        return 22;
+        return NetherThings.CONFIG.vibraniumToolSpeed;
     }
 
     @Override
     public float getAttackDamage()
     {
-        return 10.0f;
+        return NetherThings.CONFIG.vibraniumToolDamage;
     }
 
     @Override
@@ -34,7 +35,7 @@ public class MaterialVibraniumTool implements ToolMaterial
     @Override
     public int getEnchantability()
     {
-        return 7;
+        return NetherThings.CONFIG.vibraniumToolEnchantability;
     }
 
     @Override

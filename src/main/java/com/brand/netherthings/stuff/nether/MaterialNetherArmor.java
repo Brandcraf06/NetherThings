@@ -1,5 +1,6 @@
 package com.brand.netherthings.stuff.nether;
 
+import com.brand.netherthings.NetherThings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
@@ -10,12 +11,12 @@ import net.minecraft.sound.SoundEvents;
 public class MaterialNetherArmor implements ArmorMaterial
 {
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
-    private static final int[] PROTECTION_AMOUNTS = new int[]{2, 5, 5, 2};
+    private static final int[] PROTECTION_AMOUNTS = NetherThings.CONFIG.netherArmorProtectionAmounts;
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot)
     {
-        return BASE_DURABILITY[equipmentSlot.getEntitySlotId()] * 16;
+        return BASE_DURABILITY[equipmentSlot.getEntitySlotId()] * NetherThings.CONFIG.netherArmorDurabilityModifier;
     }
 
     @Override
@@ -27,7 +28,7 @@ public class MaterialNetherArmor implements ArmorMaterial
     @Override
     public int getEnchantability()
     {
-        return 80;
+        return NetherThings.CONFIG.netherArmorEnchantability;
     }
 
     @Override
