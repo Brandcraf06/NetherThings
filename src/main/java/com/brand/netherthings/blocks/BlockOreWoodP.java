@@ -15,7 +15,6 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +29,7 @@ public class BlockOreWoodP extends Block {
 public BlockOreWoodP(String name, float hardness, float resistance) {
 	super(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 0).strength(hardness, resistance).build());
 	Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-	Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.BUILDING_BLOCKS)));
+	Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 
     }
 

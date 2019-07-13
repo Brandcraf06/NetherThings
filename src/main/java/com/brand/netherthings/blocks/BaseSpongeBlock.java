@@ -17,7 +17,6 @@ import net.minecraft.block.Material;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.FluidTags;
@@ -34,7 +33,7 @@ public class BaseSpongeBlock extends Block {
 	public BaseSpongeBlock(String name, float hardness, float resistance) {
 		super(FabricBlockSettings.of(Material.LEAVES).sounds(BlockSoundGroup.GRASS).breakByTool(FabricToolTags.PICKAXES, 0).strength(hardness, resistance).build());
 		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	}
 
 	   public void onBlockAdded(BlockState blockState_1, World world_1, BlockPos blockPos_1, BlockState blockState_2, boolean boolean_1) {
@@ -77,20 +76,20 @@ public class BaseSpongeBlock extends Block {
 	            if (fluidState_1.matches(FluidTags.LAVA)) {
 	               if (blockState_1.getBlock() instanceof FluidDrainable && ((FluidDrainable)blockState_1.getBlock()).tryDrainFluid(world_1, blockPos_3, blockState_1) != Fluids.EMPTY) {
 	                  ++int_1;
-	                  if (int_2 < 1000) {
+	                  if (int_2 < 800) {
 	                     queue_1.add(new Pair(blockPos_3, int_2 + 1));
 	                  }
 	               } else if (blockState_1.getBlock() instanceof FluidBlock) {
 	                  world_1.setBlockState(blockPos_3, Blocks.AIR.getDefaultState(), 3);
 	                  ++int_1;
-	                  if (int_2 < 1000) {
+	                  if (int_2 < 800) {
 	                     queue_1.add(new Pair(blockPos_3, int_2 + 1));
 	                  }
 	               }
 	            }
 	         }
 
-	         if (int_1 > 3000) {
+	         if (int_1 > 2400) {
 	            break;
 	         }
 	      }

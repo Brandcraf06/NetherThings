@@ -18,7 +18,6 @@ import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateFactory;
 import net.minecraft.state.property.IntProperty;
@@ -43,7 +42,7 @@ public class NetherCactusBlock extends Block implements Tickable {
 public NetherCactusBlock(String name, float hardness, float resistance) {
 		super(FabricBlockSettings.of(Material.CACTUS).sounds(BlockSoundGroup.WOOL).strength(hardness, resistance).ticksRandomly().build());
 		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 
 		    }
 
@@ -119,7 +118,7 @@ public NetherCactusBlock(String name, float hardness, float resistance) {
 	   }
 
 	   public void onEntityCollision(BlockState blockState_1, World world_1, BlockPos blockPos_1, Entity entity_1) {
-	      entity_1.damage(DamageSource.ON_FIRE, 5.0F);
+	      entity_1.damage(DamageSource.ON_FIRE, NetherThings.CONFIG.netherCactusDamage);
 	   }
 
 	   public BlockRenderLayer getRenderLayer() {

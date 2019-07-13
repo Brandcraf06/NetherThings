@@ -10,6 +10,7 @@ public class NetherThingsConfig implements ConfigData {
     public boolean enableBasaltGeneration = true;
     public boolean enableNetherOresInOverworld = true;
     public boolean enableOverworldOresInNether = true;
+    public float netherCactusDamage = 5.0F;
     
     // vibranium config
     public int vibraniumToolDurability = 21850;
@@ -43,9 +44,9 @@ public class NetherThingsConfig implements ConfigData {
     public int netherToolDurability = 280;
     public float netherToolSpeed = 5f;
     public float netherToolDamage = 3.5f;
-    public int netherToolEnchantability;
+    public int netherToolEnchantability = 60;
     public int netherArmorDurabilityModifier = 16;
-    public int netherArmorEnchantability = 80;
+    public int netherArmorEnchantability = 65;
     public int[] netherArmorProtectionAmounts = {
             2,
             5,

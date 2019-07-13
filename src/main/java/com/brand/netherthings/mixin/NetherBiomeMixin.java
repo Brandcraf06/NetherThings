@@ -4,7 +4,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.brand.netherthings.entities.NetherMobs;
+import com.brand.netherthings.entities.NetherEntities;
 
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -22,6 +22,6 @@ import net.minecraft.world.biome.NetherBiome;
 
 	    @Inject(method = "<init>*", at = @At("RETURN"))
 	    private void onConstruct(CallbackInfo info) {
-	    	super.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(NetherMobs.WITHER_PIGMAN, 0, 1, 4));
+	    	super.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(NetherEntities.WITHER_PIGMAN, 0, 1, 4));
 	    }
 	}

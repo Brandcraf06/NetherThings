@@ -13,5 +13,6 @@ public class NetherThingsClient implements ClientModInitializer {
 
 		EntityRendererRegistry.INSTANCE.register(WitherPigmanEntity.class,
 				((manager, context) -> new WitherPigmanEntityRenderer(manager)));
+
 	}
 }
