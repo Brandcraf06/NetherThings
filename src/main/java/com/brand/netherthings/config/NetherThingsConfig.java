@@ -8,6 +8,7 @@ public class NetherThingsConfig implements ConfigData {
     public boolean enableNetherMushrooms = true;
     public boolean enableNetherCactus = true;
     public boolean enableBasaltGeneration = true;
+    public boolean enableNetherVibraniumOre = true;
     public boolean enableNetherOresInOverworld = true;
     public boolean enableOverworldOresInNether = true;
     public float netherCactusDamage = 5.0F;
