@@ -46,7 +46,7 @@ public class BaseWetSpongeBlock extends Block {
 	               double_3 += random_1.nextDouble();
 	            } else {
 	               double_2 += random_1.nextDouble() * 0.8D;
-	               if (direction_1.getAxis() == Direction.Axis.X) {
+	               if (direction_1.getAxis() == Direction.Axis.field_11048) { // X, now unmapped?!
 	                  double_3 += random_1.nextDouble();
 	                  if (direction_1 == Direction.EAST) {
 	                     ++double_1;
