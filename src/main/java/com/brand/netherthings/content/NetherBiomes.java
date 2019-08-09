@@ -1,25 +1,28 @@
 package com.brand.netherthings.content;
 
-import com.brand.netherthings.NetherThings;
+import com.brand.netherthings.world.biome.CondemnedBarrensBiome;
+import com.brand.netherthings.world.biome.GlowingJungleBiome;
+import com.brand.netherthings.world.biome.MushroomForestBiome;
 import com.brand.netherthings.world.biome.layer.NetherBiomeLayer;
 import com.brand.netherthings.world.biome.layer.NetherSubBiomeLayer;
-import com.brand.netherthings.world.surfacebuilder.NetherThingsSurfaceBuilder;
-import com.brand.netherthings.world.surfacebuilder.NetherThingsSurfaceConfig;
 
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 
 public class NetherBiomes {
 	
-	public static final NetherThingsSurfaceBuilder NETHER_THINGS = new NetherThingsSurfaceBuilder(NetherThingsSurfaceConfig::deserialize);
+	public static final GlowingJungleBiome GLOWING_JUNGLE = new GlowingJungleBiome();
+	public static final CondemnedBarrensBiome CONDEMNED_BARRENS = new CondemnedBarrensBiome();
+	public static final MushroomForestBiome MUSHROOM_FOREST = new MushroomForestBiome();
 	
 	public static void init() {
-		// Surface Builder
-		Registry.register(Registry.SURFACE_BUILDER, new Identifier(NetherThings.MOD_ID, "nether_things"), NETHER_THINGS);
 		
 		// Biomes
+		addBiome(GLOWING_JUNGLE, 10);
+		addBiome(CONDEMNED_BARRENS, 10);
 		
+		// Sub Biomes
+		addSubBiome(Biomes.NETHER, MUSHROOM_FOREST, 30);
 	}
 	
 	/**
