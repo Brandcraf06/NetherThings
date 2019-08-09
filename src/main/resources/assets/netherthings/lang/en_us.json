@@ -25,6 +25,7 @@
 	"block.netherthings.wet_lava_sponge": "Wet Lava Sponge",
 	"block.netherthings.nether_vibranium_ore": "Nether Vibranium Ore",
 	"block.netherthings.vibranium_block": "Vibranium Block",
+	"block.netherthings.blazing_netherrack": "Blazing Netherrack",
 	
 	"item.netherthings.glowing_stew": "Glowing Stew",
 	"item.netherthings.glowstone_ingot": "Glowstone Ingot",
@@ -63,6 +64,11 @@
 	"item.netherthings.vibranium_hoe": "Vibranium Hoe",
 	"item.netherthings.vibranium_sword": "Vibranium Sword",
 	
-	"entity.netherthings.wither_pigman": "Wither Pigman WIP"
+	"entity.netherthings.wither_pigman": "Wither Pigman WIP",
+	
+	"biome.netherthings.condemned_barrens": "Condemned Barrens",
+	"biome.netherthings.glowing_jungle": "Glowing Jungle",
+	"biome.netherthings.mushroom_forest": "Mushroom Forest",
+	"biome.netherthings.blazing_soils": "Blazing Soils"
 
 }
