@@ -3,6 +3,7 @@ package com.brand.netherthings.world.biome;
 import com.brand.netherthings.NetherThings;
 import com.brand.netherthings.content.NetherSurfaces;
 import com.brand.netherthings.entities.NetherEntities;
+import com.brand.netherthings.features.NetherThingsFeatures;
 import com.brand.netherthings.world.surfacebuilder.NetherThingsSurfaceConfig;
 
 import net.minecraft.block.Blocks;
@@ -38,8 +39,8 @@ public abstract class NetherThingsBaseBiome extends Biome {
 		// Cave
 		this.addCarver(GenerationStep.Carver.AIR, configureCarver(Carver.HELL_CAVE, new ProbabilityConfig(0.2F)));
 		
-		// Ore, note: only targets netherrack
-		this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Blocks.NETHER_QUARTZ_ORE.getDefaultState(), 14), Decorator.COUNT_RANGE, new RangeDecoratorConfig(16, 10, 20, 128)));
+		// Ore; targets netherrack and blazing netherrack
+		this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, configureFeature(NetherThingsFeatures.BLAZING_NETHERRACK_ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Blocks.NETHER_QUARTZ_ORE.getDefaultState(), 14), Decorator.COUNT_RANGE, new RangeDecoratorConfig(16, 10, 20, 128)));
 		
 		// Fortress (part 2) and fire
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, configureFeature(Feature.NETHER_BRIDGE, FeatureConfig.DEFAULT, Decorator.NOPE, DecoratorConfig.DEFAULT));

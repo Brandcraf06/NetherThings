@@ -23,6 +23,8 @@ public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 	   public static final Feature<PlantedFeatureConfig> HUGE_GREEN_GLOWING_MUSHROOM;
 	   public static final Feature<PlantedFeatureConfig> HUGE_BLUE_GLOWING_MUSHROOM;
 	   public static final Feature<PlantedFeatureConfig> HUGE_PURPLE_GLOWING_MUSHROOM;
+	   public static final Feature<OreFeatureConfig> BLAZING_NETHERRACK_ORE;
+	   
 	   private final Function<Dynamic<?>, ? extends FC> configDeserializer;
 	   protected final boolean emitNeighborBlockUpdates;
 
@@ -68,5 +70,6 @@ public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 		  HUGE_GREEN_GLOWING_MUSHROOM = register("huge_green_glowing_mushroom", new HugeGreenGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
 		  HUGE_BLUE_GLOWING_MUSHROOM = register("huge_blue_glowing_mushroom", new HugeBlueGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
 		  HUGE_PURPLE_GLOWING_MUSHROOM = register("huge_purple_glowing_mushroom", new HugePurpleGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
-		  }
-	   }
+		  BLAZING_NETHERRACK_ORE = register("blazing_netherrack_ore", new BlazingNetherrackOreFeature(OreFeatureConfig::deserialize));
+	   }	   
+}

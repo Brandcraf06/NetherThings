@@ -1,5 +1,6 @@
 package com.brand.netherthings.content;
 
+import com.brand.netherthings.world.biome.BlazingSoilsBiome;
 import com.brand.netherthings.world.biome.CondemnedBarrensBiome;
 import com.brand.netherthings.world.biome.GlowingJungleBiome;
 import com.brand.netherthings.world.biome.MushroomForestBiome;
@@ -14,15 +15,17 @@ public class NetherBiomes {
 	public static final GlowingJungleBiome GLOWING_JUNGLE = new GlowingJungleBiome();
 	public static final CondemnedBarrensBiome CONDEMNED_BARRENS = new CondemnedBarrensBiome();
 	public static final MushroomForestBiome MUSHROOM_FOREST = new MushroomForestBiome();
+	public static final BlazingSoilsBiome BLAZING_SOILS = new BlazingSoilsBiome();
 	
 	public static void init() {
 		
 		// Biomes
 		addBiome(GLOWING_JUNGLE, 10);
 		addBiome(CONDEMNED_BARRENS, 10);
+		addBiome(BLAZING_SOILS, 10);
 		
 		// Sub Biomes
-		addSubBiome(Biomes.NETHER, MUSHROOM_FOREST, 30);
+		addSubBiome(Biomes.NETHER, MUSHROOM_FOREST, 25);
 	}
 	
 	/**

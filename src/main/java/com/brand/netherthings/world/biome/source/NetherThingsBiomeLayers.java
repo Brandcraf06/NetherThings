@@ -31,7 +31,7 @@ public final class NetherThingsBiomeLayers {
 	}
 
 	private static <T extends LayerSampler, C extends LayerSampleContext<T>> ImmutableList<LayerFactory<T>> build(long seed, LongFunction<C> context) {
-		int biomeSize = 3;
+		int biomeSize = 4;
 		
 		LayerFactory<T> biomeFactory = NetherBiomeLayer.INSTANCE.create(context.apply(1L));
 		biomes = NetherBiomeLayer.INSTANCE.getBiomes();
