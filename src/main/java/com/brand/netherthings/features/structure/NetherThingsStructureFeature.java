@@ -10,6 +10,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
+import net.minecraft.world.gen.decorator.CountDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -27,13 +28,13 @@ public class NetherThingsStructureFeature
 	        // add our structure to the structure list
 	        Feature.STRUCTURES.put("Blaze Temple", blazetempleFeature);
 
-	        // register our structure in overworld biomes
+	        // register our structure in n
 	        for(Biome biome : Registry.BIOME)
 	        {
-	            if(biome.getCategory() != Biome.Category.NETHER)
+	            if(biome.getCategory() == Biome.Category.NETHER)
 	            {
 	                biome.addStructureFeature(blazetempleFeature, new DefaultFeatureConfig());
-	                biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Biome.configureFeature(blazetempleFeature, new DefaultFeatureConfig(), Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(100)));
+	                biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Biome.configureFeature(blazetempleFeature, new DefaultFeatureConfig(), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(300)));
 	            }
 	        }
 	    }

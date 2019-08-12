@@ -29,7 +29,7 @@ public class NetherBiomes {
 		addBiome(GLOWING_JUNGLE, 10);
 		addBiome(CONDEMNED_BARRENS, 10);
 		addBiome(BLAZING_SOILS, 10);
-		addBiome(NETHER_MEADOW, 200);
+		addBiome(NETHER_MEADOW, 5);
 		
 		// Sub Biomes
 		addSubBiome(Biomes.NETHER, MUSHROOM_FOREST, 25);

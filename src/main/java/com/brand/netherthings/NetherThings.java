@@ -7,6 +7,7 @@ import com.brand.netherthings.content.NetherSurfaces;
 import com.brand.netherthings.content.Ores;
 import com.brand.netherthings.content.OtherBlocks;
 import com.brand.netherthings.entities.NetherEntities;
+import com.brand.netherthings.features.structure.NetherThingsStructureFeature;
 import com.brand.netherthings.items.NetherItems;
 import com.brand.netherthings.items.NetherSets;
 import com.brand.netherthings.stuff.NetherStuff;
@@ -47,6 +48,7 @@ public class NetherThings implements ModInitializer {
 		
 		NetherSurfaces.init();
 		NetherBiomes.init();
+		NetherThingsStructureFeature.init();
 
 		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.NETHER_CACTUS, 0.50f);
 		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.BLUE_GLOWING_MUSHROOM, 0.65f);

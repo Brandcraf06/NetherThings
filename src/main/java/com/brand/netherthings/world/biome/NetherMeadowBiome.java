@@ -47,9 +47,9 @@ public class NetherMeadowBiome extends NetherThingsGreenBaseBiome {
 		       this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, Ores.VIBRANIUM_ORE.getDefaultState(), 4), Decorator.COUNT_RANGE, new RangeDecoratorConfig(2, 0, 0, 100)));       
 		}
 		this.addDefaultMobs();
-		this.addSpawn(EntityCategory.CREATURE, new Biome.SpawnEntry(NetherEntities.BLUE_GLOWMOO, 500, 2, 4));
-		this.addSpawn(EntityCategory.CREATURE, new Biome.SpawnEntry(NetherEntities.GREEN_GLOWMOO, 500, 2, 4));
-		this.addSpawn(EntityCategory.CREATURE, new Biome.SpawnEntry(NetherEntities.PURPLE_GLOWMOO, 500, 2, 4));
+		this.addSpawn(EntityCategory.CREATURE, new Biome.SpawnEntry(NetherEntities.BLUE_GLOWMOO, 500, 10, 15));
+		this.addSpawn(EntityCategory.CREATURE, new Biome.SpawnEntry(NetherEntities.GREEN_GLOWMOO, 500, 10, 15));
+		this.addSpawn(EntityCategory.CREATURE, new Biome.SpawnEntry(NetherEntities.PURPLE_GLOWMOO, 500, 10, 15));
 	}
 
 }
