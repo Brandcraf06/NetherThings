@@ -1,10 +1,10 @@
 package com.brand.netherthings.world;
 
 import com.brand.netherthings.NetherThings;
+import com.brand.netherthings.content.NetherBiomes;
 import com.brand.netherthings.content.Ores;
 import com.brand.netherthings.content.OtherBlocks;
 import com.brand.netherthings.features.NetherThingsFeatures;
-
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
@@ -31,6 +31,7 @@ public class NetherOres {
 		}
 	}
 	
+	
 	public static void addVibraniumOres() {
 		if (NetherThings.CONFIG.enableNetherVibraniumOre) {
 			for (Biome biome : Registry.BIOME) {
@@ -40,7 +41,7 @@ public class NetherOres {
 			}
 		}
 	}
-
+	
 	public static void addOverworldOres() {
 		if (NetherThings.CONFIG.enableNetherOresInOverworld) {
 			for (Biome biome : Registry.BIOME) {
@@ -53,7 +54,7 @@ public class NetherOres {
 	public static void addNetherMineables() {
 		if (NetherThings.CONFIG.enableBasaltGeneration) {
 			for (Biome biome : Registry.BIOME) {
-				if (biome.getCategory() == Biome.Category.NETHER) {
+				if (biome.getCategory() == Biome.Category.NETHER && !(biome == NetherBiomes.BLAZING_SOILS)) {
 					biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, OtherBlocks.BASALT.getDefaultState(), 35), Decorator.MAGMA, new CountDecoratorConfig(15)));
 				}
 			}

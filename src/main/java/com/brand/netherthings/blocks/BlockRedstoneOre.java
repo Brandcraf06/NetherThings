@@ -11,7 +11,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-@SuppressWarnings("deprecation")
 public class BlockRedstoneOre extends RedstoneOreBlock {
 
 	public BlockRedstoneOre(String name, float hardness, float resistance) {

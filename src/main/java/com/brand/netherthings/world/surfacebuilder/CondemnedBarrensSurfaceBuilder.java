@@ -45,7 +45,7 @@ public class CondemnedBarrensSurfaceBuilder extends NetherThingsSurfaceBuilder {
 						if (int_8 <= 0) {
 							blockState_3 = CAVE_AIR;
 							blockState_4 = config.netherBlock;
-						} else if (y >= int_5 - 4 && y <= int_5 + 1) {
+						} else if (y >= int_5 - 1 && y <= int_5 + 4) {
 							blockState_3 = config.netherBlock;
 							blockState_4 = config.netherBlock;
 							if (boolean_2) {

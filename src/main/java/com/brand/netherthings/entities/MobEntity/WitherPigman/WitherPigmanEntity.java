@@ -8,7 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
@@ -29,8 +28,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
@@ -72,7 +71,7 @@ public class WitherPigmanEntity extends ZombieEntity {
 	   protected boolean canConvertInWater() {
 	      return false;
 	   }
-
+	   
 	   protected void mobTick() {
 	      EntityAttributeInstance entityAttributeInstance_1 = this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
 	      if (this.isAngry()) {
@@ -89,25 +88,22 @@ public class WitherPigmanEntity extends ZombieEntity {
 	         this.playSound(SoundEvents.ENTITY_ZOMBIE_PIGMAN_ANGRY, this.getSoundVolume() * 2.0F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 1.8F);
 	      }
 
-	      if (this.anger > 0 && this.angerTarget != null && this.getAttacker() == null) {
-	         PlayerEntity playerEntity_1 = this.world.getPlayerByUuid(this.angerTarget);
-	         this.setAttacker(playerEntity_1);
-	         this.attackingPlayer = playerEntity_1;
-	         this.playerHitTimer = this.getLastAttackedTime();
-	      }
+	      if (this.isAngry() && this.angerTarget != null && this.getAttacker() == null) {
+	          PlayerEntity playerEntity_1 = this.world.getPlayerByUuid(this.angerTarget);
+	          this.setAttacker(playerEntity_1);
+	          this.attackingPlayer = playerEntity_1;
+	          this.playerHitTimer = this.getLastAttackedTime();
+	       }
 
-	      super.mobTick();
-	   }
+	       super.mobTick();
+	    }
 
-	   public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {
-	      return iWorld_1.getDifficulty() != Difficulty.PEACEFUL;
-	   }
-
-	   public boolean canSpawn(ViewableWorld viewableWorld_1) {
-	      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox());
-	   }
-	   
-	   public boolean tryAttack(Entity entity_1) {
+	    public boolean canSpawn(ViewableWorld viewableWorld_1) {
+	        BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
+	        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox()) && !viewableWorld_1.isAir(entityPos) && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
+	    }
+	    
+	    public boolean tryAttack(Entity entity_1) {
 		      if (!super.tryAttack(entity_1)) {
 		         return false;
 		      } else {
@@ -122,113 +118,118 @@ public class WitherPigmanEntity extends ZombieEntity {
 		   public boolean isPotionEffective(StatusEffectInstance statusEffectInstance_1) {
 		      return statusEffectInstance_1.getEffectType() == StatusEffects.WITHER ? false : super.isPotionEffective(statusEffectInstance_1);
 		   }
+		   
+	    public void writeCustomDataToTag(CompoundTag compoundTag_1) {
+	       super.writeCustomDataToTag(compoundTag_1);
+	       compoundTag_1.putShort("Anger", (short)this.anger);
+	       if (this.angerTarget != null) {
+	          compoundTag_1.putString("HurtBy", this.angerTarget.toString());
+	       } else {
+	          compoundTag_1.putString("HurtBy", "");
+	       }
 
-	   public void writeCustomDataToTag(CompoundTag compoundTag_1) {
-	      super.writeCustomDataToTag(compoundTag_1);
-	      compoundTag_1.putShort("Anger", (short)this.anger);
-	      if (this.angerTarget != null) {
-	         compoundTag_1.putString("HurtBy", this.angerTarget.toString());
-	      } else {
-	         compoundTag_1.putString("HurtBy", "");
-	      }
+	    }
 
-	   }
+	    public void readCustomDataFromTag(CompoundTag compoundTag_1) {
+	       super.readCustomDataFromTag(compoundTag_1);
+	       this.anger = compoundTag_1.getShort("Anger");
+	       String string_1 = compoundTag_1.getString("HurtBy");
+	       if (!string_1.isEmpty()) {
+	          this.angerTarget = UUID.fromString(string_1);
+	          PlayerEntity playerEntity_1 = this.world.getPlayerByUuid(this.angerTarget);
+	          this.setAttacker(playerEntity_1);
+	          if (playerEntity_1 != null) {
+	             this.attackingPlayer = playerEntity_1;
+	             this.playerHitTimer = this.getLastAttackedTime();
+	          }
+	       }
 
-	   public void readCustomDataFromTag(CompoundTag compoundTag_1) {
-	      super.readCustomDataFromTag(compoundTag_1);
-	      this.anger = compoundTag_1.getShort("Anger");
-	      String string_1 = compoundTag_1.getString("HurtBy");
-	      if (!string_1.isEmpty()) {
-	         this.angerTarget = UUID.fromString(string_1);
-	         PlayerEntity playerEntity_1 = this.world.getPlayerByUuid(this.angerTarget);
-	         this.setAttacker(playerEntity_1);
-	         if (playerEntity_1 != null) {
-	            this.attackingPlayer = playerEntity_1;
-	            this.playerHitTimer = this.getLastAttackedTime();
-	         }
-	      }
+	    }
 
-	   }
+	    public boolean damage(DamageSource damageSource_1, float float_1) {
+	       if (this.isInvulnerableTo(damageSource_1)) {
+	          return false;
+	       } else {
+	          Entity entity_1 = damageSource_1.getAttacker();
+	          if (entity_1 instanceof PlayerEntity && !((PlayerEntity)entity_1).isCreative() && this.canSee(entity_1)) {
+	             this.method_20804(entity_1);
+	          }
 
-	   public boolean damage(DamageSource damageSource_1, float float_1) {
-	      if (this.isInvulnerableTo(damageSource_1)) {
-	         return false;
-	      } else {
-	         Entity entity_1 = damageSource_1.getAttacker();
-	         if (entity_1 instanceof PlayerEntity && !((PlayerEntity)entity_1).isCreative()) {
-	            this.copyEntityData(entity_1);
-	         }
+	          return super.damage(damageSource_1, float_1);
+	       }
+	    }
 
-	         return super.damage(damageSource_1, float_1);
-	      }
-	   }
+	    private boolean method_20804(Entity entity_1) {
+	       this.anger = this.method_20806();
+	       this.angrySoundDelay = this.random.nextInt(40);
+	       if (entity_1 instanceof LivingEntity) {
+	          this.setAttacker((LivingEntity)entity_1);
+	       }
 
-	   private void copyEntityData(Entity entity_1) {
-	      this.anger = 400 + this.random.nextInt(400);
-	      this.angrySoundDelay = this.random.nextInt(40);
-	      if (entity_1 instanceof LivingEntity) {
-	         this.setAttacker((LivingEntity)entity_1);
-	      }
+	       return true;
+	    }
 
-	   }
+	    private int method_20806() {
+	       return 400 + this.random.nextInt(400);
+	    }
 
-	   public boolean isAngry() {
-	      return this.anger > 0;
-	   }
+	    private boolean isAngry() {
+	       return this.anger > 0;
+	    }
 
-	   protected SoundEvent getAmbientSound() {
-	      return SoundEvents.ENTITY_ZOMBIE_PIGMAN_AMBIENT;
-	   }
+	    protected SoundEvent getAmbientSound() {
+	       return SoundEvents.ENTITY_ZOMBIE_PIGMAN_AMBIENT;
+	    }
 
-	   protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-	      return SoundEvents.ENTITY_ZOMBIE_PIGMAN_HURT;
-	   }
+	    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
+	       return SoundEvents.ENTITY_ZOMBIE_PIGMAN_HURT;
+	    }
 
-	   protected SoundEvent getDeathSound() {
-	      return SoundEvents.ENTITY_ZOMBIE_PIGMAN_DEATH;
-	   }
+	    protected SoundEvent getDeathSound() {
+	       return SoundEvents.ENTITY_ZOMBIE_PIGMAN_DEATH;
+	    }
 
-	   public boolean interactMob(PlayerEntity playerEntity_1, Hand hand_1) {
-	      return false;
-	   }
+	    public boolean interactMob(PlayerEntity playerEntity_1, Hand hand_1) {
+	       return false;
+	    }
 
-	   protected void initEquipment(LocalDifficulty localDifficulty_1) {
-	      this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
-	   }
+	    protected void initEquipment(LocalDifficulty localDifficulty_1) {
+	       this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
+	    }
 
-	   protected ItemStack getSkull() {
-	      return ItemStack.EMPTY;
-	   }
+	    protected ItemStack getSkull() {
+	       return ItemStack.EMPTY;
+	    }
 
-	   public boolean isAngryAt(PlayerEntity playerEntity_1) {
-	      return this.isAngry();
-	   }
+	    public boolean isAngryAt(PlayerEntity playerEntity_1) {
+	       return this.isAngry();
+	    }
 
-	   static {
-	      ATTACKING_SPEED_BOOST = (new EntityAttributeModifier(ATTACKING_SPEED_BOOST_UUID, "Attacking speed boost", 0.05D, EntityAttributeModifier.Operation.ADDITION)).setSerialize(false);
-	   }
+	    static {
+	       ATTACKING_SPEED_BOOST = (new EntityAttributeModifier(ATTACKING_SPEED_BOOST_UUID, "Attacking speed boost", 0.05D, EntityAttributeModifier.Operation.ADDITION)).setSerialize(false);
+	    }
 
-	   static class FollowPlayerIfAngryGoal extends FollowTargetGoal<PlayerEntity> {
-	      public FollowPlayerIfAngryGoal(WitherPigmanEntity witherPigmanEntity_1) {
-	         super(witherPigmanEntity_1, PlayerEntity.class, true);
-	      }
+	    static class FollowPlayerIfAngryGoal extends FollowTargetGoal<PlayerEntity> {
+	       public FollowPlayerIfAngryGoal(WitherPigmanEntity zombiePigmanEntity_1) {
+	          super(zombiePigmanEntity_1, PlayerEntity.class, true);
+	       }
 
-	      public boolean canStart() {
-	         return ((WitherPigmanEntity)this.mob).isAngry() && super.canStart();
-	      }
-	   }
+	       public boolean canStart() {
+	          return ((WitherPigmanEntity)this.mob).isAngry() && super.canStart();
+	       }
+	    }
 
-	   static class AvoidZombiesGoal extends RevengeGoal {
-	      public AvoidZombiesGoal(WitherPigmanEntity witherPigmanEntity_1) {
-	         super(witherPigmanEntity_1);
-	         this.setGroupRevenge(new Class[]{ZombieEntity.class});
-	      }
+	    static class AvoidZombiesGoal extends RevengeGoal {
+	       public AvoidZombiesGoal(WitherPigmanEntity zombiePigmanEntity_1) {
+	          super(zombiePigmanEntity_1);
+	          this.setGroupRevenge(new Class[]{ZombieEntity.class});
+	       }
 
-	      protected void setMobEntityTarget(MobEntity mobEntity_1, LivingEntity livingEntity_1) {
-	         super.setMobEntityTarget(mobEntity_1, livingEntity_1);
-	         if (mobEntity_1 instanceof WitherPigmanEntity) {
-	            ((WitherPigmanEntity)mobEntity_1).copyEntityData(livingEntity_1);  
-	         }
-	      }     
-	   }   
-     }
+	       protected void setMobEntityTarget(MobEntity mobEntity_1, LivingEntity livingEntity_1) {
+	          if (mobEntity_1 instanceof WitherPigmanEntity && this.mob.canSee(livingEntity_1) && ((WitherPigmanEntity)mobEntity_1).method_20804(livingEntity_1)) {
+	             mobEntity_1.setTarget(livingEntity_1);
+	          }
+
+	       }
+	    }
+	 }

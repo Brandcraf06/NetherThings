@@ -10,6 +10,7 @@ import com.brand.netherthings.blocks.BlockRedstoneOre;
 public class Ores {
 
 	public static BlockOreDiamondP NETHER_VIBRANIUM_ORE;
+	public static BlockOreDiamondP VIBRANIUM_ORE;
 	public static BlockOreWoodP NETHER_COAL_ORE;
 	public static BlockOreStoneP NETHER_IRON_ORE;
 	public static BlockOreIronP NETHER_GOLD_ORE;
@@ -31,7 +32,8 @@ public class Ores {
     NETHER_EMERALD_ORE = new BlockOreIronP("nether_emerald_ore", 3.0f, 3.0f);
     GLOWSTONE_ORE = new BlockGlowOre("glowstone_ore", 3.0f, 3.0f);
     QUARTZ_ORE = new BlockOreWoodP("quartz_ore", 3.0f, 3.0f);
-    NETHER_VIBRANIUM_ORE = new BlockOreDiamondP("nether_vibranium_ore", 6.0f, 6.0f);	
+    NETHER_VIBRANIUM_ORE = new BlockOreDiamondP("nether_vibranium_ore", 6.0f, 6.0f);
+    VIBRANIUM_ORE = new BlockOreDiamondP("vibranium_ore", 6.0f, 6.0f);
     
    } 
 }

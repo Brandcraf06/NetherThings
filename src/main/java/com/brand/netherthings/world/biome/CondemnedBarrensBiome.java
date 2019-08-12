@@ -2,9 +2,12 @@ package com.brand.netherthings.world.biome;
 
 import com.brand.netherthings.content.NetherSurfaces;
 import com.brand.netherthings.content.OtherBlocks;
+import com.brand.netherthings.entities.NetherEntities;
 import com.brand.netherthings.features.NetherThingsFeatures;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EntityCategory;
+import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.ChanceRangeDecoratorConfig;
@@ -40,7 +43,12 @@ public class CondemnedBarrensBiome extends NetherThingsBaseBiome {
 
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, configureFeature(Feature.NETHER_SPRING, new NetherSpringFeatureConfig(true), Decorator.COUNT_RANGE, new RangeDecoratorConfig(16, 10, 20, 128)));
 
-		this.addDefaultMobs();
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(NetherEntities.WITHER_PIGMAN, 100, 4, 4));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(EntityType.WITHER_SKELETON, 50, 2, 2));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(EntityType.GHAST, 25, 4, 4));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(EntityType.MAGMA_CUBE, 2, 4, 4));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(EntityType.ENDERMAN, 1, 4, 4));
+		
 	}
 
 }

@@ -38,14 +38,14 @@ public class HugeGreenGlowingMushroomFeature extends HugeRedMushroomFeature {
 			int shiftDown = 1;
 
 			Block block_01 = iWorld_1.getBlockState(blockPos_1.down()).getBlock();
-			if (block_01 != Blocks.NETHERRACK && block_01 != Blocks.SOUL_SAND) {
+			if (block_01 != Blocks.NETHERRACK && block_01 != Blocks.SOUL_SAND && block_01 != Blocks.GRASS_BLOCK) {
 				while (attemptsRemaining > 0) {
 					attemptsRemaining--;
 					shiftDown++;
 
 					Block block_3 = iWorld_1.getBlockState(blockPos_1.down(shiftDown)).getBlock();
 
-					if (block_3 == Blocks.NETHERRACK || block_3 == Blocks.SOUL_SAND) {
+					if (block_3 == Blocks.NETHERRACK || block_3 == Blocks.SOUL_SAND || block_3 == Blocks.GRASS_BLOCK) {
 						blockPos_1 = startPos.down(shiftDown);
 						break;
 					}

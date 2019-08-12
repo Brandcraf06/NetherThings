@@ -22,7 +22,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class BlockOreDiamondP extends Block {
 	
 	
@@ -38,7 +37,11 @@ public BlockOreDiamondP(Block.Settings block$Settings_1) {
  }
 
  protected int getExperienceWhenMined(Random random_1) {
+   if (this == Ores.VIBRANIUM_ORE) {
+         return MathHelper.nextInt(random_1, 7, 14);
+    } else {
 	 return this == Ores.NETHER_VIBRANIUM_ORE ? MathHelper.nextInt(random_1, 7, 14) : 0;
+    }
  }
  
  public void onStacksDropped(BlockState blockState_1, World world_1, BlockPos blockPos_1, ItemStack itemStack_1) {

@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "netherthings:block/dead_grass"
+    }
+}

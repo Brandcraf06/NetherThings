@@ -16,7 +16,7 @@ public enum NetherBiomeLayer implements InitLayer {
 	
 	private NetherBiomeLayer() {
 		// Add vanilla nether
-		this.addBiome(Biomes.NETHER, 10);
+		this.addBiome(Biomes.NETHER, 20);
 	}
 
 	@Override

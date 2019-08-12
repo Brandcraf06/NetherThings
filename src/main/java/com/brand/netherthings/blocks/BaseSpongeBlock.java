@@ -27,7 +27,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class BaseSpongeBlock extends Block {
 
 	public BaseSpongeBlock(String name, float hardness, float resistance) {

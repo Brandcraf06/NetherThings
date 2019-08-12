@@ -33,7 +33,7 @@ public class HugePurpleGlowingMushroomFeature extends HugeRedMushroomFeature {
 		      int int_2 = blockPos_1.getY();
 		      if (int_2 >= 1 && int_2 + int_1 + 1 < 256) {
 		         Block block_1 = iWorld_1.getBlockState(blockPos_1.down()).getBlock();
-		         if (block_1 != Blocks.NETHERRACK && block_1 != Blocks.SOUL_SAND) {
+		         if (block_1 != Blocks.NETHERRACK && block_1 != Blocks.SOUL_SAND && block_1 != Blocks.GRASS_BLOCK) {
 		            return false;
 		         } else {
 		            BlockPos.Mutable blockPos$Mutable_1 = new BlockPos.Mutable();

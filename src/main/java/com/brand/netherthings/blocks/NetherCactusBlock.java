@@ -13,8 +13,10 @@ import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityContext;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -118,7 +120,9 @@ public NetherCactusBlock(String name, float hardness, float resistance) {
 	   }
 
 	   public void onEntityCollision(BlockState blockState_1, World world_1, BlockPos blockPos_1, Entity entity_1) {
+		if (!entity_1.isFireImmune() && entity_1 instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity_1)) {
 	      entity_1.damage(DamageSource.ON_FIRE, NetherThings.CONFIG.netherCactusDamage);
+	     }
 	   }
 
 	   public BlockRenderLayer getRenderLayer() {

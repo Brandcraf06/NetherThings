@@ -17,12 +17,15 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.*;
 
+
 public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 	
 	   public static final Feature<DefaultFeatureConfig> NETHER_CACTUS;
 	   public static final Feature<PlantedFeatureConfig> HUGE_GREEN_GLOWING_MUSHROOM;
 	   public static final Feature<PlantedFeatureConfig> HUGE_BLUE_GLOWING_MUSHROOM;
 	   public static final Feature<PlantedFeatureConfig> HUGE_PURPLE_GLOWING_MUSHROOM;
+	   public static final Feature<PlantedFeatureConfig> HUGE_BURNT_MUSHROOM_STEM;
+	   public static final Feature<DefaultFeatureConfig> CONDEMNED_TREE;
 	   public static final Feature<OreFeatureConfig> BLAZING_NETHERRACK_ORE;
 	   
 	   private final Function<Dynamic<?>, ? extends FC> configDeserializer;
@@ -70,6 +73,10 @@ public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 		  HUGE_GREEN_GLOWING_MUSHROOM = register("huge_green_glowing_mushroom", new HugeGreenGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
 		  HUGE_BLUE_GLOWING_MUSHROOM = register("huge_blue_glowing_mushroom", new HugeBlueGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
 		  HUGE_PURPLE_GLOWING_MUSHROOM = register("huge_purple_glowing_mushroom", new HugePurpleGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
+		  HUGE_BURNT_MUSHROOM_STEM = register("huge_burnt_mushroom_stem", new HugeBurntMushroomStemFeature(PlantedFeatureConfig::deserialize));
+		  CONDEMNED_TREE = register("condemned_tree", new CondemnedTreeFeature(DefaultFeatureConfig::deserialize, false));
 		  BLAZING_NETHERRACK_ORE = register("blazing_netherrack_ore", new BlazingNetherrackOreFeature(OreFeatureConfig::deserialize));
+
+		      };
 	   }	   
-}
+

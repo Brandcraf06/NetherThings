@@ -1,5 +1,7 @@
 package com.brand.netherthings.entities.MobEntity.WitherPigman;
 
+import com.brand.netherthings.NetherThings;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
@@ -10,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class WitherPigmanEntityRenderer extends BipedEntityRenderer<WitherPigmanEntity, ZombieEntityModel<WitherPigmanEntity>> {
-   private static final Identifier SKIN = new Identifier("textures/entity/wither_pigman.png");
+   private static final Identifier SKIN = new Identifier(NetherThings.MOD_ID, "textures/entity/wither_pigman.png");
 
    @SuppressWarnings({ "rawtypes", "unchecked" })
 public WitherPigmanEntityRenderer(EntityRenderDispatcher entityRenderDispatcher_1) {

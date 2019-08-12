@@ -1,9 +1,11 @@
 package com.brand.netherthings.content;
 
+import com.brand.netherthings.blocks.BaseGrassBlock;
 import com.brand.netherthings.blocks.BaseSpongeBlock;
 import com.brand.netherthings.blocks.BaseWetSpongeBlock;
 import com.brand.netherthings.blocks.BlockBase;
 import com.brand.netherthings.blocks.CustomNetherrackBlock;
+import com.brand.netherthings.blocks.DeadGrass;
 import com.brand.netherthings.blocks.GlowingMushroom;
 import com.brand.netherthings.blocks.GlowingMushroomBlock;
 import com.brand.netherthings.blocks.NetherCactusBlock;
@@ -31,6 +33,8 @@ public class OtherBlocks {
 	public static BaseWetSpongeBlock WET_LAVA_SPONGE;
 	public static VibraniumBlock VIBRANIUM_BLOCK;
 	public static CustomNetherrackBlock BLAZING_NETHERRACK;
+	public static BaseGrassBlock BURNT_GRASS_BLOCK;
+	public static DeadGrass DEAD_GRASS;
 
 
 	public static void init() {
@@ -52,5 +56,7 @@ public class OtherBlocks {
 		VIBRANIUM_BLOCK = new VibraniumBlock("vibranium_block", 4.0f, 12.0f);
 		
 		BLAZING_NETHERRACK = new CustomNetherrackBlock("blazing_netherrack");
+		BURNT_GRASS_BLOCK= new BaseGrassBlock("burnt_grass_block", 0.6f, 0.6f);
+		DEAD_GRASS = new DeadGrass("dead_grass", 0.0f, 0.0f);
 	}
 }

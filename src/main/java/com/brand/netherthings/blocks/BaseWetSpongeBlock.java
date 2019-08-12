@@ -21,7 +21,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class BaseWetSpongeBlock extends Block {
 
 	public BaseWetSpongeBlock(String name, float hardness, float resistance) {
@@ -46,7 +45,7 @@ public class BaseWetSpongeBlock extends Block {
 	               double_3 += random_1.nextDouble();
 	            } else {
 	               double_2 += random_1.nextDouble() * 0.8D;
-	               if (direction_1.getAxis() == Direction.Axis.field_11048) { // X, now unmapped?!
+	               if (direction_1.getAxis() == Direction.Axis.X) { // X, now unmapped?!
 	                  double_3 += random_1.nextDouble();
 	                  if (direction_1 == Direction.EAST) {
 	                     ++double_1;
