@@ -73,8 +73,7 @@ public class BlazeTempleGenerator {
 		 
 		    @Override
 		    public boolean generate(IWorld iWorld, Random random, MutableIntBoundingBox mutableIntBoundingBox, ChunkPos chunkPos) {
-		        int yHeight = iWorld.getTop(Heightmap.Type.WORLD_SURFACE_WG, this.pos.getX() + 8, this.pos.getZ() + 8);
-		        this.pos = this.pos.add(0, yHeight - 1, 0);
+		        this.pos = this.pos.add(0, - 1, 0);
 		        return super.generate(iWorld, random, mutableIntBoundingBox, chunkPos);
 		    }
 		 

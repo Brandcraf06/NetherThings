@@ -26,9 +26,9 @@ public class NetherBiomes {
 	public static void init() {
 		
 		// Biomes
-		addBiome(GLOWING_JUNGLE, 10);
-		addBiome(CONDEMNED_BARRENS, 10);
-		addBiome(BLAZING_SOILS, 10);
+		addBiome(GLOWING_JUNGLE, 15);
+		addBiome(CONDEMNED_BARRENS, 15);
+		addBiome(BLAZING_SOILS, 15);
 		addBiome(NETHER_MEADOW, 5);
 		
 		// Sub Biomes

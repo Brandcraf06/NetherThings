@@ -33,8 +33,6 @@ public abstract class NetherDimensionMixin extends Dimension {
 
 		// use vanilla chunk generator with custom biome source
 		info.setReturnValue(ChunkGeneratorType.CAVES.create(this.world, new NetherThingsBiomeSource(this.world.getSeed()), config));
-		
-		
 	}
 
 }

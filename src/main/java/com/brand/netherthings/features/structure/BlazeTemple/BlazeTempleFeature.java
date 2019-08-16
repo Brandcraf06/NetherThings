@@ -11,29 +11,32 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableIntBoundingBox;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.AbstractTempleFeature;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-public class BlazeTempleFeature extends AbstractTempleFeature<DefaultFeatureConfig>
+public class BlazeTempleFeature extends StructureFeature<DefaultFeatureConfig>
 	{
 	    public BlazeTempleFeature()
 	    {
 	        super(DefaultFeatureConfig::deserialize);
 	    }
 	
-	@Override
-    public boolean shouldStartAt(ChunkGenerator<?> chunkGenerator_1, Random random_1, int int_1, int int_2)
-    {
-
-        return true;
-    }
-
-
-	@Override
-	protected int getSeedModifier() {
-		return 61498461;
-	}
+	public boolean shouldStartAt(ChunkGenerator<?> chunkGenerator_1, Random random_1, int int_1, int int_2) {
+	      int int_3 = int_1 >> 4;
+	      int int_4 = int_2 >> 4;
+	      random_1.setSeed((long)(int_3 ^ int_4 << 4) ^ chunkGenerator_1.getSeed());
+	      random_1.nextInt();
+	      if (random_1.nextInt(3) != 0) {
+	         return false;
+	      } else if (int_1 != (int_3 << 4) + 4 + random_1.nextInt(8)) {
+	         return false;
+	      } else if (int_2 != (int_4 << 4) + 4 + random_1.nextInt(8)) {
+	         return false;
+	      } else {
+	         Biome biome_1 = chunkGenerator_1.getBiomeSource().getBiome(new BlockPos((int_1 << 4) + 9, 0, (int_2 << 4) + 9));
+	         return chunkGenerator_1.hasStructure(biome_1, NetherThingsStructureFeature.blazetempleFeature);
+	      }
+	   }
 
 	@Override
 	public StructureStartFactory getStructureStartFactory() {
