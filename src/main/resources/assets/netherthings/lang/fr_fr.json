@@ -25,13 +25,28 @@
 	"block.netherthings.wet_lava_sponge": "Eponge à lave mouillée",
 	"block.netherthings.nether_vibranium_ore": "Minerai de Vibranium du Nether",
 	"block.netherthings.vibranium_block": "Bloc de Vibranium",
+	"block.netherthings.blazing_netherrack": "Netherrack flamboyante",
+	"block.netherthings.condemned_leaves": "Feuilles condamnées",
+	"block.netherthings.bone_log": "Bûche d'os",
+	"block.netherthings.tilled_soul_sand": "Sable des âmes labouré",
+	"block.netherthings.glowing_reeds": "Roseaux lumineux",
 	
 	"item.netherthings.glowing_stew": "Soupe lumineuse",
+	"item.netherthings.ghost_bread": "Pain fantôme",
+	"item.netherthings.ghost_wheat": "Blé fantôme",
+	"item.netherthings.ghost_seeds": "Graines fantôme",
+	
+	
 	"item.netherthings.glowstone_ingot": "Lingot de pierre lumineuse",
 	"item.netherthings.obsidian_rod": "Bâton d'obsidienne",
 	"item.netherthings.vibranium": "Vibranium",
 	"item.minecraft.quartz": "Quartz",
-	"item.netherthings.wither_pigman_spawn_egg": "Oeuf d'apparition de Cochon-Wither WIP",
+	
+	
+	"item.netherthings.wither_pigman_spawn_egg": "Oeuf d'apparition de Cochon-Wither",
+	"item.netherthings.blue_glowmoo_spawn_egg": "Oeuf d'apparition de Lumimeuh bleue",
+	"item.netherthings.green_glowmoo_spawn_egg": "Oeuf d'apparition de Lumimeuh verte",
+	"item.netherthings.purple_glowmoo_spawn_egg": "Oeuf d'apparition de Lumimeuh violette",
 	
 	"item.netherthings.nether_helmet": "Casque du Nether",
 	"item.netherthings.nether_chestplate": "Plastron du Nether",
@@ -64,5 +79,16 @@
 	"item.netherthings.vibranium_sword": "Epee en Vibranium",
 	
 	"entity.netherthings.wither_pigman": "Cochon-Wither"
+	"entity.netherthings.blue_glowmoo": "Lumimeuh bleue",
+	"entity.netherthings.green_glowmoo": "Lumimeuh verte",
+	"entity.netherthings.purple_glowmoo": "Lumimeuh violette",
+	
+	"biome.netherthings.condemned_barrens": "Barrens condamnés",
+	"biome.netherthings.glowing_jungle": "Jungle lumineuse",
+	"biome.netherthings.mushroom_forest": "Foret de champignons",
+	"biome.netherthings.blazing_soils": "Sols flamboyants",
+	"biome.netherthings.condemned_forest": "Forêt condamnée",
+	"biome.netherthings.nether_meadow": "Prairie du Nether",
+	"biome.netherthings.burnt_meadow": "Prairie brûlée"
 
 }

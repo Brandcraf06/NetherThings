@@ -1,9 +1,9 @@
 package com.brand.netherthings.stuff.glowstone;
 
 import com.brand.netherthings.stuff.NetherStuff;
-import com.brand.netherthings.stuff.base.BaseHoe;
+import com.brand.netherthings.stuff.netherhoe.BaseNetherHoe;
 
-public class GlowstoneHoe extends BaseHoe
+public class GlowstoneHoe extends BaseNetherHoe
 {
 	public GlowstoneHoe()
     {

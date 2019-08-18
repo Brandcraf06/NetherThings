@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "netherthings:block/ghost_wheat_stage4"
+    }
+}

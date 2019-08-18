@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "moisture=0": { "model": "netherthings:block/tilled_soul_sand" },
+        "moisture=1": { "model": "netherthings:block/tilled_soul_sand" },
+        "moisture=2": { "model": "netherthings:block/tilled_soul_sand" },
+        "moisture=3": { "model": "netherthings:block/tilled_soul_sand" },
+        "moisture=4": { "model": "netherthings:block/tilled_soul_sand" },
+        "moisture=5": { "model": "netherthings:block/tilled_soul_sand" },
+        "moisture=6": { "model": "netherthings:block/tilled_soul_sand" },
+        "moisture=7": { "model": "netherthings:block/tilled_soul_sand_moist" }
+    }
+}

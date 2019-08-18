@@ -2,6 +2,7 @@ package com.brand.netherthings;
 
 
 import com.brand.netherthings.config.NetherThingsConfig;
+import com.brand.netherthings.content.Crops;
 import com.brand.netherthings.content.NetherBiomes;
 import com.brand.netherthings.content.NetherSurfaces;
 import com.brand.netherthings.content.Ores;
@@ -33,6 +34,7 @@ public class NetherThings implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		Ores.init();
+		Crops.init();
 		OtherBlocks.init();
 		
 		NetherOres.addNetherOres();

@@ -37,12 +37,12 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-public class PlowedNetherrackBlock extends Block {
+public class TilledSoulSandBlock extends Block {
 	   public static final IntProperty MOISTURE;
 	   protected static final VoxelShape SHAPE;
 
-	   public PlowedNetherrackBlock(String name, float hardness, float resistance) {
-			super(FabricBlockSettings.of(Material.STONE).strength(hardness, resistance).build());
+	   public TilledSoulSandBlock(String name, float hardness, float resistance) {
+			super(FabricBlockSettings.of(Material.SAND).ticksRandomly().strength(hardness, resistance).build());
 			Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
 			Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	        this.setDefaultState((BlockState)((BlockState)this.stateFactory.getDefaultState()).with(MOISTURE, 0));
@@ -62,7 +62,7 @@ public class PlowedNetherrackBlock extends Block {
 	   }
 
 	   public BlockState getPlacementState(ItemPlacementContext itemPlacementContext_1) {
-	      return !this.getDefaultState().canPlaceAt(itemPlacementContext_1.getWorld(), itemPlacementContext_1.getBlockPos()) ? Blocks.NETHERRACK.getDefaultState() : super.getPlacementState(itemPlacementContext_1);
+	      return !this.getDefaultState().canPlaceAt(itemPlacementContext_1.getWorld(), itemPlacementContext_1.getBlockPos()) ? Blocks.SOUL_SAND.getDefaultState() : super.getPlacementState(itemPlacementContext_1);
 	   }
 
 	   public boolean hasSidedTransparency(BlockState blockState_1) {
@@ -75,14 +75,14 @@ public class PlowedNetherrackBlock extends Block {
 
 	   public void onScheduledTick(BlockState blockState_1, World world_1, BlockPos blockPos_1, Random random_1) {
 	      if (!blockState_1.canPlaceAt(world_1, blockPos_1)) {
-	         setToNetherrack(blockState_1, world_1, blockPos_1);
+	         setToSoulsand(blockState_1, world_1, blockPos_1);
 	      } else {
 	         int int_1 = (Integer)blockState_1.get(MOISTURE);
 	         if (!isLavaNearby(world_1, blockPos_1)) {
 	            if (int_1 > 0) {
 	               world_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(MOISTURE, int_1 - 1), 2);
 	            } else if (!hasCrop(world_1, blockPos_1)) {
-	               setToNetherrack(blockState_1, world_1, blockPos_1);
+	               setToSoulsand(blockState_1, world_1, blockPos_1);
 	            }
 	         } else if (int_1 < 7) {
 	            world_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(MOISTURE, 7), 2);
@@ -93,14 +93,14 @@ public class PlowedNetherrackBlock extends Block {
 
 	   public void onLandedUpon(World world_1, BlockPos blockPos_1, Entity entity_1, float float_1) {
 	      if (!world_1.isClient && world_1.random.nextFloat() < float_1 - 0.5F && entity_1 instanceof LivingEntity && (entity_1 instanceof PlayerEntity || world_1.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) && entity_1.getWidth() * entity_1.getWidth() * entity_1.getHeight() > 0.512F) {
-	         setToNetherrack(world_1.getBlockState(blockPos_1), world_1, blockPos_1);
+	         setToSoulsand(world_1.getBlockState(blockPos_1), world_1, blockPos_1);
 	      }
 
 	      super.onLandedUpon(world_1, blockPos_1, entity_1, float_1);
 	   }
 
-	   public static void setToNetherrack(BlockState blockState_1, World world_1, BlockPos blockPos_1) {
-	      world_1.setBlockState(blockPos_1, pushEntitiesUpBeforeBlockChange(blockState_1, Blocks.NETHERRACK.getDefaultState(), world_1, blockPos_1));
+	   public static void setToSoulsand(BlockState blockState_1, World world_1, BlockPos blockPos_1) {
+	      world_1.setBlockState(blockPos_1, Blocks.SOUL_SAND.getDefaultState());
 	   }
 
 	   private static boolean hasCrop(BlockView blockView_1, BlockPos blockPos_1) {

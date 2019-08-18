@@ -26,13 +26,26 @@
 	"block.netherthings.nether_vibranium_ore": "Nether Vibranium Ore",
 	"block.netherthings.vibranium_block": "Vibranium Block",
 	"block.netherthings.blazing_netherrack": "Blazing Netherrack",
+	"block.netherthings.condemned_leaves": "Condemned Leaves",
+	"block.netherthings.bone_log": "Bone Log",
+	"block.netherthings.tilled_soul_sand": "Tilled Soul Sand",
+	"block.netherthings.glowing_reeds": "Glowing Reeds",
+	
 	
 	"item.netherthings.glowing_stew": "Glowing Stew",
+	"item.netherthings.ghost_bread": "Ghost Bread",
+	"item.netherthings.ghost_wheat": "Ghost Wheat",
+	"item.netherthings.ghost_seeds": "Ghost Seeds",
+	
 	"item.netherthings.glowstone_ingot": "Glowstone Ingot",
 	"item.netherthings.obsidian_rod": "Obsidian Rod",
 	"item.netherthings.vibranium": "Vibranium",
 	"item.minecraft.quartz": "Quartz",
-	"item.netherthings.wither_pigman_spawn_egg": "Wither Pigman Spawn Egg WIP",
+	
+	"item.netherthings.wither_pigman_spawn_egg": "Wither Pigman Spawn Egg",
+	"item.netherthings.blue_glowmoo_spawn_egg": "Blue Glowmoo Spawn Egg",
+	"item.netherthings.green_glowmoo_spawn_egg": "Green Glowmoo Spawn Egg",
+	"item.netherthings.purple_glowmoo_spawn_egg": "Purple Glowmoo Spawn Egg",
 	
 	"item.netherthings.nether_helmet": "Nether Helmet",
 	"item.netherthings.nether_chestplate": "Nether Chestplate",
@@ -65,10 +78,16 @@
 	"item.netherthings.vibranium_sword": "Vibranium Sword",
 	
 	"entity.netherthings.wither_pigman": "Wither Pigman",
+	"entity.netherthings.blue_glowmoo": "Blue Glowmoo",
+	"entity.netherthings.green_glowmoo": "Green Glowmoo",
+	"entity.netherthings.purple_glowmoo": "Purple Glowmoo",
 	
 	"biome.netherthings.condemned_barrens": "Condemned Barrens",
 	"biome.netherthings.glowing_jungle": "Glowing Jungle",
 	"biome.netherthings.mushroom_forest": "Mushroom Forest",
-	"biome.netherthings.blazing_soils": "Blazing Soils"
+	"biome.netherthings.blazing_soils": "Blazing Soils",
+	"biome.netherthings.condemned_forest": "Condemned Forest",
+	"biome.netherthings.nether_meadow": "Nether Meadow",
+	"biome.netherthings.burnt_meadow": "Burnt Meadow"
 
 }

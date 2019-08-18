@@ -45,7 +45,7 @@ public class NetherHoeItem extends ToolItem {
 	         BlockState blockState_1 = (BlockState)MOD_TILLED_BLOCKS.get(world_1.getBlockState(blockPos_1).getBlock());
 	         if (blockState_1 != null) {
 	            PlayerEntity playerEntity_1 = itemUsageContext_1.getPlayer();
-	            world_1.playSound(playerEntity_1, blockPos_1, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
+	            world_1.playSound(playerEntity_1, blockPos_1, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 	            if (!world_1.isClient) {
 	               world_1.setBlockState(blockPos_1, blockState_1, 11);
 	               if (playerEntity_1 != null) {
@@ -80,6 +80,6 @@ public class NetherHoeItem extends ToolItem {
 	   }
 
 	   static {
-		   MOD_TILLED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.NETHERRACK, OtherBlocks.PLOWED_NETHERRACK.getDefaultState(), Blocks.GRASS_BLOCK, Blocks.FARMLAND.getDefaultState(), Blocks.GRASS_PATH, Blocks.FARMLAND.getDefaultState(), Blocks.DIRT, Blocks.FARMLAND.getDefaultState(), Blocks.COARSE_DIRT, Blocks.DIRT.getDefaultState()));
+		   MOD_TILLED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.SOUL_SAND, OtherBlocks.TILLED_SOUL_SAND.getDefaultState(), Blocks.GRASS_BLOCK, Blocks.FARMLAND.getDefaultState(), Blocks.GRASS_PATH, Blocks.FARMLAND.getDefaultState(), Blocks.DIRT, Blocks.FARMLAND.getDefaultState(), Blocks.COARSE_DIRT, Blocks.DIRT.getDefaultState()));
 	   }
 	}

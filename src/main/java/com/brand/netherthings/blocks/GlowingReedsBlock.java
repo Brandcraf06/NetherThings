@@ -35,9 +35,10 @@ public class GlowingReedsBlock extends Block {
 	   protected static final VoxelShape SHAPE;
 
 	   public GlowingReedsBlock(String name, float hardness, float resistance) {
-			super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).collidable(false).lightLevel(7).strength(hardness, resistance).build());
+			super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GLASS).collidable(false).ticksRandomly().lightLevel(7).strength(hardness, resistance).build());
 			Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
 			Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
+			this.setDefaultState((BlockState)((BlockState)this.stateFactory.getDefaultState()).with(AGE, 0));
 		}
 
 	   public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityContext entityContext_1) {

@@ -12,9 +12,9 @@ import com.brand.netherthings.blocks.GlowingMushroomBlock;
 import com.brand.netherthings.blocks.GlowingReedsBlock;
 import com.brand.netherthings.blocks.NetherCactusBlock;
 import com.brand.netherthings.blocks.PillarBase;
-import com.brand.netherthings.blocks.PlowedNetherrackBlock;
 import com.brand.netherthings.blocks.SlabBlockBase;
 import com.brand.netherthings.blocks.StairsBlockBase;
+import com.brand.netherthings.blocks.TilledSoulSandBlock;
 import com.brand.netherthings.blocks.VibraniumBlock;
 
 import net.minecraft.util.DyeColor;
@@ -42,7 +42,7 @@ public class OtherBlocks {
 	public static GlowingReedsBlock GLOWING_REEDS;
 	public static CondemnedLeavesBlock CONDEMNED_LEAVES;
 	public static PillarBase BONE_LOG;
-	public static PlowedNetherrackBlock PLOWED_NETHERRACK;
+	public static TilledSoulSandBlock TILLED_SOUL_SAND;
 
 
 	public static void init() {
@@ -69,6 +69,6 @@ public class OtherBlocks {
 		GLOWING_REEDS = new GlowingReedsBlock("glowing_reeds", 0.0f, 0.0f);
 		CONDEMNED_LEAVES = new CondemnedLeavesBlock("condemned_leaves", 0.2f, 0.2f);
 		BONE_LOG = new PillarBase("bone_log", 2.0f, 2.0f);
-		PLOWED_NETHERRACK = new PlowedNetherrackBlock("plowed_netherrack", 2.0f, 2.0f);
+		TILLED_SOUL_SAND = new TilledSoulSandBlock("tilled_soul_sand", 2.0f, 2.0f);
 	}
 }
