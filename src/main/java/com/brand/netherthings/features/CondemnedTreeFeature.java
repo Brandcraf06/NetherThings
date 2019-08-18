@@ -4,10 +4,10 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
+import com.brand.netherthings.content.OtherBlocks;
 import com.mojang.datafixers.Dynamic;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableIntBoundingBox;
 import net.minecraft.world.ModifiableTestableWorld;
@@ -71,9 +71,9 @@ public class CondemnedTreeFeature extends AbstractNetherTreeFeature<DefaultFeatu
 	            int int_20;
 	            BlockPos blockPos_4;
 	            int int_21;
-	            for(int_21 = blockPos_1.getY() - 2 + int_1; int_21 <= blockPos_1.getY() + int_1; ++int_21) {
+	            for(int_21 = blockPos_1.getY() - 3 + int_1; int_21 <= blockPos_1.getY() + int_1; ++int_21) {
 	               int_9 = int_21 - (blockPos_1.getY() + int_1);
-	               int_18 = 1 - int_9 / 1;
+	               int_18 = 2 - int_9 / 2;
 
 	               for(int int_11 = blockPos_1.getX() - int_18; int_11 <= blockPos_1.getX() + int_18; ++int_11) {
 	                  int_19 = int_11 - blockPos_1.getX();
@@ -106,7 +106,7 @@ public class CondemnedTreeFeature extends AbstractNetherTreeFeature<DefaultFeatu
 	   }
 
 	   static {
-	      LOG = Blocks.BONE_BLOCK.getDefaultState();
-	      LEAVES = Blocks.NETHER_WART_BLOCK.getDefaultState();
+	      LOG = OtherBlocks.BONE_LOG.getDefaultState();
+	      LEAVES = OtherBlocks.CONDEMNED_LEAVES.getDefaultState();
 	   }
 	}

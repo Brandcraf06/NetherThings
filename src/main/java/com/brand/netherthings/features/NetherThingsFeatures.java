@@ -26,6 +26,7 @@ public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 	   public static final Feature<PlantedFeatureConfig> HUGE_PURPLE_GLOWING_MUSHROOM;
 	   public static final Feature<PlantedFeatureConfig> HUGE_BURNT_MUSHROOM_STEM;
 	   public static final Feature<DefaultFeatureConfig> CONDEMNED_TREE;
+	   public static final Feature<DefaultFeatureConfig> GLOWING_REEDS;
 	   public static final Feature<OreFeatureConfig> BLAZING_NETHERRACK_ORE;
 	   
 	   private final Function<Dynamic<?>, ? extends FC> configDeserializer;
@@ -75,6 +76,7 @@ public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 		  HUGE_PURPLE_GLOWING_MUSHROOM = register("huge_purple_glowing_mushroom", new HugePurpleGlowingMushroomFeature(PlantedFeatureConfig::deserialize));
 		  HUGE_BURNT_MUSHROOM_STEM = register("huge_burnt_mushroom_stem", new HugeBurntMushroomStemFeature(PlantedFeatureConfig::deserialize));
 		  CONDEMNED_TREE = register("condemned_tree", new CondemnedTreeFeature(DefaultFeatureConfig::deserialize, false));
+		  GLOWING_REEDS = register("glowing_reeds", new GlowingReedsFeature(DefaultFeatureConfig::deserialize));
 		  BLAZING_NETHERRACK_ORE = register("blazing_netherrack_ore", new BlazingNetherrackOreFeature(OreFeatureConfig::deserialize));
 
 		      };

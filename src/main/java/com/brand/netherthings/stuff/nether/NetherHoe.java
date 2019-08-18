@@ -1,9 +1,9 @@
 package com.brand.netherthings.stuff.nether;
 
 import com.brand.netherthings.stuff.NetherStuff;
-import com.brand.netherthings.stuff.base.BaseHoe;
+import com.brand.netherthings.stuff.netherhoe.BaseNetherHoe;
 
-public class NetherHoe extends BaseHoe
+public class NetherHoe extends BaseNetherHoe
 {
 	public NetherHoe()
     {

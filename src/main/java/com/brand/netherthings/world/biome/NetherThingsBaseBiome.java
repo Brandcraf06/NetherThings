@@ -58,6 +58,10 @@ public abstract class NetherThingsBaseBiome extends Biome {
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, configureFeature(Feature.NETHER_BRIDGE, FeatureConfig.DEFAULT, Decorator.NOPE, DecoratorConfig.DEFAULT));
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, configureFeature(Feature.HELL_FIRE, FeatureConfig.DEFAULT, Decorator.HELL_FIRE, new CountDecoratorConfig(fireCount)));
 		
+		// Vegetation
+		if (NetherThings.CONFIG.enableGlowingReedsGeneration)	{
+		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(NetherThingsFeatures.GLOWING_REEDS, FeatureConfig.DEFAULT, Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(80)));
+		}
 		
 		Registry.register(Registry.BIOME, new Identifier(NetherThings.MOD_ID, name), this);
 	}

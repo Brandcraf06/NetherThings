@@ -13,7 +13,7 @@ import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.CactusFeature;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 
-public class NetherCactusFeature extends CactusFeature {   
+public class NetherCactusFeature extends CactusFeature { 
 	public NetherCactusFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> function_1) {
 	      super(function_1);
 	   }

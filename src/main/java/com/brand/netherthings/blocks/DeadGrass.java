@@ -23,7 +23,7 @@ public class DeadGrass extends PlantBlock {
 	protected static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	
 	public DeadGrass(String name, float hardness, float resistance) {
-		super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).collidable(false).lightLevel(7).strength(hardness, resistance).build());
+		super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).collidable(false).strength(hardness, resistance).build());
 		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
 		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	   }

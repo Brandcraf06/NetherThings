@@ -11,6 +11,7 @@ public class NetherThingsConfig implements ConfigData {
     public boolean enableNetherVibraniumOre = true;
     public boolean enableNetherOresInOverworld = true;
     public boolean enableOverworldOresInNether = true;
+	public boolean enableGlowingReedsGeneration = true;  
     public float netherCactusDamage = 5.0F;
     
     // vibranium config

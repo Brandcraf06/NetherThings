@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y": { "model": "netherthings:block/bone_log" },
+        "axis=z": { "model": "netherthings:block/bone_log", "x": 90 },
+        "axis=x": { "model": "netherthings:block/bone_log", "x": 90, "y": 90 }
+    }
+}
