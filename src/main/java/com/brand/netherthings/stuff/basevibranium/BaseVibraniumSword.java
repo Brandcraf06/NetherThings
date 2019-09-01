@@ -10,6 +10,6 @@ public class BaseVibraniumSword extends SwordItem
 {
     protected BaseVibraniumSword(ToolMaterial toolMaterial_1)
     {
-        super(toolMaterial_1, 1, -1.0f, new Item.Settings().group(NetherThings.NETHER_THINGS_GROUP));
+        super(toolMaterial_1, 1, -2.0f, new Item.Settings().group(NetherThings.NETHER_THINGS_GROUP));
     }
 }

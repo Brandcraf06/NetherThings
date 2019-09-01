@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "vibranium_block",
+  "ingredients": [
+    {
+      "item": "netherthings:compressed_vibranium_block"
+    }
+  ],
+  "result": {
+    "item": "netherthings:vibranium_block",
+    "count": 9
+  }
+}

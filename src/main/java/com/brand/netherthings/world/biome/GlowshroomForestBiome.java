@@ -17,10 +17,10 @@ import net.minecraft.world.gen.feature.NetherSpringFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlantedFeatureConfig;
 
-public class MushroomForestBiome extends NetherThingsBaseBiome {
+public class GlowshroomForestBiome extends NetherThingsBaseBiome {
 
-	public MushroomForestBiome() {
-		super("mushroom_forest", NetherSurfaces.DEFAULT_CONFIG, 8);
+	public GlowshroomForestBiome() {
+		super("glowshroom_forest", NetherSurfaces.DEFAULT_CONFIG, 8);
 
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(NetherThingsFeatures.HUGE_BLUE_GLOWING_MUSHROOM, new PlantedFeatureConfig(false), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(100)));
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(NetherThingsFeatures.HUGE_GREEN_GLOWING_MUSHROOM, new PlantedFeatureConfig(false), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(100)));

@@ -1,0 +1,6 @@
+{
+    "parent": "netherthings:block/crop_cross",
+    "textures": {
+        "cross": "netherthings:block/quartz_crop_stage7"
+    }
+}

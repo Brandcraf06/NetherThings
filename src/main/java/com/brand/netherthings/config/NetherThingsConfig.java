@@ -6,13 +6,26 @@ import me.sargunvohra.mcmods.autoconfig1.annotation.Config;
 @Config(name = "netherthings")
 public class NetherThingsConfig implements ConfigData {
     public boolean enableNetherMushrooms = true;
+	public boolean enableHugeNetherMushroomsGeneration = true;
     public boolean enableNetherCactus = true;
     public boolean enableBasaltGeneration = true;
     public boolean enableNetherVibraniumOre = true;
+	public boolean enableVibraniumOreSound = true;
     public boolean enableNetherOresInOverworld = true;
     public boolean enableOverworldOresInNether = true;
-	public boolean enableGlowingReedsGeneration = true;  
+	public boolean enableGlowingReedsGeneration = true; 
+	public boolean enableBlazingBerryBushGeneration = true;
+	public boolean enableInvincibilityPotionRecipe = true;
     public float netherCactusDamage = 5.0F;
+    public float blazingBerryBushDamage = 4.0F;
+	public float vibraniumOreSoundVolume = 0.08F;
+	
+    // biomes
+	public boolean enableGlowingJungleBiome = true;
+	public boolean enableCondemnedBarrensBiome = true;
+	public boolean enableBlazingSoilsBiome = true;
+	public boolean enableNetherMeadowBiome = true;
+	public boolean enableGlowshroomForestBiome = true;
     
     // vibranium config
     public int vibraniumToolDurability = 21850;

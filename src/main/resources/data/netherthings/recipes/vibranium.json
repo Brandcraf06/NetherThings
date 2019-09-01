@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "netherthings:nether_vibranium_ore"
+    "tag": "netherthings:vibranium_ores"
   },
   "result": "netherthings:vibranium",
   "experience": 0.7,

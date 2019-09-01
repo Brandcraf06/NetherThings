@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.function.Function;
 
 import com.brand.netherthings.content.OtherBlocks;
+import com.brand.netherthings.features.AbstractNetherTreeFeature;
 import com.mojang.datafixers.Dynamic;
 
 import net.minecraft.block.BlockState;

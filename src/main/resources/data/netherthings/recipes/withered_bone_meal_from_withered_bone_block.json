@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "witheredbonemeal",
+  "ingredients": [
+    {
+      "item": "netherthings:withered_bone_block"
+    }
+  ],
+  "result": {
+    "item": "netherthings:withered_bone_meal",
+    "count": 9
+  }
+}

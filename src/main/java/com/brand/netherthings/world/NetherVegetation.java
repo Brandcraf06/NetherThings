@@ -35,5 +35,13 @@ public class NetherVegetation {
 				}
 			}
 		}
+		
+		if (NetherThings.CONFIG.enableBlazingBerryBushGeneration) {
+			for (Biome biome : Registry.BIOME) {
+				if (biome == Biomes.NETHER) {
+					biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(NetherThingsFeatures.BLAZING_BERRY_BUSH, FeatureConfig.DEFAULT, Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(3)));
+				}
+			}
+		}
 	}
 }

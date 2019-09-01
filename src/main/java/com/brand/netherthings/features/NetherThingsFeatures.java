@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
+import com.brand.netherthings.blocks.Crops.BlazingBerryBushBlock;
+import com.brand.netherthings.content.Crops;
+import com.brand.netherthings.features.CondemnedTreeFeature;
+import com.brand.netherthings.features.Plants.GlowingReedsFeature;
+import com.brand.netherthings.features.Plants.NetherWildCropFeature;
 import com.mojang.datafixers.Dynamic;
 
 import net.minecraft.block.BlockState;
@@ -27,6 +32,7 @@ public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 	   public static final Feature<PlantedFeatureConfig> HUGE_BURNT_MUSHROOM_STEM;
 	   public static final Feature<DefaultFeatureConfig> CONDEMNED_TREE;
 	   public static final Feature<DefaultFeatureConfig> GLOWING_REEDS;
+	   public static final Feature<DefaultFeatureConfig> BLAZING_BERRY_BUSH;
 	   public static final Feature<OreFeatureConfig> BLAZING_NETHERRACK_ORE;
 	   
 	   private final Function<Dynamic<?>, ? extends FC> configDeserializer;
@@ -77,6 +83,7 @@ public abstract class NetherThingsFeatures<FC extends FeatureConfig> {
 		  HUGE_BURNT_MUSHROOM_STEM = register("huge_burnt_mushroom_stem", new HugeBurntMushroomStemFeature(PlantedFeatureConfig::deserialize));
 		  CONDEMNED_TREE = register("condemned_tree", new CondemnedTreeFeature(DefaultFeatureConfig::deserialize, false));
 		  GLOWING_REEDS = register("glowing_reeds", new GlowingReedsFeature(DefaultFeatureConfig::deserialize));
+		  BLAZING_BERRY_BUSH = register("blazing_berry_bush", new NetherWildCropFeature(DefaultFeatureConfig::deserialize, (BlockState)Crops.BLAZING_BERRY_BUSH.getDefaultState().with(BlazingBerryBushBlock.AGE, 3)));
 		  BLAZING_NETHERRACK_ORE = register("blazing_netherrack_ore", new BlazingNetherrackOreFeature(OreFeatureConfig::deserialize));
 
 		      };

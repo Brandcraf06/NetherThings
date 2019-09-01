@@ -1,4 +1,4 @@
-package com.brand.netherthings.features;
+package com.brand.netherthings.features.Plants;
 
 import java.util.Random;
 import java.util.function.Function;
@@ -14,7 +14,7 @@ import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.ReedFeature;
 
-public class GlowingReedsFeature extends ReedFeature {   
+public class GlowingReedsFeature extends ReedFeature {
 	public GlowingReedsFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> function_1) {
 	      super(function_1);
 	   }

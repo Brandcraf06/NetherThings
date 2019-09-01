@@ -1,11 +1,13 @@
 package com.brand.netherthings.content;
 
+import com.brand.netherthings.NetherThings;
 import com.brand.netherthings.world.biome.BlazingSoilsBiome;
 import com.brand.netherthings.world.biome.BurntMeadowBiome;
 import com.brand.netherthings.world.biome.CondemnedBarrensBiome;
 import com.brand.netherthings.world.biome.CondemnedForestBiome;
 import com.brand.netherthings.world.biome.GlowingJungleBiome;
-import com.brand.netherthings.world.biome.MushroomForestBiome;
+import com.brand.netherthings.world.biome.GlowshroomForestBiome;
+import com.brand.netherthings.world.biome.MagmaticSoilsBiome;
 import com.brand.netherthings.world.biome.NetherMeadowBiome;
 import com.brand.netherthings.world.biome.layer.NetherBiomeLayer;
 import com.brand.netherthings.world.biome.layer.NetherSubBiomeLayer;
@@ -18,23 +20,49 @@ public class NetherBiomes {
 	public static final GlowingJungleBiome GLOWING_JUNGLE = new GlowingJungleBiome();
 	public static final CondemnedBarrensBiome CONDEMNED_BARRENS = new CondemnedBarrensBiome();
 	public static final CondemnedForestBiome CONDEMNED_FOREST = new CondemnedForestBiome();
-	public static final MushroomForestBiome MUSHROOM_FOREST = new MushroomForestBiome();
+	public static final GlowshroomForestBiome GLOWSHROOM_FOREST = new GlowshroomForestBiome();
 	public static final BlazingSoilsBiome BLAZING_SOILS = new BlazingSoilsBiome();
+	public static final MagmaticSoilsBiome MAGMATIC_SOILS = new MagmaticSoilsBiome();
 	public static final NetherMeadowBiome NETHER_MEADOW = new NetherMeadowBiome();
 	public static final BurntMeadowBiome BURNT_MEADOW = new BurntMeadowBiome();
 	
 	public static void init() {
 		
 		// Biomes
+		
+		if (NetherThings.CONFIG.enableGlowingJungleBiome || NetherThings.CONFIG.enableHugeNetherMushroomsGeneration) {
 		addBiome(GLOWING_JUNGLE, 15);
+		}
+		
+		if (NetherThings.CONFIG.enableCondemnedBarrensBiome) {
 		addBiome(CONDEMNED_BARRENS, 15);
+		}
+		
+		if (NetherThings.CONFIG.enableBlazingSoilsBiome) {
 		addBiome(BLAZING_SOILS, 15);
-		addBiome(NETHER_MEADOW, 5);
+		
+		if (NetherThings.CONFIG.enableNetherMeadowBiome) {
+		addBiome(NETHER_MEADOW, 7);
+		}
 		
 		// Sub Biomes
-		addSubBiome(Biomes.NETHER, MUSHROOM_FOREST, 25);
+		
+		if (NetherThings.CONFIG.enableGlowshroomForestBiome || NetherThings.CONFIG.enableHugeNetherMushroomsGeneration) {
+		addSubBiome(Biomes.NETHER, GLOWSHROOM_FOREST, 25);
+		}
+		
+		if (NetherThings.CONFIG.enableNetherMeadowBiome) {
 		addSubBiome(NetherBiomes.NETHER_MEADOW, BURNT_MEADOW, 25);
+		}
+		
+		if (NetherThings.CONFIG.enableCondemnedBarrensBiome || NetherThings.CONFIG.enableHugeNetherMushroomsGeneration) {
 		addSubBiome(NetherBiomes.CONDEMNED_BARRENS, CONDEMNED_FOREST, 40);
+		}
+		
+		if (NetherThings.CONFIG.enableBlazingSoilsBiome) {
+			addSubBiome(NetherBiomes.BLAZING_SOILS, MAGMATIC_SOILS, 20);
+			}
+	  }
 	}
 	
 	/**

@@ -51,7 +51,7 @@ public class NetherThingsGreenBaseBiome extends Biome {
 	}
 	
 	public final NetherThingsGreenBaseBiome addDefaultMobs() {
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(EntityType.ZOMBIE_PIGMAN, 100, 4, 4));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(EntityType.ZOMBIE_PIGMAN, 50, 4, 4));
 		
 		return this;
 	}

@@ -26,13 +26,18 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
 public abstract class NetherThingsBaseBiome extends Biome {
 	
-	protected NetherThingsBaseBiome(String name, NetherThingsSurfaceConfig config, int fireCount) {
+	protected NetherThingsBaseBiome(String name, NetherThingsSurfaceConfig config, int fireCount) { 
 		this(name, NetherSurfaces.NETHER_THINGS, config, fireCount);
 	}
 
 	protected NetherThingsBaseBiome(String name, SurfaceBuilder<NetherThingsSurfaceConfig> surface, NetherThingsSurfaceConfig config, int fireCount) {
 		super((new Biome.Settings()).configureSurfaceBuilder(surface, config).precipitation(Biome.Precipitation.NONE).category(Biome.Category.NETHER).depth(0.1F).scale(0.2F).temperature(2.0F).downfall(0.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 		
+		// blazing berry bush
+		if (NetherThings.CONFIG.enableBlazingBerryBushGeneration) {
+		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(NetherThingsFeatures.BLAZING_BERRY_BUSH, FeatureConfig.DEFAULT, Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(3)));
+		}
+	
 		// Nether Fortress
 		this.addStructureFeature(Feature.NETHER_BRIDGE, FeatureConfig.DEFAULT);
 		

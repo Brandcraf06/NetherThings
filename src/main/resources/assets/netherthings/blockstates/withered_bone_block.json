@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y": { "model": "netherthings:block/withered_bone_block" },
+        "axis=z": { "model": "netherthings:block/withered_bone_block", "x": 90 },
+        "axis=x": { "model": "netherthings:block/withered_bone_block", "x": 90, "y": 90 }
+    }
+}

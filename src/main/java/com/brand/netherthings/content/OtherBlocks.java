@@ -16,7 +16,6 @@ import com.brand.netherthings.blocks.SlabBlockBase;
 import com.brand.netherthings.blocks.StairsBlockBase;
 import com.brand.netherthings.blocks.TilledSoulSandBlock;
 import com.brand.netherthings.blocks.VibraniumBlock;
-
 import net.minecraft.util.DyeColor;
 
 public class OtherBlocks {
@@ -36,6 +35,7 @@ public class OtherBlocks {
 	public static BaseSpongeBlock LAVA_SPONGE;
 	public static BaseWetSpongeBlock WET_LAVA_SPONGE;
 	public static VibraniumBlock VIBRANIUM_BLOCK;
+	public static VibraniumBlock COMPRESSED_VIBRANIUM_BLOCK;
 	public static CustomNetherrackBlock BLAZING_NETHERRACK;
 	public static BaseGrassBlock BURNT_GRASS_BLOCK;
 	public static DeadGrass DEAD_GRASS;
@@ -43,6 +43,7 @@ public class OtherBlocks {
 	public static CondemnedLeavesBlock CONDEMNED_LEAVES;
 	public static PillarBase BONE_LOG;
 	public static TilledSoulSandBlock TILLED_SOUL_SAND;
+	public static PillarBase WITHERED_BONE_BLOCK;
 
 
 	public static void init() {
@@ -62,6 +63,7 @@ public class OtherBlocks {
 		LAVA_SPONGE = new BaseSpongeBlock("lava_sponge", 0.6f, 0.6f);
 		WET_LAVA_SPONGE = new BaseWetSpongeBlock("wet_lava_sponge", 0.6f, 0.6f);
 		VIBRANIUM_BLOCK = new VibraniumBlock("vibranium_block", 4.0f, 12.0f);
+		COMPRESSED_VIBRANIUM_BLOCK = new VibraniumBlock("compressed_vibranium_block", 4.0f, 12.0f);
 		
 		BLAZING_NETHERRACK = new CustomNetherrackBlock("blazing_netherrack");
 		BURNT_GRASS_BLOCK= new BaseGrassBlock("burnt_grass_block", 0.6f, 0.6f);
@@ -70,5 +72,7 @@ public class OtherBlocks {
 		CONDEMNED_LEAVES = new CondemnedLeavesBlock("condemned_leaves", 0.2f, 0.2f);
 		BONE_LOG = new PillarBase("bone_log", 2.0f, 2.0f);
 		TILLED_SOUL_SAND = new TilledSoulSandBlock("tilled_soul_sand", 2.0f, 2.0f);
+		WITHERED_BONE_BLOCK = new PillarBase("withered_bone_block", 2.0f, 2.0f);
+		
 	}
 }

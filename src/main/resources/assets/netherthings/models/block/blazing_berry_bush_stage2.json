@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "netherthings:block/blazing_berry_bush_stage2"
+    }
+}

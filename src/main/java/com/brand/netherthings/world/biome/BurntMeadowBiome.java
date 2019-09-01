@@ -24,7 +24,11 @@ public class BurntMeadowBiome extends NetherThingsGreenBaseBiome {
 
 	public BurntMeadowBiome() {
 		super("burnt_meadow", NetherSurfaces.NETHER_MEADOW, NetherSurfaces.BURNED_MEADOW_CONFIG, 7);
+		
+		if (NetherThings.CONFIG.enableHugeNetherMushroomsGeneration) {
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(NetherThingsFeatures.HUGE_BURNT_MUSHROOM_STEM, new PlantedFeatureConfig(false), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(100)));
+		}
+		
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(Feature.GRASS, new GrassFeatureConfig(OtherBlocks.DEAD_GRASS.getDefaultState()), Decorator.NOISE_HEIGHTMAP_DOUBLE, new NoiseHeightmapDecoratorConfig(-0.8D, 5, 10)));
 		
 		// Nether Fortress

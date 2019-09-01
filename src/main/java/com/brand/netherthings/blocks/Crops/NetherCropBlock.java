@@ -14,7 +14,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.Material;
-import net.minecraft.block.PlantBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.mob.RavagerEntity;
@@ -34,7 +33,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-public class NetherCropBlock extends PlantBlock implements Fertilizable {
+public class NetherCropBlock extends NetherPlantBlock implements Fertilizable {
 	   public static final IntProperty AGE;
 	   private static final VoxelShape[] AGE_TO_SHAPE;
 

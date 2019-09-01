@@ -6,6 +6,7 @@ import com.brand.netherthings.items.NetherItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,7 +17,10 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
 public class GlowmooEntity extends CowEntity {
@@ -25,7 +29,20 @@ public class GlowmooEntity extends CowEntity {
     public GlowmooEntity(EntityType<? extends GlowmooEntity> entityType, World world) {
         super(entityType, world);
         this.id = Registry.ENTITY_TYPE.getId(entityType).getPath();
-    }    
+    }
+    
+    public float getPathfindingFavor(BlockPos blockPos_1) {
+        return this.getPathfindingFavor(blockPos_1, this.world);
+     }
+
+     public float getPathfindingFavor(BlockPos blockPos_1, ViewableWorld viewableWorld_1) {
+        return 0.0F;
+     }
+    
+    public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {
+    	BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
+        return iWorld_1.intersectsEntities(this) && !iWorld_1.intersectsFluid(this.getBoundingBox()) && !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F;
+     }
    
     public boolean interactMob(PlayerEntity player, Hand hand) {
         ItemStack itemStack_1 = player.getStackInHand(hand);

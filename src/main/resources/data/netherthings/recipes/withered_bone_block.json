@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+	"###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "netherthings:withered_bone_meal"
+    }
+  },
+  "result": {
+    "item": "netherthings:withered_bone_block"
+  }
+}
