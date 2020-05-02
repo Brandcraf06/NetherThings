@@ -17,10 +17,6 @@ import net.minecraft.util.registry.Registry;
 
 public class NetherItems {
 
-	public static final Item GLOWSTONE_INGOT = register("glowstone_ingot", new Item(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
-	public static final Item OBSIDIAN_ROD = register("obsidian_rod", new Item(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
-	public static final Item VIBRANIUM = register("vibranium", new Item(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
-	public static final Item VIBRANIUM_DUST = register("vibranium_dust", new Item(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	public static final Item WITHER_FRAGMENT = register("wither_fragment", new Item(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	public static final Item WITHERED_BONE = register("withered_bone", new Item(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	public static final Item WITHERED_BONE_MEAL = register("withered_bone_meal", new WitheredBoneMealItem(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));

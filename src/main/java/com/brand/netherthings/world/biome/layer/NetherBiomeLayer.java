@@ -8,15 +8,19 @@ import org.apache.commons.lang3.ArrayUtils;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.layer.InitLayer;
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
+import net.minecraft.world.biome.layer.type.InitLayer;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 
 public enum NetherBiomeLayer implements InitLayer {
 	INSTANCE;
 
 	private NetherBiomeLayer() {
 		// Add vanilla nether
-		this.addBiome(Biomes.NETHER, 20);
+		this.addBiome(Biomes.NETHER_WASTES, 20);
+		this.addBiome(Biomes.BASALT_DELTAS, 20);
+		this.addBiome(Biomes.CRIMSON_FOREST, 20);
+		this.addBiome(Biomes.WARPED_FOREST, 20);
+		this.addBiome(Biomes.SOUL_SAND_VALLEY, 20);
 	}
 
 	@Override

@@ -7,14 +7,13 @@ import com.brand.netherthings.world.biome.layer.NetherSubBiomeLayer;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.layer.BiomeLayerSampler;
-import net.minecraft.world.biome.layer.CachingLayerContext;
-import net.minecraft.world.biome.layer.CachingLayerSampler;
-import net.minecraft.world.biome.layer.CellScaleLayer;
-import net.minecraft.world.biome.layer.LayerFactory;
-import net.minecraft.world.biome.layer.LayerSampleContext;
-import net.minecraft.world.biome.layer.LayerSampler;
 import net.minecraft.world.biome.layer.ScaleLayer;
+import net.minecraft.world.biome.layer.util.CachingLayerContext;
+import net.minecraft.world.biome.layer.util.CachingLayerSampler;
+import net.minecraft.world.biome.layer.util.LayerFactory;
+import net.minecraft.world.biome.layer.util.LayerSampleContext;
+import net.minecraft.world.biome.layer.util.LayerSampler;
+import net.minecraft.world.biome.source.BiomeLayerSampler;
 
 public final class NetherThingsBiomeLayers {
 	
@@ -46,7 +45,7 @@ public final class NetherThingsBiomeLayers {
 			biomeFactory = ScaleLayer.NORMAL.create(context.apply(2000 + i), biomeFactory);
 		}
 		
-		LayerFactory<T> cellScaleFactory = CellScaleLayer.INSTANCE.create(context.apply(10L), biomeFactory);
+		LayerFactory<T> cellScaleFactory = ScaleLayer.NORMAL.create(context.apply(10L), biomeFactory);
 		
 		return ImmutableList.of(biomeFactory, cellScaleFactory);
 	}

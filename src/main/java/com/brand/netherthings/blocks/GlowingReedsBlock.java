@@ -5,18 +5,18 @@ import java.util.Random;
 
 import com.brand.netherthings.NetherThings;
 
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
-import net.minecraft.entity.EntityContext;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.FluidTags;
@@ -27,67 +27,71 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.ViewableWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 public class GlowingReedsBlock extends Block {
 	   public static final IntProperty AGE;
 	   protected static final VoxelShape SHAPE;
 
 	   public GlowingReedsBlock(String name, float hardness, float resistance) {
-			super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GLASS).collidable(false).ticksRandomly().lightLevel(7).strength(hardness, resistance).build());
+			super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GLASS).ticksRandomly().noCollision().breakInstantly().lightLevel(7).strength(hardness, resistance));
 			Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
 			Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
-			this.setDefaultState((BlockState)((BlockState)this.stateFactory.getDefaultState()).with(AGE, 0));
-		}
+		    this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(AGE, 0));
+	   }
 
-	   public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityContext entityContext_1) {
+	   public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 	      return SHAPE;
 	   }
 
-	   public void onScheduledTick(BlockState blockState_1, World world_1, BlockPos blockPos_1, Random random_1) {
-	      if (!blockState_1.canPlaceAt(world_1, blockPos_1)) {
-	         world_1.breakBlock(blockPos_1, true);
-	      } else if (world_1.isAir(blockPos_1.up())) {
-	         int int_1;
-	         for(int_1 = 1; world_1.getBlockState(blockPos_1.down(int_1)).getBlock() == this; ++int_1) {
+	   public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+	      if (!state.canPlaceAt(world, pos)) {
+	         world.breakBlock(pos, true);
+	      }
+
+	   }
+
+	   public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+	      if (world.isAir(pos.up())) {
+	         int i;
+	         for(i = 1; world.getBlockState(pos.down(i)).isOf(this); ++i) {
 	         }
 
-	         if (int_1 < 3) {
-	            int int_2 = (Integer)blockState_1.get(AGE);
-	            if (int_2 == 15) {
-	               world_1.setBlockState(blockPos_1.up(), this.getDefaultState());
-	               world_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(AGE, 0), 4);
+	         if (i < 3) {
+	            int j = (Integer)state.get(AGE);
+	            if (j == 15) {
+	               world.setBlockState(pos.up(), this.getDefaultState());
+	               world.setBlockState(pos, (BlockState)state.with(AGE, 0), 4);
 	            } else {
-	               world_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(AGE, int_2 + 1), 4);
+	               world.setBlockState(pos, (BlockState)state.with(AGE, j + 1), 4);
 	            }
 	         }
 	      }
 
 	   }
 
-	   public BlockState getStateForNeighborUpdate(BlockState blockState_1, Direction direction_1, BlockState blockState_2, IWorld iWorld_1, BlockPos blockPos_1, BlockPos blockPos_2) {
-	      if (!blockState_1.canPlaceAt(iWorld_1, blockPos_1)) {
-	         iWorld_1.getBlockTickScheduler().schedule(blockPos_1, this, 1);
+	   public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, IWorld world, BlockPos pos, BlockPos posFrom) {
+	      if (!state.canPlaceAt(world, pos)) {
+	         world.getBlockTickScheduler().schedule(pos, this, 1);
 	      }
 
-	      return super.getStateForNeighborUpdate(blockState_1, direction_1, blockState_2, iWorld_1, blockPos_1, blockPos_2);
+	      return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
 	   }
 
 	   @SuppressWarnings("rawtypes")
-	public boolean canPlaceAt(BlockState blockState_1, ViewableWorld viewableWorld_1, BlockPos blockPos_1) {
-	      Block block_1 = viewableWorld_1.getBlockState(blockPos_1.down()).getBlock();
-	      if (block_1 == this) {
+	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+	      BlockState blockState = world.getBlockState(pos.down());
+	      if (blockState.getBlock() == this) {
 	         return true;
 	      } else {
-	         if (block_1 == Blocks.NETHERRACK|| block_1 == Blocks.SOUL_SAND || block_1 == Blocks.MAGMA_BLOCK) {
-	            BlockPos blockPos_2 = blockPos_1.down();
+	         if (blockState.isOf(Blocks.NETHERRACK) || blockState.isOf(Blocks.WARPED_NYLIUM) || blockState.isOf(Blocks.CRIMSON_NYLIUM) || blockState.isOf(Blocks.SOUL_SAND) || blockState.isOf(Blocks.SOUL_SOIL) || blockState.isOf(Blocks.MAGMA_BLOCK)) {
+	            BlockPos blockPos = pos.down();
 	            Iterator var6 = Direction.Type.HORIZONTAL.iterator();
 
 	            while(var6.hasNext()) {
-	               Direction direction_1 = (Direction)var6.next();
-	               FluidState fluidState_1 = viewableWorld_1.getFluidState(blockPos_2.offset(direction_1));
-	               if (fluidState_1.matches(FluidTags.LAVA)) {
+	               Direction direction = (Direction)var6.next();
+	               FluidState fluidState = world.getFluidState(blockPos.offset(direction));
+	               if (fluidState.matches(FluidTags.LAVA)) {
 	                  return true;
 	               }
 	            }
@@ -97,12 +101,8 @@ public class GlowingReedsBlock extends Block {
 	      }
 	   }
 
-	   public BlockRenderLayer getRenderLayer() {
-	      return BlockRenderLayer.CUTOUT;
-	   }
-
-	   protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory$Builder_1) {
-	      stateFactory$Builder_1.add(AGE);
+	   protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+	      builder.add(AGE);
 	   }
 
 	   static {
@@ -110,4 +110,3 @@ public class GlowingReedsBlock extends Block {
 	      SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	   }
 	}
-

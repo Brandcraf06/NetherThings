@@ -1,7 +1,6 @@
 package com.brand.netherthings;
 
 
-import com.brand.netherthings.config.NetherThingsConfig;
 import com.brand.netherthings.content.Crops;
 import com.brand.netherthings.content.NetherBiomes;
 import com.brand.netherthings.content.NetherSurfaces;
@@ -15,8 +14,6 @@ import com.brand.netherthings.items.potions.NetherPotionsRecipes;
 import com.brand.netherthings.stuff.NetherStuff;
 import com.brand.netherthings.world.NetherOres;
 import com.brand.netherthings.world.NetherVegetation;
-import me.sargunvohra.mcmods.autoconfig1.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
@@ -27,10 +24,9 @@ import net.minecraft.util.Identifier;
 public class NetherThings implements ModInitializer {
 	
 	public static final String MOD_ID = "netherthings";
-	public static final String VERSION = "1.2.0";
+	public static final String VERSION = "2.0.0";
 	public static final String NAME = "NetherThings";
-	public static final NetherThingsConfig CONFIG = AutoConfig.register(NetherThingsConfig.class, GsonConfigSerializer::new).getConfig();
-	public static final ItemGroup NETHER_THINGS_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nether_things_group"), () -> new ItemStack(Ores.NETHER_VIBRANIUM_ORE));
+	public static final ItemGroup NETHER_THINGS_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nether_things_group"), () -> new ItemStack(Ores.NETHER_DIAMOND_ORE));
 	
 	@Override
 	public void onInitialize() {
@@ -38,9 +34,6 @@ public class NetherThings implements ModInitializer {
 		Crops.init();
 		OtherBlocks.init();
 		
-		NetherOres.addNetherOres();
-		NetherOres.addVibraniumOres();
-		NetherOres.addOverworldOres();
 		NetherOres.addNetherMineables();
 		NetherVegetation.addNetherVegetation();
 		

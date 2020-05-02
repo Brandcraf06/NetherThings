@@ -11,7 +11,7 @@ import com.google.common.collect.Sets;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.layer.BiomeLayerSampler;
+import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.feature.StructureFeature;
 
