@@ -1,65 +1,100 @@
 package com.brand.netherthings.blocks;
 
-import java.util.Random;
-
-import com.brand.netherthings.NetherThings;
-import com.brand.netherthings.content.OtherBlocks;
-import com.brand.netherthings.features.NetherThingsFeatures;
-
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.block.MushroomPlantBlock;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
+import net.minecraft.block.*;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.ViewableWorld;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.PlantedFeatureConfig;
+import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-public class GlowingMushroom extends MushroomPlantBlock { 
-	
-	public GlowingMushroom(String name, float hardness, float resistance) {
-		super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).collidable(false).lightLevel(7).strength(hardness, resistance).build());
-		Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-		Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
+import java.util.Iterator;
+import java.util.Random;
+import java.util.function.Supplier;
+
+public class GlowingMushroom extends PlantBlock {
+
+	protected static final float field_31195 = 3.0F;
+	protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
+	private final Supplier<RegistryEntry<? extends ConfiguredFeature<?, ?>>> feature;
+
+	public GlowingMushroom(Settings settings, Supplier<RegistryEntry<? extends ConfiguredFeature<?, ?>>> feature) {
+		super(settings);
+		this.feature = feature;
 	}
-	@Override
-	public boolean canPlaceAt(BlockState blockState_1, ViewableWorld viewableWorld_1, BlockPos blockPos_1) {
-	      BlockPos blockPos_2 = blockPos_1.down();
-	      BlockState blockState_2 = viewableWorld_1.getBlockState(blockPos_2);
-	      Block block_1 = blockState_2.getBlock();
-	      if (block_1 != Blocks.NETHERRACK && block_1 != Blocks.SOUL_SAND) {
-	         return viewableWorld_1.getLightLevel(blockPos_1, 0) < 13 && this.canPlantOnTop(blockState_2, viewableWorld_1, blockPos_2);
-	      } else {
-	         return true;
-	      }
-	   }
-	
-	@Override
-	   public boolean trySpawningBigMushroom(IWorld iWorld_1, BlockPos blockPos_1, BlockState blockState_1, Random random_1) {
-	      iWorld_1.clearBlockState(blockPos_1, false);
-	      Feature<PlantedFeatureConfig> feature_1 = null;
-	      if (this == OtherBlocks.GREEN_GLOWING_MUSHROOM) {
-	         feature_1 = NetherThingsFeatures.HUGE_GREEN_GLOWING_MUSHROOM;
-	      } else if (this == OtherBlocks.BLUE_GLOWING_MUSHROOM) {
-	          feature_1 = NetherThingsFeatures.HUGE_BLUE_GLOWING_MUSHROOM;
-	      } else if (this == OtherBlocks.PURPLE_GLOWING_MUSHROOM) {
-	          feature_1 = NetherThingsFeatures.HUGE_PURPLE_GLOWING_MUSHROOM;
-	      }
 
-	      if (feature_1 != null && feature_1.generate(iWorld_1, iWorld_1.getChunkManager().getChunkGenerator(), random_1, blockPos_1, new PlantedFeatureConfig(true))) {
-	          return true;
-	       } else {
-	          iWorld_1.setBlockState(blockPos_1, blockState_1, 3);
-	          return false;
-	      }
-	   }
-     }
+	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+		return SHAPE;
+	}
 
+	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+		if (random.nextInt(25) == 0) {
+			int i = 5;
+			boolean j = true;
+			Iterator var7 = BlockPos.iterate(pos.add(-4, -1, -4), pos.add(4, 1, 4)).iterator();
+
+			while(var7.hasNext()) {
+				BlockPos blockPos = (BlockPos)var7.next();
+				if (world.getBlockState(blockPos).isOf(this)) {
+					--i;
+					if (i <= 0) {
+						return;
+					}
+				}
+			}
+
+			BlockPos blockPos2 = pos.add(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
+
+			for(int k = 0; k < 4; ++k) {
+				if (world.isAir(blockPos2) && state.canPlaceAt(world, blockPos2)) {
+					pos = blockPos2;
+				}
+
+				blockPos2 = pos.add(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
+			}
+
+			if (world.isAir(blockPos2) && state.canPlaceAt(world, blockPos2)) {
+				world.setBlockState(blockPos2, state, 2);
+			}
+		}
+
+	}
+
+	protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+		return floor.isOpaqueFullCube(world, pos);
+	}
+	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+		BlockPos blockPos = pos.down();
+		BlockState blockState = world.getBlockState(blockPos);
+		if (blockState.isIn(BlockTags.MUSHROOM_GROW_BLOCK) || blockState.isOf(Blocks.NETHERRACK) || blockState.isOf(Blocks.SOUL_SAND) || blockState.isOf(Blocks.SOUL_SOIL)) {
+			return true;
+		} else {
+			return world.getBaseLightLevel(pos, 0) < 13 && this.canPlantOnTop(blockState, world, blockPos);
+		}
+	}
+
+	public boolean trySpawningBigMushroom(ServerWorld world, BlockPos pos, BlockState state, Random random) {
+		world.removeBlock(pos, false);
+		if (((ConfiguredFeature)((RegistryEntry)this.feature.get()).value()).generate(world, world.getChunkManager().getChunkGenerator(), random, pos)) {
+			return true;
+		} else {
+			world.setBlockState(pos, state, 3);
+			return false;
+		}
+	}
+
+	public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
+		return true;
+	}
+
+	public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+		return (double)random.nextFloat() < 0.4D;
+	}
+
+	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+		this.trySpawningBigMushroom(world, pos, state, random);
+	}
+}

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 public interface WitherFertilizable {
 	
-	   boolean isFertilizable(BlockView var1, BlockPos var2, BlockState var3, boolean var4);
+	   boolean isWitherFertilizable(BlockView var1, BlockPos var2, BlockState var3, boolean var4);
 
 	   boolean canGrow(World var1, Random var2, BlockPos var3, BlockState var4);
 

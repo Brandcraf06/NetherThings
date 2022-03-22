@@ -1,11 +1,11 @@
 package com.brand.netherthings;
 
 
-import com.brand.netherthings.content.Crops;
 import com.brand.netherthings.content.NetherBiomes;
 import com.brand.netherthings.content.NetherSurfaces;
 import com.brand.netherthings.content.Ores;
 import com.brand.netherthings.content.OtherBlocks;
+import com.brand.netherthings.contentNew.NetherBlocks;
 import com.brand.netherthings.entities.NetherEntities;
 import com.brand.netherthings.items.NetherItems;
 import com.brand.netherthings.items.NetherPotions;
@@ -20,18 +20,18 @@ import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class NetherThings implements ModInitializer {
-	
+
 	public static final String MOD_ID = "netherthings";
-	public static final String VERSION = "2.0.0";
-	public static final String NAME = "NetherThings";
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final ItemGroup NETHER_THINGS_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "nether_things_group"), () -> new ItemStack(Ores.NETHER_DIAMOND_ORE));
-	
+
 	@Override
 	public void onInitialize() {
 		Ores.init();
-		Crops.init();
 		OtherBlocks.init();
 		
 		NetherOres.addNetherMineables();
@@ -40,7 +40,6 @@ public class NetherThings implements ModInitializer {
 		new NetherItems();
 		new NetherPotions();
 		new NetherEntities();
-		new NetherStuff();
 		NetherPotionsRecipes.registerRecipes();
 		NetherSets.registerItems();
 		
@@ -53,16 +52,20 @@ public class NetherThings implements ModInitializer {
 		CompostingChanceRegistry.INSTANCE.add(NetherItems.GHOST_SEEDS, 0.30f);
 		CompostingChanceRegistry.INSTANCE.add(NetherItems.QUARTZ_SEEDS, 0.30f);
 		CompostingChanceRegistry.INSTANCE.add(NetherItems.WITHER_SEEDS, 0.30f);
-		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.NETHER_CACTUS, 0.50f);
+		CompostingChanceRegistry.INSTANCE.add(NetherBlocks.NETHER_CACTUS, 0.50f);
 		CompostingChanceRegistry.INSTANCE.add(NetherItems.GHOST_WHEAT, 0.65f);
 		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.GLOWING_REEDS, 0.65f);
-		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.BLUE_GLOWING_MUSHROOM, 0.65f);
-		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.GREEN_GLOWING_MUSHROOM, 0.65f);
-		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.PURPLE_GLOWING_MUSHROOM, 0.65f);
-		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.BLUE_GLOWING_MUSHROOM_BLOCK, 0.85f);
-		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.GREEN_GLOWING_MUSHROOM_BLOCK, 0.85f);
-		CompostingChanceRegistry.INSTANCE.add(OtherBlocks.PURPLE_GLOWING_MUSHROOM_BLOCK, 0.85f);
+		CompostingChanceRegistry.INSTANCE.add(NetherBlocks.BLUE_GLOWING_MUSHROOM, 0.65f);
+		CompostingChanceRegistry.INSTANCE.add(NetherBlocks.GREEN_GLOWING_MUSHROOM, 0.65f);
+		CompostingChanceRegistry.INSTANCE.add(NetherBlocks.PURPLE_GLOWING_MUSHROOM, 0.65f);
+		CompostingChanceRegistry.INSTANCE.add(NetherBlocks.BLUE_GLOWING_MUSHROOM_BLOCK, 0.85f);
+		CompostingChanceRegistry.INSTANCE.add(NetherBlocks.GREEN_GLOWING_MUSHROOM_BLOCK, 0.85f);
+		CompostingChanceRegistry.INSTANCE.add(NetherBlocks.PURPLE_GLOWING_MUSHROOM_BLOCK, 0.85f);
 		CompostingChanceRegistry.INSTANCE.add(NetherItems.GHOST_BREAD, 0.85f);
+	}
+
+	public static Identifier id(String name) {
+		return new Identifier(MOD_ID, name);
 	}
 }
 

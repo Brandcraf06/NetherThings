@@ -6,8 +6,6 @@ import java.util.Random;
 import java.util.function.Function;
 
 import com.brand.netherthings.blocks.Crops.BlazingBerryBushBlock;
-import com.brand.netherthings.content.Crops;
-import com.brand.netherthings.features.CondemnedTreeFeature;
 import com.brand.netherthings.features.Plants.GlowingReedsFeature;
 import com.brand.netherthings.features.Plants.NetherWildCropFeature;
 import com.mojang.datafixers.Dynamic;

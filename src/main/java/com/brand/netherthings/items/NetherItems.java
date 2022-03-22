@@ -1,7 +1,7 @@
 package com.brand.netherthings.items;
 
 import com.brand.netherthings.NetherThings;
-import com.brand.netherthings.content.Crops;
+import com.brand.netherthings.contentNew.NetherBlocks;
 import com.brand.netherthings.entities.NetherEntities;
 import com.brand.netherthings.items.type.WitheredBoneMealItem;
 
@@ -26,9 +26,9 @@ public class NetherItems {
 	public static final Item PURPLE_GLOWMOO_SPAWN_EGG = register("purple_glowmoo_spawn_egg", new SpawnEggItem(NetherEntities.PURPLE_GLOWMOO, 9518512, 14473411, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	
 	// crops
-	public static final Item WITHER_SEEDS = register("wither_seeds", new AliasedBlockItem(Crops.WITHER_CROP, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
-	public static final Item GHOST_SEEDS = register("ghost_seeds", new AliasedBlockItem(Crops.GHOST_WHEAT, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
-	public static final Item QUARTZ_SEEDS = register("quartz_seeds", new AliasedBlockItem(Crops.QUARTZ_CROP, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
+	public static final Item WITHER_SEEDS = register("wither_seeds", new AliasedBlockItem(NetherBlocks.WITHER_CROP, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
+	public static final Item GHOST_SEEDS = register("ghost_seeds", new AliasedBlockItem(NetherBlocks.GHOST_WHEAT, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
+	public static final Item QUARTZ_SEEDS = register("quartz_seeds", new AliasedBlockItem(NetherBlocks.QUARTZ_CROP, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	public static final Item GHOST_WHEAT = register("ghost_wheat", new Item(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
 	
 	// foods
@@ -37,7 +37,7 @@ public class NetherItems {
 			.statusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 1200, 0, true, false, true), 1.0F).alwaysEdible().build())));
 	public static final Item GHOST_BREAD = register("ghost_bread", new Item(new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(1.0F)
 			.statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 500, 0, true, false, true), 1.0F).alwaysEdible().build())));
-	public static final Item BLAZING_BERRIES = register("blazing_berries", new AliasedBlockItem(Crops.BLAZING_BERRY_BUSH, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP).food(new FoodComponent.Builder().hunger(3)
+	public static final Item BLAZING_BERRIES = register("blazing_berries", new AliasedBlockItem(NetherBlocks.BLAZING_BERRY_BUSH, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP).food(new FoodComponent.Builder().hunger(3)
 			.statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 250, 0, true, false, true), 1.0F).alwaysEdible().build())));
 	
 
