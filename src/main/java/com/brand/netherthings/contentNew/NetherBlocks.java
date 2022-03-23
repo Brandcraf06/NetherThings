@@ -7,6 +7,7 @@ import com.brand.netherthings.blocks.Crops.QuartzCrop;
 import com.brand.netherthings.blocks.Crops.WitherCropBlock;
 import com.brand.netherthings.blocks.GlowingMushroom;
 import com.brand.netherthings.blocks.NetherCactusBlock;
+import com.brand.netherthings.blocks.TilledSoulSandBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
@@ -22,14 +23,14 @@ import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 public class NetherBlocks {
 
 
-    public static final Block GHOST_WHEAT = registerNoItem("ghost_wheat", new NetherCropBlock(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).ticksRandomly().noCollision().strength(0)));
-    public static final Block QUARTZ_CROP = registerNoItem("quartz_crop", new QuartzCrop(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).ticksRandomly().noCollision().strength(0)));
-    public static final Block WITHER_CROP = registerNoItem("wither_crop", new WitherCropBlock(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).ticksRandomly().noCollision().strength(0)));
-    public static final Block BLAZING_BERRY_BUSH = registerNoItem("blazing_berry_bush", new BlazingBerryBushBlock(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.SWEET_BERRY_BUSH).ticksRandomly().luminance(5).noCollision().strength(0)));
+    public static final Block GHOST_WHEAT = registerNoItem("ghost_wheat", new NetherCropBlock(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).ticksRandomly().noCollision().breakInstantly()));
+    public static final Block QUARTZ_CROP = registerNoItem("quartz_crop", new QuartzCrop(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).ticksRandomly().noCollision().breakInstantly()));
+    public static final Block WITHER_CROP = registerNoItem("wither_crop", new WitherCropBlock(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).ticksRandomly().noCollision().breakInstantly()));
+    public static final Block BLAZING_BERRY_BUSH = registerNoItem("blazing_berry_bush", new BlazingBerryBushBlock(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.SWEET_BERRY_BUSH).ticksRandomly().luminance(5).noCollision().breakInstantly()));
 
     public static final Block NETHER_CACTUS = register("nether_cactus", new NetherCactusBlock(FabricBlockSettings.of(Material.CACTUS).sounds(BlockSoundGroup.WOOL).ticksRandomly().strength(0.4f)));
     public static final Block GREEN_GLOWING_MUSHROOM_BLOCK = register("green_glowing_mushroom_block", new StainedGlassBlock(DyeColor.LIME, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.SLIME).luminance(15).strength(0.2f)));
-    public static final Block BLUE_GLOWING_MUSHROOM_BLOCK = register("blue_glowing_mushroom_block", new StainedGlassBlock(DyeColor.BLUE, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.SLIME).luminance(15).strength(0.2f )));
+    public static final Block BLUE_GLOWING_MUSHROOM_BLOCK = register("blue_glowing_mushroom_block", new StainedGlassBlock(DyeColor.BLUE, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.SLIME).luminance(15).strength(0.2f)));
     public static final Block PURPLE_GLOWING_MUSHROOM_BLOCK = register("purple_glowing_mushroom_block", new StainedGlassBlock(DyeColor.PURPLE, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.SLIME).luminance(15).strength(0.2f)));
 
     public static final Block GREEN_GLOWING_MUSHROOM = register("green_glowing_mushroom", new GlowingMushroom(FabricBlockSettings.of(Material.PLANT, MapColor.GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).postProcess(NetherBlocks::always), () -> {
@@ -49,8 +50,12 @@ public class NetherBlocks {
     public static final Block BLAZING_NETHERRACK = register("blazing_netherrack", new Block(FabricBlockSettings.copy(Blocks.NETHERRACK)));
     public static final Block BURNT_GRASS_BLOCK = register("burnt_grass_block", new Block(FabricBlockSettings.copy(Blocks.GRASS_BLOCK)));
     public static final Block DEAD_GRASS = register("dead_grass", new Block(FabricBlockSettings.copy(Blocks.GRASS)));
+    public static final Block CONDEMNED_LEAVES = register("condemned_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
+    public static final Block BONE_LOG = register("bone_log", new PillarBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)));
+    public static final Block WITHERED_BONE_BLOCK = register("withered_bone_block", new PillarBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)));
+    public static final Block TILLED_SOUL_SAND = register("tilled_soul_sand", new TilledSoulSandBlock(FabricBlockSettings.copyOf(Blocks.SOUL_SAND).strength(0.5F)));
 
-
+    public static final Block GLOWING_REEDS = register("glowing_reeds", new Block(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GLASS).ticksRandomly().noCollision().breakInstantly().luminance(7)));
 
 
     public static Block register(String id, Block block, BlockItem item) {

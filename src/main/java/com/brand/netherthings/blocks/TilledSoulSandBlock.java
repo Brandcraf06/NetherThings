@@ -1,140 +1,124 @@
 package com.brand.netherthings.blocks;
 
+import net.minecraft.block.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.Property;
+import net.minecraft.tag.FluidTags;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.*;
+
 import java.util.Iterator;
 import java.util.Random;
 
-import com.brand.netherthings.NetherThings;
-
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.minecraft.block.AttachedStemBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlacementEnvironment;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.FenceGateBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.StemBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityContext;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateFactory;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.tag.FluidTags;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.ViewableWorld;
-import net.minecraft.world.World;
-
 public class TilledSoulSandBlock extends Block {
-	   public static final IntProperty MOISTURE;
-	   protected static final VoxelShape SHAPE;
+    public static final IntProperty MOISTURE;
+    protected static final VoxelShape SHAPE;
+    public static final int MAX_MOISTURE = 7;
 
-	   public TilledSoulSandBlock(String name, float hardness, float resistance) {
-			super(FabricBlockSettings.of(Material.SAND).ticksRandomly().strength(hardness, resistance).build());
-			Registry.register(Registry.BLOCK, new Identifier(NetherThings.MOD_ID, name), this);
-			Registry.register(Registry.ITEM,new Identifier(NetherThings.MOD_ID, name), new BlockItem(this, new Item.Settings().maxCount(64).group(NetherThings.NETHER_THINGS_GROUP)));
-	        this.setDefaultState((BlockState)((BlockState)this.stateFactory.getDefaultState()).with(MOISTURE, 0));
-	   }
+    public TilledSoulSandBlock(Settings settings) {
+        super(settings);
+        this.setDefaultState(this.stateManager.getDefaultState().with(MOISTURE, 0));
+    }
 
-	   public BlockState getStateForNeighborUpdate(BlockState blockState_1, Direction direction_1, BlockState blockState_2, IWorld iWorld_1, BlockPos blockPos_1, BlockPos blockPos_2) {
-	      if (direction_1 == Direction.UP && !blockState_1.canPlaceAt(iWorld_1, blockPos_1)) {
-	         iWorld_1.getBlockTickScheduler().schedule(blockPos_1, this, 1);
-	      }
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (direction == Direction.UP && !state.canPlaceAt(world, pos)) {
+            world.createAndScheduleBlockTick(pos, this, 1);
+        }
 
-	      return super.getStateForNeighborUpdate(blockState_1, direction_1, blockState_2, iWorld_1, blockPos_1, blockPos_2);
-	   }
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    }
 
-	   public boolean canPlaceAt(BlockState blockState_1, ViewableWorld viewableWorld_1, BlockPos blockPos_1) {
-	      BlockState blockState_2 = viewableWorld_1.getBlockState(blockPos_1.up());
-	      return !blockState_2.getMaterial().isSolid() || blockState_2.getBlock() instanceof FenceGateBlock;
-	   }
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        BlockState blockState = world.getBlockState(pos.up());
+        return !blockState.getMaterial().isSolid() || blockState.getBlock() instanceof FenceGateBlock || blockState.getBlock() instanceof PistonExtensionBlock;
+    }
 
-	   public BlockState getPlacementState(ItemPlacementContext itemPlacementContext_1) {
-	      return !this.getDefaultState().canPlaceAt(itemPlacementContext_1.getWorld(), itemPlacementContext_1.getBlockPos()) ? Blocks.SOUL_SAND.getDefaultState() : super.getPlacementState(itemPlacementContext_1);
-	   }
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return !this.getDefaultState().canPlaceAt(ctx.getWorld(), ctx.getBlockPos()) ? Blocks.SOUL_SAND.getDefaultState() : super.getPlacementState(ctx);
+    }
 
-	   public boolean hasSidedTransparency(BlockState blockState_1) {
-	      return true;
-	   }
+    public boolean hasSidedTransparency(BlockState state) {
+        return true;
+    }
 
-	   public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityContext entityContext_1) {
-	      return SHAPE;
-	   }
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
+    }
 
-	   public void onScheduledTick(BlockState blockState_1, World world_1, BlockPos blockPos_1, Random random_1) {
-	      if (!blockState_1.canPlaceAt(world_1, blockPos_1)) {
-	         setToSoulsand(blockState_1, world_1, blockPos_1);
-	      } else {
-	         int int_1 = (Integer)blockState_1.get(MOISTURE);
-	         if (!isLavaNearby(world_1, blockPos_1)) {
-	            if (int_1 > 0) {
-	               world_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(MOISTURE, int_1 - 1), 2);
-	            } else if (!hasCrop(world_1, blockPos_1)) {
-	               setToSoulsand(blockState_1, world_1, blockPos_1);
-	            }
-	         } else if (int_1 < 7) {
-	            world_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(MOISTURE, 7), 2);
-	         }
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (!state.canPlaceAt(world, pos)) {
+            setToSoulSand(state, world, pos);
+        }
 
-	      }
-	   }
+    }
 
-	   public void onLandedUpon(World world_1, BlockPos blockPos_1, Entity entity_1, float float_1) {
-	      if (!world_1.isClient && world_1.random.nextFloat() < float_1 - 0.5F && entity_1 instanceof LivingEntity && (entity_1 instanceof PlayerEntity || world_1.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) && entity_1.getWidth() * entity_1.getWidth() * entity_1.getHeight() > 0.512F) {
-	         setToSoulsand(world_1.getBlockState(blockPos_1), world_1, blockPos_1);
-	      }
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        int i = state.get(MOISTURE);
+        if (!isLavaNearby(world, pos) && !world.hasRain(pos.up())) {
+            if (i > 0) {
+                world.setBlockState(pos, state.with(MOISTURE, i - 1), 2);
+            } else if (!hasCrop(world, pos)) {
+                setToSoulSand(state, world, pos);
+            }
+        } else if (i < 7) {
+            world.setBlockState(pos, state.with(MOISTURE, 7), 2);
+        }
 
-	      super.onLandedUpon(world_1, blockPos_1, entity_1, float_1);
-	   }
+    }
 
-	   public static void setToSoulsand(BlockState blockState_1, World world_1, BlockPos blockPos_1) {
-	      world_1.setBlockState(blockPos_1, Blocks.SOUL_SAND.getDefaultState());
-	   }
+    public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+        if (!world.isClient && world.random.nextFloat() < fallDistance - 0.5F && entity instanceof LivingEntity && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) && entity.getWidth() * entity.getWidth() * entity.getHeight() > 0.512F) {
+            setToSoulSand(state, world, pos);
+        }
 
-	   private static boolean hasCrop(BlockView blockView_1, BlockPos blockPos_1) {
-	      Block block_1 = blockView_1.getBlockState(blockPos_1.up()).getBlock();
-	      return block_1 instanceof CropBlock || block_1 instanceof StemBlock || block_1 instanceof AttachedStemBlock;
-	   }
+        super.onLandedUpon(world, state, pos, entity, fallDistance);
+    }
 
-	   @SuppressWarnings("rawtypes")
-	private static boolean isLavaNearby(ViewableWorld viewableWorld_1, BlockPos blockPos_1) {
-	      Iterator var2 = BlockPos.iterate(blockPos_1.add(-4, 0, -4), blockPos_1.add(4, 1, 4)).iterator();
+    public static void setToSoulSand(BlockState state, World world, BlockPos pos) {
+        world.setBlockState(pos, pushEntitiesUpBeforeBlockChange(state, Blocks.SOUL_SAND.getDefaultState(), world, pos));
+    }
 
-	      BlockPos blockPos_2;
-	      do {
-	         if (!var2.hasNext()) {
-	            return false;
-	         }
+    private static boolean hasCrop(BlockView world, BlockPos pos) {
+        Block block = world.getBlockState(pos.up()).getBlock();
+        return block instanceof CropBlock || block instanceof StemBlock || block instanceof AttachedStemBlock;
+    }
 
-	         blockPos_2 = (BlockPos)var2.next();
-	      } while(!viewableWorld_1.getFluidState(blockPos_2).matches(FluidTags.LAVA));
+    private static boolean isLavaNearby(WorldView world, BlockPos pos) {
+        Iterator var2 = BlockPos.iterate(pos.add(-4, 0, -4), pos.add(4, 1, 4)).iterator();
 
-	      return true;
-	   }
+        BlockPos blockPos;
+        do {
+            if (!var2.hasNext()) {
+                return false;
+            }
 
-	   protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory$Builder_1) {
-	      stateFactory$Builder_1.add(MOISTURE);
-	   }
+            blockPos = (BlockPos) var2.next();
+        } while (!world.getFluidState(blockPos).isIn(FluidTags.LAVA));
 
-	   public boolean canPlaceAtSide(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, BlockPlacementEnvironment blockPlacementEnvironment_1) {
-	      return false;
-	   }
+        return true;
+    }
 
-	   static {
-	      MOISTURE = Properties.MOISTURE;
-	      SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
-	   }
-	}
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(MOISTURE);
+    }
+
+    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+        return false;
+    }
+
+    static {
+        MOISTURE = Properties.MOISTURE;
+        SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
+    }
+}
 

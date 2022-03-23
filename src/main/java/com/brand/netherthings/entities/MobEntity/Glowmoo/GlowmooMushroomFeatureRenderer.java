@@ -1,62 +1,71 @@
 package com.brand.netherthings.entities.MobEntity.Glowmoo;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
+import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.CowEntityModel;
+import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.texture.SpriteAtlasTexture;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.Vec3f;
 
 @Environment(EnvType.CLIENT)
 public class GlowmooMushroomFeatureRenderer<T extends GlowmooEntity> extends FeatureRenderer<T, CowEntityModel<T>> {
-	
-	public GlowmooMushroomFeatureRenderer(FeatureRendererContext<T, CowEntityModel<T>> rendererContext) {
-		super(rendererContext);
-	}
+    public GlowmooMushroomFeatureRenderer(FeatureRendererContext<T, CowEntityModel<T>> featureRendererContext) {
+        super(featureRendererContext);
+    }
 
-	@Override
-	public void render(GlowmooEntity glowmoo, float float_1, float float_2, float float_3, float float_4, float float_5, float float_6, float float_7) {
-		if (!glowmoo.isBaby() && !glowmoo.isInvisible()) {
-			BlockState state = glowmoo.getMushroomType();
-			this.bindTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEX);
-			GlStateManager.enableCull();
-			GlStateManager.cullFace(GlStateManager.FaceSides.FRONT);
-			GlStateManager.pushMatrix();
-			GlStateManager.scalef(1.0F, -1.0F, 1.0F);
-			GlStateManager.translatef(0.2F, 0.35F, 0.5F);
-			GlStateManager.rotatef(42.0F, 0.0F, 1.0F, 0.0F);
-			BlockRenderManager manager = MinecraftClient.getInstance().getBlockRenderManager();
-			GlStateManager.pushMatrix();
-			GlStateManager.translatef(-0.5F, -0.5F, 0.5F);
-			manager.renderDynamic(state, 1.0F);
-			GlStateManager.popMatrix();
-			GlStateManager.pushMatrix();
-			GlStateManager.translatef(0.1F, 0.0F, -0.6F);
-			GlStateManager.rotatef(42.0F, 0.0F, 1.0F, 0.0F);
-			GlStateManager.translatef(-0.5F, -0.5F, 0.5F);
-			manager.renderDynamic(state, 1.0F);
-			GlStateManager.popMatrix();
-			GlStateManager.popMatrix();
-			GlStateManager.pushMatrix();
-			this.getModel().method_2800().applyTransform(0.0625F);
-			GlStateManager.scalef(1.0F, -1.0F, 1.0F);
-			GlStateManager.translatef(0.0F, 0.7F, -0.2F);
-			GlStateManager.rotatef(12.0F, 0.0F, 1.0F, 0.0F);
-			GlStateManager.translatef(-0.5F, -0.5F, 0.5F);
-			manager.renderDynamic(state, 1.0F);
-			GlStateManager.popMatrix();
-			GlStateManager.cullFace(GlStateManager.FaceSides.BACK);
-			GlStateManager.disableCull();
-		}
-	}
-	
-	@Override
-	public boolean hasHurtOverlay() {
-		return true;
-	}
+    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T GlowmooEntity, float f, float g, float h, float j, float k, float l) {
+        if (!GlowmooEntity.isBaby()) {
+            MinecraftClient minecraftClient = MinecraftClient.getInstance();
+            boolean bl = minecraftClient.hasOutline(GlowmooEntity) && GlowmooEntity.isInvisible();
+            if (!GlowmooEntity.isInvisible() || bl) {
+                BlockRenderManager blockRenderManager = minecraftClient.getBlockRenderManager();
+                BlockState blockState = GlowmooEntity.getMooshroomType().getMushroomState();
+                int m = LivingEntityRenderer.getOverlay(GlowmooEntity, 0.0F);
+                BakedModel bakedModel = blockRenderManager.getModel(blockState);
+                matrixStack.push();
+                matrixStack.translate(0.20000000298023224D, -0.3499999940395355D, 0.5D);
+                matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-48.0F));
+                matrixStack.scale(-1.0F, -1.0F, 1.0F);
+                matrixStack.translate(-0.5D, -0.5D, -0.5D);
+                this.renderMushroom(matrixStack, vertexConsumerProvider, i, bl, blockRenderManager, blockState, m, bakedModel);
+                matrixStack.pop();
+                matrixStack.push();
+                matrixStack.translate(0.20000000298023224D, -0.3499999940395355D, 0.5D);
+                matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(42.0F));
+                matrixStack.translate(0.10000000149011612D, 0.0D, -0.6000000238418579D);
+                matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-48.0F));
+                matrixStack.scale(-1.0F, -1.0F, 1.0F);
+                matrixStack.translate(-0.5D, -0.5D, -0.5D);
+                this.renderMushroom(matrixStack, vertexConsumerProvider, i, bl, blockRenderManager, blockState, m, bakedModel);
+                matrixStack.pop();
+                matrixStack.push();
+                ((CowEntityModel)this.getContextModel()).getHead().rotate(matrixStack);
+                matrixStack.translate(0.0D, -0.699999988079071D, -0.20000000298023224D);
+                matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-78.0F));
+                matrixStack.scale(-1.0F, -1.0F, 1.0F);
+                matrixStack.translate(-0.5D, -0.5D, -0.5D);
+                this.renderMushroom(matrixStack, vertexConsumerProvider, i, bl, blockRenderManager, blockState, m, bakedModel);
+                matrixStack.pop();
+            }
+        }
+    }
+
+    private void renderMushroom(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, boolean renderAsModel, BlockRenderManager blockRenderManager, BlockState mushroomState, int overlay, BakedModel mushroomModel) {
+        if (renderAsModel) {
+            blockRenderManager.getModelRenderer().render(matrices.peek(), vertexConsumers.getBuffer(RenderLayer.getOutline(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE)), mushroomState, mushroomModel, 0.0F, 0.0F, 0.0F, light, overlay);
+        } else {
+            blockRenderManager.renderBlockAsEntity(mushroomState, matrices, vertexConsumers, light, overlay);
+        }
+
+    }
 }

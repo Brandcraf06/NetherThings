@@ -2,7 +2,6 @@ package com.brand.netherthings.blocks.Crops;
 
 import com.brand.netherthings.blocks.Crops.Fertilizable.WitherFertilizable;
 import com.brand.netherthings.blocks.TilledSoulSandBlock;
-import com.brand.netherthings.content.OtherBlocks;
 import com.brand.netherthings.items.NetherItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -35,11 +34,11 @@ public class WitherCropBlock extends NetherCropBlock implements WitherFertilizab
 
     public WitherCropBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(this.getAgeProperty(), 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(this.getAgeProperty(), 0));
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return AGE_TO_SHAPE[(Integer)state.get(this.getAgeProperty())];
+        return AGE_TO_SHAPE[state.get(this.getAgeProperty())];
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
@@ -55,15 +54,15 @@ public class WitherCropBlock extends NetherCropBlock implements WitherFertilizab
     }
 
     protected int getAge(BlockState state) {
-        return (Integer)state.get(this.getAgeProperty());
+        return state.get(this.getAgeProperty());
     }
 
     public BlockState withAge(int age) {
-        return (BlockState)this.getDefaultState().with(this.getAgeProperty(), age);
+        return this.getDefaultState().with(this.getAgeProperty(), age);
     }
 
     public boolean isMature(BlockState state) {
-        return (Integer)state.get(this.getAgeProperty()) >= this.getMaxAge();
+        return state.get(this.getAgeProperty()) >= this.getMaxAge();
     }
 
     public boolean hasRandomTicks(BlockState state) {
@@ -75,7 +74,7 @@ public class WitherCropBlock extends NetherCropBlock implements WitherFertilizab
             int i = this.getAge(state);
             if (i < this.getMaxAge()) {
                 float f = getAvailableMoisture(this, world, pos);
-                if (random.nextInt((int)(25.0F / f) + 1) == 0) {
+                if (random.nextInt((int) (25.0F / f) + 1) == 0) {
                     world.setBlockState(pos, this.withAge(i + 1), 2);
                 }
             }
@@ -101,13 +100,13 @@ public class WitherCropBlock extends NetherCropBlock implements WitherFertilizab
         float f = 1.0F;
         BlockPos blockPos = pos.down();
 
-        for(int i = -1; i <= 1; ++i) {
-            for(int j = -1; j <= 1; ++j) {
+        for (int i = -1; i <= 1; ++i) {
+            for (int j = -1; j <= 1; ++j) {
                 float g = 0.0F;
                 BlockState blockState = world.getBlockState(blockPos.add(i, 0, j));
                 if (blockState.isOf(OtherBlocks.TILLED_SOUL_SAND)) {
                     g = 1.0F;
-                    if ((Integer)blockState.get(TilledSoulSandBlock.MOISTURE) > 0) {
+                    if (blockState.get(TilledSoulSandBlock.MOISTURE) > 0) {
                         g = 3.0F;
                     }
                 }
@@ -180,7 +179,7 @@ public class WitherCropBlock extends NetherCropBlock implements WitherFertilizab
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{AGE});
+        builder.add(AGE);
     }
 
     static {
