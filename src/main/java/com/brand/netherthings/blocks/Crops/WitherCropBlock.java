@@ -2,7 +2,8 @@ package com.brand.netherthings.blocks.Crops;
 
 import com.brand.netherthings.blocks.Crops.Fertilizable.WitherFertilizable;
 import com.brand.netherthings.blocks.TilledSoulSandBlock;
-import com.brand.netherthings.items.NetherItems;
+import com.brand.netherthings.content.NetherBlocks;
+import com.brand.netherthings.content.NetherItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -18,7 +19,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
@@ -42,7 +42,7 @@ public class WitherCropBlock extends NetherCropBlock implements WitherFertilizab
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(OtherBlocks.TILLED_SOUL_SAND);
+        return floor.isOf(NetherBlocks.TILLED_SOUL_SAND);
     }
 
     public IntProperty getAgeProperty() {
@@ -104,7 +104,7 @@ public class WitherCropBlock extends NetherCropBlock implements WitherFertilizab
             for (int j = -1; j <= 1; ++j) {
                 float g = 0.0F;
                 BlockState blockState = world.getBlockState(blockPos.add(i, 0, j));
-                if (blockState.isOf(OtherBlocks.TILLED_SOUL_SAND)) {
+                if (blockState.isOf(NetherBlocks.TILLED_SOUL_SAND)) {
                     g = 1.0F;
                     if (blockState.get(TilledSoulSandBlock.MOISTURE) > 0) {
                         g = 3.0F;

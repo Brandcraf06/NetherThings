@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "netherthings:basalt"
-  },
-  "result": "netherthings:basalt_bricks_slab",
-  "count": 2
-}

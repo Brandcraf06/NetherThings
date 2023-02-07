@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "netherthings:block/blue_glowshroom"
+    }
+}

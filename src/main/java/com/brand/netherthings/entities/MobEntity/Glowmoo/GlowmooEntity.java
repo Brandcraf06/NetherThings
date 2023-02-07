@@ -1,12 +1,11 @@
 package com.brand.netherthings.entities.MobEntity.Glowmoo;
 
-import com.brand.netherthings.contentNew.NetherBlocks;
-import com.brand.netherthings.items.NetherItems;
+import com.brand.netherthings.content.NetherBlocks;
+import com.brand.netherthings.content.NetherItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerBlock;
-import net.minecraft.client.render.entity.MooshroomEntityRenderer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.Shearable;
@@ -20,12 +19,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.ItemTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -139,7 +137,7 @@ public class GlowmooEntity extends CowEntity implements Shearable {
             this.world.spawnEntity(cowEntity);
 
             for(int i = 0; i < 5; ++i) {
-                this.world.spawnEntity(new ItemEntity(this.world, this.getX(), this.getBodyY(1.0D), this.getZ(), new ItemStack(this.getMooshroomType().mushroom.getBlock())));
+                this.world.spawnEntity(new ItemEntity(this.world, this.getX(), this.getBodyY(1.0D), this.getZ(), new ItemStack(this.getVariant().mushroom.getBlock())));
             }
         }
 
@@ -151,7 +149,7 @@ public class GlowmooEntity extends CowEntity implements Shearable {
 
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        nbt.putString("Type", this.getMooshroomType().name);
+        nbt.putString("Type", this.getVariant().name);
         if (this.stewEffect != null) {
             nbt.putByte("EffectId", (byte)StatusEffect.getRawId(this.stewEffect));
             nbt.putInt("EffectDuration", this.stewEffectDuration);
@@ -189,18 +187,18 @@ public class GlowmooEntity extends CowEntity implements Shearable {
         this.dataTracker.set(TYPE, type.name);
     }
 
-    public GlowmooEntity.Type getMooshroomType() {
-        return GlowmooEntity.Type.fromName(this.dataTracker.get(TYPE));
-    }
-
     static {
         TYPE = DataTracker.registerData(GlowmooEntity.class, TrackedDataHandlerRegistry.STRING);
     }
 
+    public GlowmooEntity.Type getVariant() {
+        return GlowmooEntity.Type.fromName((String)this.dataTracker.get(TYPE));
+    }
+
     public static enum Type {
-        BLUE("blue", NetherBlocks.BLUE_GLOWING_MUSHROOM.getDefaultState()),
-        GREEN("green", NetherBlocks.GREEN_GLOWING_MUSHROOM.getDefaultState()),
-        PURPLE("purple", NetherBlocks.PURPLE_GLOWING_MUSHROOM.getDefaultState());
+        BLUE("blue", NetherBlocks.BLAZING_NETHERRACK.getDefaultState()),
+        GREEN("green", NetherBlocks.BLAZING_NETHERRACK.getDefaultState()),
+        PURPLE("purple", NetherBlocks.BLAZING_NETHERRACK.getDefaultState());
 
         final String name;
         final BlockState mushroom;

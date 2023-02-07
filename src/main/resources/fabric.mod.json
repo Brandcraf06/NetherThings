@@ -2,11 +2,10 @@
   "schemaVersion": 1,
   "id": "netherthings",
   "version": "${version}",
-   
   "name": "Nether Things",
   "description": "A mod that adds stuff related to the Nether",
   "authors": [
-    "Brandcraft06"
+    "Brandcraft"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/nether-things",
@@ -24,15 +23,18 @@
     ],
 	"client": [
 	  "com.brand.netherthings.NetherThingsClient"
+    ],
+    "fabric-datagen": [
+      "com.brand.netherthings.data.NetherThingsDatagen"
     ]
   },
   "mixins": [
       "netherthings.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.13.3",
-    "fabric": "*",
-    "minecraft": "1.18.x",
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
     "java": ">=17"
   }
 }

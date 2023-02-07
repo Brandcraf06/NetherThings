@@ -1,10 +1,10 @@
 package com.brand.netherthings.blocks;
 
-import com.brand.netherthings.contentNew.NetherBlocks;
+import com.brand.netherthings.content.NetherBlocks;
 import com.google.common.collect.Lists;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
-import net.minecraft.tag.FluidTags;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -24,9 +24,9 @@ public class LavaSpongeBlock extends Block {
         }
     }
 
-    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         this.update(world, pos);
-        super.neighborUpdate(state, world, pos, block, fromPos, notify);
+        super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
     }
 
     protected void update(World world, BlockPos pos) {
@@ -54,7 +54,6 @@ public class LavaSpongeBlock extends Block {
                 BlockPos blockPos2 = blockPos.offset(direction);
                 BlockState blockState = world.getBlockState(blockPos2);
                 FluidState fluidState = world.getFluidState(blockPos2);
-                Material material = blockState.getMaterial();
                 if (fluidState.isIn(FluidTags.LAVA)) {
                     if (blockState.getBlock() instanceof FluidDrainable && !((FluidDrainable) blockState.getBlock()).tryDrainFluid(world, blockPos2, blockState).isEmpty()) {
                         ++i;

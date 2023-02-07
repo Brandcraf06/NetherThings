@@ -1,6 +1,6 @@
 package com.brand.netherthings.blocks.Crops;
 
-import com.brand.netherthings.items.NetherItems;
+import com.brand.netherthings.content.NetherItems;
 import net.minecraft.item.ItemConvertible;
 
 public class QuartzCrop extends NetherCropBlock {

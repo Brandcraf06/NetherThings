@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "netherthings:block/green_glowing_mushroom_block"
-    }
-}

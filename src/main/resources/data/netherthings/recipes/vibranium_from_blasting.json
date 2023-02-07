@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "tag": "netherthings:vibranium_ores"
-  },
-  "result": "netherthings:vibranium",
-  "experience": 0.7,
-  "cookingtime": 100
-}

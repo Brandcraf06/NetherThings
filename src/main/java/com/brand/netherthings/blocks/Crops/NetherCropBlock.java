@@ -1,10 +1,11 @@
 package com.brand.netherthings.blocks.Crops;
 
+import com.brand.netherthings.blocks.Crops.Fertilizable.WitherFertilizable;
 import com.brand.netherthings.blocks.TilledSoulSandBlock;
-import com.brand.netherthings.items.NetherItems;
+import com.brand.netherthings.content.NetherBlocks;
+import com.brand.netherthings.content.NetherItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Fertilizable;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.mob.RavagerEntity;
@@ -14,18 +15,16 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-import java.util.Random;
-
-public class NetherCropBlock extends NetherPlantBlock implements Fertilizable {
+public class NetherCropBlock extends NetherPlantBlock implements WitherFertilizable {
     public static final int MAX_AGE = 7;
     public static final IntProperty AGE;
     private static final VoxelShape[] AGE_TO_SHAPE;
@@ -40,7 +39,7 @@ public class NetherCropBlock extends NetherPlantBlock implements Fertilizable {
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(OtherBlocks.TILLED_SOUL_SAND);
+        return floor.isOf(NetherBlocks.TILLED_SOUL_SAND);
     }
 
     public IntProperty getAgeProperty() {
@@ -102,7 +101,7 @@ public class NetherCropBlock extends NetherPlantBlock implements Fertilizable {
             for (int j = -1; j <= 1; ++j) {
                 float g = 0.0F;
                 BlockState blockState = world.getBlockState(blockPos.add(i, 0, j));
-                if (blockState.isOf(OtherBlocks.TILLED_SOUL_SAND)) {
+                if (blockState.isOf(NetherBlocks.TILLED_SOUL_SAND)) {
                     g = 1.0F;
                     if (blockState.get(TilledSoulSandBlock.MOISTURE) > 0) {
                         g = 3.0F;
@@ -155,15 +154,18 @@ public class NetherCropBlock extends NetherPlantBlock implements Fertilizable {
         return new ItemStack(this.getSeedsItem());
     }
 
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
+    @Override
+    public boolean isWitherFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
         return !this.isMature(state);
     }
 
+    @Override
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
         return true;
     }
 
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    @Override
+    public void grow(World world, Random random, BlockPos pos, BlockState state) {
         this.applyGrowth(world, pos, state);
     }
 
@@ -174,5 +176,6 @@ public class NetherCropBlock extends NetherPlantBlock implements Fertilizable {
     static {
         AGE = Properties.AGE_7;
         AGE_TO_SHAPE = new VoxelShape[]{Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D), Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)};
+
     }
 }

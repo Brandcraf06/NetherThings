@@ -6,19 +6,18 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.*;
 
 import java.util.Iterator;
-import java.util.Random;
 
 public class TilledSoulSandBlock extends Block {
     public static final IntProperty MOISTURE;
@@ -32,7 +31,7 @@ public class TilledSoulSandBlock extends Block {
 
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (direction == Direction.UP && !state.canPlaceAt(world, pos)) {
-            world.createAndScheduleBlockTick(pos, this, 1);
+            world.scheduleBlockTick(pos, this, 1);
         }
 
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
@@ -64,7 +63,7 @@ public class TilledSoulSandBlock extends Block {
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         int i = state.get(MOISTURE);
-        if (!isLavaNearby(world, pos) && !world.hasRain(pos.up())) {
+        if (!isLavaNearby(world, pos)) {
             if (i > 0) {
                 world.setBlockState(pos, state.with(MOISTURE, i - 1), 2);
             } else if (!hasCrop(world, pos)) {
@@ -102,8 +101,8 @@ public class TilledSoulSandBlock extends Block {
                 return false;
             }
 
-            blockPos = (BlockPos) var2.next();
-        } while (!world.getFluidState(blockPos).isIn(FluidTags.LAVA));
+            blockPos = (BlockPos)var2.next();
+        } while(!world.getFluidState(blockPos).isIn(FluidTags.LAVA));
 
         return true;
     }
@@ -121,4 +120,3 @@ public class TilledSoulSandBlock extends Block {
         SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
     }
 }
-

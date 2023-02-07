@@ -135,11 +135,6 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "netherthings:vibranium"
-        },
-        {
-          "type": "minecraft:item",
           "weight": 12,
           "functions": [
             {
@@ -152,48 +147,6 @@
             }
           ],
           "name": "minecraft:obsidian"
-		},
-        {
-		  "type": "item",
-          "name": "netherthings:nether_sword",
-          "weight": 13,
-          "functions": [
-            {
-              "function": "set_damage",
-              "damage": {
-                "min": 0,
-                "max": 0.9
-		      }
-            }
-          ]
-        },
-        {
-		  "type": "item",
-          "name": "netherthings:nether_pickaxe",
-          "weight": 13,
-          "functions": [
-            {
-              "function": "set_damage",
-              "damage": {
-                "min": 0,
-                "max": 0.9
-			  }
-            }
-          ]
-        },
-        {
-		  "type": "item",
-          "name": "netherthings:nether_axe",
-          "weight": 13,
-          "functions": [
-            {
-              "function": "set_damage",
-              "damage": {
-                "min": 0,
-                "max": 0.9
-              }
-            }
-          ]
         }
       ]
     }

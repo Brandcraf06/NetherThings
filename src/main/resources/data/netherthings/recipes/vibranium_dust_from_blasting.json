@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "netherthings:compressed_vibranium_block"
-  },
-  "result": "netherthings:vibranium_dust",
-  "experience": 1.0,
-  "cookingtime": 1000
-}
