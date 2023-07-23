@@ -8,7 +8,6 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -75,7 +74,7 @@ public class BlazingBerryBushBlock extends NetherPlantBlock implements Fertiliza
                 double d = Math.abs(entity.getX() - entity.lastRenderX);
                 double e = Math.abs(entity.getZ() - entity.lastRenderZ);
                 if (d >= 0.003000000026077032D || e >= 0.003000000026077032D) {
-                    entity.damage(DamageSource.IN_FIRE, 1.0F);
+                    entity.damage(world.getDamageSources().onFire(), 1.0F);
                 }
             }
 

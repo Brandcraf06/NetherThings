@@ -94,15 +94,15 @@ public class WitheredBoneMealItem extends Item {
             world.addParticle(ParticleTypes.LARGE_SMOKE, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
             Random random = world.getRandom();
 
-            for (int i = 0; i < count; ++i) {
+            for(int i = 0; i < count; ++i) {
                 double f = random.nextGaussian() * 0.02D;
                 double g = random.nextGaussian() * 0.02D;
                 double h = random.nextGaussian() * 0.02D;
                 double j = 0.5D - d;
-                double k = (double) pos.getX() + j + random.nextDouble() * d * 2.0D;
-                double l = (double) pos.getY() + random.nextDouble() * e;
-                double m = (double) pos.getZ() + j + random.nextDouble() * d * 2.0D;
-                if (!world.getBlockState((new BlockPos(k, l, m)).down()).isAir()) {
+                double k = (double)pos.getX() + j + random.nextDouble() * d * 2.0D;
+                double l = (double)pos.getY() + random.nextDouble() * e;
+                double m = (double)pos.getZ() + j + random.nextDouble() * d * 2.0D;
+                if (!world.getBlockState(BlockPos.ofFloored(k, l, m).down()).isAir()) {
                     world.addParticle(ParticleTypes.LARGE_SMOKE, k, l, m, f, g, h);
                 }
             }

@@ -10,31 +10,29 @@
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/nether-things",
     "sources": "https://github.com/Brandcraf06/NetherThings",
-	"issues": "https://github.com/Brandcraf06/NetherThings/issues"
+    "issues": "https://github.com/Brandcraf06/NetherThings/issues"
   },
-
   "license": "GPLv3",
   "icon": "assets/netherthings/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
       "com.brand.netherthings.NetherThings"
     ],
-	"client": [
-	  "com.brand.netherthings.NetherThingsClient"
+    "client": [
+      "com.brand.netherthings.NetherThingsClient"
     ],
     "fabric-datagen": [
       "com.brand.netherthings.data.NetherThingsDatagen"
     ]
   },
   "mixins": [
-      "netherthings.mixins.json"
+    "netherthings.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.11",
-    "fabric-api": "*",
-    "minecraft": "~1.19.3",
-    "java": ">=17"
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
   }
 }

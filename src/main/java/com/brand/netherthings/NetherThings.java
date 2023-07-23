@@ -34,10 +34,8 @@ public class NetherThings implements ModInitializer {
 
         NetherPotionsRecipes.registerRecipes();
         NetherWorldgenFeatures.registerConfiguredFeature();
-
         addTillables();
-
-    }
+        }
 
     public static void addTillables() {
         TillableBlockRegistry.register(Blocks.SOUL_SAND, HoeItem::canTillFarmland, NetherBlocks.TILLED_SOUL_SAND.getDefaultState());
@@ -52,9 +50,9 @@ public class NetherThings implements ModInitializer {
         CompostingChanceRegistry.INSTANCE.add(NetherBlocks.NETHER_CACTUS, 0.50f);
         CompostingChanceRegistry.INSTANCE.add(NetherItems.GHOST_WHEAT, 0.65f);
         CompostingChanceRegistry.INSTANCE.add(NetherBlocks.GLOWING_REEDS, 0.65f);
-//        CompostingChanceRegistry.INSTANCE.add(NetherBlocks.BLUE_GLOWING_MUSHROOM, 0.65f);
-//        CompostingChanceRegistry.INSTANCE.add(NetherBlocks.GREEN_GLOWING_MUSHROOM, 0.65f);
-//        CompostingChanceRegistry.INSTANCE.add(NetherBlocks.PURPLE_GLOWING_MUSHROOM, 0.65f);
+        CompostingChanceRegistry.INSTANCE.add(NetherBlocks.BLUE_GLOWSHROOM, 0.65f);
+        CompostingChanceRegistry.INSTANCE.add(NetherBlocks.GREEN_GLOWSHROOM, 0.65f);
+        CompostingChanceRegistry.INSTANCE.add(NetherBlocks.PURPLE_GLOWSHROOM, 0.65f);
         CompostingChanceRegistry.INSTANCE.add(NetherBlocks.BLUE_GLOWSHROOM_BLOCK, 0.85f);
         CompostingChanceRegistry.INSTANCE.add(NetherBlocks.GREEN_GLOWSHROOM_BLOCK, 0.85f);
         CompostingChanceRegistry.INSTANCE.add(NetherBlocks.PURPLE_GLOWSHROOM_BLOCK, 0.85f);

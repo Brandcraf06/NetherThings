@@ -1,23 +1,15 @@
 package com.brand.netherthings.features;
 
-import com.brand.netherthings.NetherThings;
 import com.mojang.serialization.Codec;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MushroomBlock;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placementmodifier.*;
-
-import java.util.List;
+import net.minecraft.world.gen.feature.HugeMushroomFeature;
+import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
 
 public class HugeGlowshroomFeature extends HugeMushroomFeature {
     public HugeGlowshroomFeature(Codec<HugeMushroomFeatureConfig> codec) {

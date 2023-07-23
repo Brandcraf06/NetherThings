@@ -11,10 +11,10 @@ version = "${mod_version}+${minecraft_version}"
 group = project.maven_group
 
 repositories {
-	maven { url 'https://server.bbkr.space/artifactory/libs-release' }
 	maven { url 'https://maven.terraformersmc.com/' }
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url 'https://www.cursemaven.com' }
+	maven { url 'https://maven.minecraftforge.net/'}
 }
 
 dependencies {
@@ -25,6 +25,7 @@ dependencies {
 
 	// Fabric API
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
 }
 
 loom {

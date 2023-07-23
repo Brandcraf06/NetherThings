@@ -9,7 +9,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.RavagerEntity;
@@ -151,7 +150,7 @@ public class WitherCropBlock extends NetherCropBlock implements WitherFertilizab
         if (!world.isClient && world.getDifficulty() != Difficulty.PEACEFUL) {
             if (entity instanceof LivingEntity) {
                 LivingEntity livingEntity = (LivingEntity) entity;
-                if (!livingEntity.isInvulnerableTo(DamageSource.WITHER)) {
+                if (!livingEntity.isInvulnerableTo(world.getDamageSources().wither())) {
                     livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 40));
                 }
             }

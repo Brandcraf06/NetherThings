@@ -3,7 +3,8 @@ package com.brand.netherthings.features;
 import com.brand.netherthings.NetherThings;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
 
 public class NetherFeatures {
 
